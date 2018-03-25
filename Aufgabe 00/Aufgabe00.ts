@@ -1,4 +1,4 @@
-namespace Aufgabe00 {
+
         
 function Textbox(): void {
   var name: string = prompt("Bitte gib deinen Namen ein?", "");
@@ -7,4 +7,3 @@ function Textbox(): void {
      }
   }
     
-}
