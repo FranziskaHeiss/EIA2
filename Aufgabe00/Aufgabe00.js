@@ -4,3 +4,4 @@ function Textbox() {
         document.getElementById("Name").innerHTML = "Hi " + name + ". Hier gibts noch nichts spannendes zu sehen.";
     }
 }
+//# sourceMappingURL=Aufgabe00.js.map
