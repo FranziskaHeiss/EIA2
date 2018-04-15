@@ -26,7 +26,9 @@ var Memory;
         // cardArray = Array vom Anfang; Speicher f�r alle erzeugten Karten, die durch ".push" hinzugef�gt werden
     }
     /******** Dieser Part wurde von Melvin Busch �bernommen, da wir nicht wissen, wie es anders gel�st werden kann *********/
-    /*function createPlayer(score: number, name: string): void {
+    /*Ansatz f�r nicht Objekt orientierte Zuweisung
+     
+     function createPlayer(score: number, name: string): void {
          let player: HTMLElement = document.createElement("div");
          let _score: HTMLElement= document.createElement("div");
           player.innerText= name;

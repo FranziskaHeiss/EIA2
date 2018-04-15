@@ -33,16 +33,15 @@ namespace Memory {
 
   /******** Dieser Part wurde von Melvin Busch übernommen, da wir nicht wissen, wie es anders gelöst werden kann *********/
   
-   /*function createPlayer(score: number, name: string): void {
+   /*Ansatz für nicht Objekt orientierte Zuweisung 
+    
+    function createPlayer(score: number, name: string): void {
         let player: HTMLElement = document.createElement("div");
         let _score: HTMLElement= document.createElement("div");
          player.innerText= name; 
         _score.innerText= score;
         player.appendChild(_score);
         } */
-    
-    
-    
     
     class Player {
 
