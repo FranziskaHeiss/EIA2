@@ -1,0 +1,112 @@
+/* Stylesheet */
+
+/*Aufgabe: Aufgabe 3 - Memory
+  Name: Franziska Heiß
+  Matrikel: 257745
+  Datum: 14.04.18
+  Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
+  Dieser Code wurde in Zusammenarbeit mit Abreitsgruppe Grün und unter Anleitung von Melvin Busch erstellt.
+  */
+
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700&subset=latin-ext');
+
+ {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 100%;
+  background: #929292;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+/* Spielinfo */
+#player-info {
+	position: fixed;
+    height: 100%;
+    width: 20%;
+    padding-top: 28px;   
+    left: 0;
+    top: 0;
+    background: whitesmoke;   
+    box-sizing: border-box;    
+}
+
+#player-info div {
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+#player-info .player-name { 
+  color: #1267b0;
+}
+
+/* Spielbrett */
+#card-field {
+  height: auto;
+  max-width: 78%;
+  padding: 20px 20px 20px 45px;
+  box-sizing: border-box;
+  margin-left: 20%;
+}
+
+#card-field h2 {
+  color: white;
+}
+
+#card-div {
+  height: auto;
+  width: 100%;
+  position: relative;  
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;  
+}
+
+.card {
+  height: 175px;
+  width: 175px;
+  margin: 0px 20px 20px 0px;
+  border-radius: 20px;  
+  cursor: pointer;
+  text-align: center;
+  line-height: 175px;
+  position: relative;
+  background: white;
+  transition: all 1s ease-in-out;
+  -webkit-transform-style: preserve-3d;
+  -webkit-backface-visibility: hidden;
+  pointer-events: auto;
+}
+
+.card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: #085b81;
+  border-radius: 20px;
+  transition: all 1s ease;
+  transform: rotateY(180deg);
+  -webkit-transform-style: preserve-3d;
+  -webkit-backface-visibility: hidden;
+  pointer-events: none;
+}
+
+.hidden {
+  transform: rotateY(180deg);
+}
+
+.taken {
+  transform: scale(0);
+}
+
