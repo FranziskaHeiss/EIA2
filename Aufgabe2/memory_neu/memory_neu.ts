@@ -1,6 +1,6 @@
 namespace Memory {
     
-/*Aufgabe: Aufgabe 3 - Memory
+/*Aufgabe: Aufgabe 2: DynHTML - Memory
   Name: Franziska Heiﬂ
   Matrikel: 257745
   Datum: 14.04.18
