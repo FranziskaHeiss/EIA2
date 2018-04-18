@@ -5,8 +5,9 @@ var Memory;
       Matrikel: 257745
       Datum: 14.04.18
       Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
-      Dieser Code wurde in Zusammenarbeit mit Abreitsgruppe Gr�n und unter Anleitung von Melvin Busch erstellt.
+      Dieser Code wurde in Zusammenarbeit mit Abreitsgruppe Gr�n und unter Anleitung von Melvin B erstellt.
       */
+    document.addEventListener("DOMContentLoaded", main);
     // Variablen deklarieren
     let cardContent = ["Panda", "Koala", "Tiger", "Wolf", "Hase", "Reh", "Katze", "Hund", "Esel", "Igel"];
     let cardArray = [];
@@ -15,44 +16,66 @@ var Memory;
     let numPlayers;
     let playerInfo;
     let cardField;
-    function createCard(textDerAufDieKarteSoll, _state) {
+    let score = 0;
+    let name = "Spieler ";
+    function main() {
+        // Spieler soll Anzahl der Kartenpaare eingeben
+        askCardPairs();
+        // Spieler sollen angeben, wie viele spielen wollen
+        askNumsPlayer();
+        // DOM abh�ngige Varaiblen deklarieren
+        playerInfo = document.getElementById("player-info");
+        cardField = document.getElementById("card-div");
+        // Spielkarten erzeugen
+        for (let i = 0; i < numPairs; i++) {
+            createCard(cardContent[i], randomState());
+            // cardContent an der Stelle i - wird als �bergabeparameter mitgegeben
+            createCard(cardContent[i], randomState());
+        }
+        // Karten mischen
+        randomMix(cardArray);
+        // Karten dem Spielbrett hinzuf�gen
+        for (let i = 0; i < cardArray.length; i++) {
+            cardField.appendChild(cardArray[i]);
+        }
+        // Spieler Anzeige generieren
+        for (let i = 0; i < numPlayers; i++) {
+            createPlayer(score, name + [i + 1]);
+        }
+    }
+    function askCardPairs() {
+        numPairs = parseInt(prompt("Bitte die Anzahl der Kartenpaare festlegen", "5 - 10 Kartenpaare"), 10);
+        if (numPairs < 5 || numPairs > 10) {
+            askCardPairs();
+        }
+    }
+    function askNumsPlayer() {
+        numPlayers = parseInt(prompt("Bitte die Anzahl der Spieler festlegen", "1 - 4 Spieler"), 10);
+        if (numPlayers > 4 || numPlayers < 1) {
+            askNumsPlayer();
+        }
+    }
+    function createCard(_textDerAufDieKarteSoll, _state) {
         let card = document.createElement("div");
         // div erzeugen
-        card.innerText = textDerAufDieKarteSoll;
+        card.innerText = _textDerAufDieKarteSoll;
         // Text aus dem Array soll auf eine Karte
         card.setAttribute("class", "card " + _state);
         // Attribut hinzuf�gen: class = Welches Attribut (hier eine Klasse); card = zugeh�riger Wert aus dem CSS Dokument
         cardArray.push(card);
         // cardArray = Array vom Anfang; Speicher f�r alle erzeugten Karten, die durch ".push" hinzugef�gt werden
     }
-    /******** Dieser Part wurde von Melvin Busch �bernommen, da wir nicht wissen, wie es anders gel�st werden kann *********/
-    /*Ansatz f�r nicht Objekt orientierte Zuweisung
-     
-     function createPlayer(score: number, name: string): void {
-         let player: HTMLElement = document.createElement("div");
-         let _score: HTMLElement= document.createElement("div");
-          player.innerText= name;
-         _score.innerText= score;
-         player.appendChild(_score);
-         } */
-    class Player {
-        constructor(_name) {
-            this.name = _name;
-            this.score = 0;
-        }
-        scoreUp() {
-            this.score += 10;
-            return this.score;
-        }
-        show() {
-            this.player = document.createElement("div");
-            this.player.innerHTML = `
-          <span class="player-name">${this.name}</span>
-          <span class="player-score">Punkte: ${this.score}</span>`;
-            playerInfo.appendChild(this.player);
-        }
+    function createPlayer(_score, _name) {
+        let player = document.createElement("div");
+        let scoreField = document.createElement("div");
+        let n = _score.toString();
+        //.toString wandelt number in string um
+        player.innerText = _name;
+        scoreField.innerText = n;
+        //deshalb ist scoreField = n 
+        playerInfo.appendChild(player);
+        playerInfo.appendChild(scoreField);
     }
-    /*************** Part Ende *************/
     // Shuffle Arrays
     function randomMix(_array) {
         // _array = das Array, das durchmischt werden soll
@@ -80,38 +103,5 @@ var Memory;
             return "visible";
         }
     }
-    function main() {
-        // Spieler soll Anzahl der Kartenpaare eingeben
-        numPairs = parseInt(prompt("Bitte die Anzahl der Kartenpaare festlegen", "5 - 10 Kartenpaare"), 10);
-        if (numPairs < 5 || numPairs > 10) {
-            location.reload();
-        }
-        // Spieler sollen angeben, wie viele spielen wollen
-        numPlayers = parseInt(prompt("Bitte die Anzahl der Spieler festlegen", "1 - 4 Spieler"), 10);
-        if (numPlayers > 4 || numPlayers < 1) {
-            location.reload();
-        }
-        // DOM abh�ngige Varaiblen deklarieren
-        playerInfo = document.getElementById("player-info");
-        cardField = document.getElementById("card-div");
-        // Spielkarten erzeugen
-        for (let i = 0; i < numPairs; i++) {
-            createCard(cardContent[i], randomState());
-            // cardContent an der Stelle i - wird als �bergabeparameter mitgegeben
-            createCard(cardContent[i], randomState());
-        }
-        // Karten mischen
-        randomMix(cardArray);
-        // Karten dem Spielbrett hinzuf�gen
-        for (let i = 0; i < cardArray.length; i++) {
-            cardField.appendChild(cardArray[i]);
-        }
-        // Spieler Anzeige generieren
-        for (let i = 0; i < numPlayers; i++) {
-            let player = new Player("Spieler " + (i + 1));
-            player.show();
-        }
-    }
-    document.addEventListener("DOMContentLoaded", main);
 })(Memory || (Memory = {}));
 //# sourceMappingURL=memory_neu.js.map
