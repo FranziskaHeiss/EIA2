@@ -1,12 +1,12 @@
+/*Aufgabe: Aufgabe 2: DynHTML - Memory
+     Name: Franziska Hei�
+     Matrikel: 257745
+     Datum: 14.04.18
+     Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
+     Dieser Code wurde in Zusammenarbeit mit Abreitsgruppe Gr�n und unter Anleitung von Melvin B erstellt.
+     */
 var Memory;
 (function (Memory) {
-    /*Aufgabe: Aufgabe 2: DynHTML - Memory
-      Name: Franziska Hei�
-      Matrikel: 257745
-      Datum: 14.04.18
-      Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
-      Dieser Code wurde in Zusammenarbeit mit Abreitsgruppe Gr�n und unter Anleitung von Melvin B erstellt.
-      */
     document.addEventListener("DOMContentLoaded", main);
     // Variablen deklarieren
     let cardContent = ["Panda", "Koala", "Tiger", "Wolf", "Hase", "Reh", "Katze", "Hund", "Esel", "Igel"];

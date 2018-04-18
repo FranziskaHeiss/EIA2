@@ -1,6 +1,4 @@
-namespace Memory {
-
-    /*Aufgabe: Aufgabe 2: DynHTML - Memory
+ /*Aufgabe: Aufgabe 2: DynHTML - Memory
       Name: Franziska Heiß
       Matrikel: 257745
       Datum: 14.04.18
@@ -8,7 +6,9 @@ namespace Memory {
       Dieser Code wurde in Zusammenarbeit mit Abreitsgruppe Grün und unter Anleitung von Melvin B erstellt.
       */
 
-
+namespace Memory {
+    
+    
     document.addEventListener("DOMContentLoaded", main);
 
     // Variablen deklarieren
