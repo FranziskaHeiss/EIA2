@@ -1,13 +1,12 @@
- /*Aufgabe: Aufgabe 2: DynHTML - Memory
+namespace Memory {
+    
+     /*Aufgabe: Aufgabe 2: DynHTML - Memory
       Name: Franziska Heiß
       Matrikel: 257745
       Datum: 14.04.18
       Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
       Dieser Code wurde in Zusammenarbeit mit Abreitsgruppe Grün und unter Anleitung von Melvin B erstellt.
       */
-
-namespace Memory {
-    
     
     document.addEventListener("DOMContentLoaded", main);
 
