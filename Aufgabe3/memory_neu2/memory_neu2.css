@@ -111,4 +111,5 @@ h2 {
 
 .taken div {
 	display: none;
+	curser: none;
 }

@@ -141,9 +141,9 @@ var Memory;
             }
         }
         congratAlert();
-        //Aufruf von congratAlert(), wenn alle Karten aufgedeckt sind
+        //Aufruf von congratAlert(), wenn alle Karten aufgedeckt si        nd
         openArray = [];
-        // leeres Array, in das die offenen Karten kommen
+        // leeres Array, in das die offenen Karten komm        en
         openCards = 0;
         // openCards wieder auf 0 setzen
     }

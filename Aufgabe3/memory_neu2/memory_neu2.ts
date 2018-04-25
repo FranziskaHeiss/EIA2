@@ -29,8 +29,8 @@ namespace Memory {
     let name: string = "Spieler ";
 
     let openCards: number = 0;
-    
-    
+
+
     function main(): void {
 
         // Funktionsaufruf
@@ -122,7 +122,7 @@ namespace Memory {
         // Ausgabe -> das Array ist jetzt durchgemischt
     }
 
-    function clickHandler(_event: MouseEvent): void {
+   function clickHandler(_event: MouseEvent): void {
         let cardClass: HTMLElement = <HTMLElement>_event.target;
         // Gibt das HTMLElement zurück, das den Event ausgelöst hat
         if (cardClass.classList.contains("card")) {
@@ -152,9 +152,7 @@ namespace Memory {
         return cardArray.filter(card => card.classList.contains(_filter));
         // gibt dem cardArray einen Filter mit, der nach der CSS-Klasse filtert
         // card (aus dem CSS-Dokument)
-    }
-
-    function cardsCompare(): void {
+    }     function cardsCompare(): void {
         let openArray: HTMLElement[] = filterCardsByClass("visible");
         // Definition des openArray, solle Funktion filterCardsByClass ausführen
 
@@ -178,11 +176,11 @@ namespace Memory {
         }
 
         congratAlert();
-        //Aufruf von congratAlert(), wenn alle Karten aufgedeckt sind
-        
+        //Aufruf von congratAlert(), wenn alle Karten aufgedeckt si        nd
+    
         openArray = [];
-        // leeres Array, in das die offenen Karten kommen
-        
+        // leeres Array, in das die offenen Karten komm        en
+    
         openCards = 0;
         // openCards wieder auf 0 setzen
     }
@@ -194,5 +192,5 @@ namespace Memory {
             alert("Gratulation!");
         }
         cardsTaken = [];
-    } 
+   } 
 }
