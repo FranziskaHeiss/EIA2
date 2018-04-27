@@ -135,7 +135,7 @@ namespace Memory {
                 cardClass.classList.add("visible");
                 // Klassen-Namen wird auf "visible" gesetzt   
             }
-        }
+                  
         if (openCards == 2) {
             // wenn zwei Karten offen daliegen, dann:
             setTimeout(cardsCompare, 1700);
@@ -147,7 +147,7 @@ namespace Memory {
             cardClass.classList.add("hidden");
         }
     }
-
+}
     function filterCardsByClass(_filter: string): HTMLElement[] {
         return cardArray.filter(card => card.classList.contains(_filter));
         // gibt dem cardArray einen Filter mit, der nach der CSS-Klasse filtert
@@ -176,10 +176,10 @@ namespace Memory {
         }
 
         congratAlert();
-        //Aufruf von congratAlert(), wenn alle Karten aufgedeckt si        nd
+        //Aufruf von congratAlert(), wenn alle Karten aufgedeckt sind
     
         openArray = [];
-        // leeres Array, in das die offenen Karten komm        en
+        // leeres Array, in das die offenen Karten kommen
     
         openCards = 0;
         // openCards wieder auf 0 setzen

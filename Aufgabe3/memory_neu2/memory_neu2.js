@@ -105,15 +105,15 @@ var Memory;
                 // Klassen-Namen "hidden" wird gel�scht
                 cardClass.classList.add("visible");
             }
-        }
-        if (openCards == 2) {
-            // wenn zwei Karten offen daliegen, dann:
-            setTimeout(cardsCompare, 1700);
-        }
-        if (openCards > 2) {
-            //es k�nnen nicht mehr als zwei Karten aufgedeckt werden
-            cardClass.classList.remove("visible");
-            cardClass.classList.add("hidden");
+            if (openCards == 2) {
+                // wenn zwei Karten offen daliegen, dann:
+                setTimeout(cardsCompare, 1700);
+            }
+            if (openCards > 2) {
+                //es k�nnen nicht mehr als zwei Karten aufgedeckt werden
+                cardClass.classList.remove("visible");
+                cardClass.classList.add("hidden");
+            }
         }
     }
     function filterCardsByClass(_filter) {
@@ -141,9 +141,9 @@ var Memory;
             }
         }
         congratAlert();
-        //Aufruf von congratAlert(), wenn alle Karten aufgedeckt si        nd
+        //Aufruf von congratAlert(), wenn alle Karten aufgedeckt sind
         openArray = [];
-        // leeres Array, in das die offenen Karten komm        en
+        // leeres Array, in das die offenen Karten kommen
         openCards = 0;
         // openCards wieder auf 0 setzen
     }
