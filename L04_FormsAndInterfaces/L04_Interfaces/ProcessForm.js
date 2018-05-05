@@ -46,22 +46,19 @@ var L04_Interfaces;
         }
     }
     function search(_event) {
-        let studyMatrikel = document.getElementById("matrikelNr");
         let output = document.getElementById("textarea2");
         output.value = "";
-        for (let matrikel in L04_Interfaces.studiHomoAssoc) {
-            let studi = L04_Interfaces.studiHomoAssoc[matrikel];
+        let matrikel = parseInt(document.getElementById("matrikelNr").value);
+        let studi = L04_Interfaces.studiHomoAssoc[matrikel];
+        if (typeof studi === "undefined") {
+            output.value += "Kein Suchergebnis gefunden";
+        }
+        else {
             let line = matrikel + ": ";
-            if (studyMatrikel.value == studi.matrikel.toString()) {
-                line += studi.name + ", " + studi.firstname + ", " + studi.age + " Jahre ";
-                line += studi.studyPath;
-                line += studi.gender ? "(M)" : "(F)";
-                output.value += line + "\n";
-            }
-            else {
-                let result = "Kein Suchergebnis gefunden";
-                output.value += result + "\n";
-            }
+            line += studi.name + ", " + studi.firstname + ", " + studi.age + " Jahre, ";
+            line += studi.studyPath + ", ";
+            line += studi.gender ? "(M)" : "(W)";
+            output.value += line + "\n";
         }
     }
     // zus�tzliche Konsolenausgaben zur Demonstration

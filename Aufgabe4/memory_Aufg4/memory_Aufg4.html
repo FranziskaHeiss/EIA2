@@ -11,25 +11,50 @@
     Dieser Code wurde zusammen mit Alena Hurst und Sofia Gschwend erarbeitet.
     -->
     
-
-<html lang="de">
+<html>
 <head>
   <meta charset="utf-8">
   <title>Memory</title>
   <script src="memory_Aufg4.js"></script>
-  <link rel="stylesheet" href="memory_Aufg4.css">
-
+  <script src="interfaces.js"></script>
+  <link rel="stylesheet" href="css/interface.css">
+  <link rel="stylesheet" href="css/Memory3.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
 </head>
 
 <body>
-  <section id="player-info">
-    <h2>Spiel Info</h2>
-  </section>
-  <section id="card-field">
+
+<div id="tools">
+        <h3>Memory-Einstellungen</h3>
+
+        <input type="text" name="spieler1" placeholder="Spieler 1"/>
+        <input type="text" name="spieler2" placeholder="Spieler 2"/>
+        <input type="text" name="spieler3" placeholder="Spieler 3"/>
+        <input type="text" name="spieler4" placeholder="Spieler 4"/>
+
+        <select name="cardSet" id="select">
+            <option value="karten" disabled selected>Kartensätze</option>
+            <option value="places">Orte und Städte</option>
+            <option value="tags">HTML Tags</option>
+            <option value="animals">Tiere</option>
+        </select>
+
+        <form>
+            <input type="number" name="anzahlKartenpaare" step="1" min="3" max="10" value="3"/>
+        </form>
+
+        <button id="gameStart">START</button>
+</div>
+
+<section id="player-info">
+    <h2>Spielinfo</h2>
+</section>
+
+<section id="card-field">
     <h2>Spielbrett</h2>
     <div id="card-div">
     </div>
-  </section>
+</section>
 
 </body>
 </html>

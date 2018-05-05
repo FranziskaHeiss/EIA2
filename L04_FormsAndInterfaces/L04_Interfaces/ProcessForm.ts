@@ -56,28 +56,24 @@ namespace L04_Interfaces {
     }
 
     function search(_event: Event): void {
-        let studyMatrikel: HTMLInputElement = <HTMLInputElement>document.getElementById("matrikelNr");
         let output: HTMLTextAreaElement = <HTMLTextAreaElement>document.getElementById("textarea2");
         output.value = "";
+        let matrikel: number = parseInt((<HTMLInputElement>document.getElementById("matrikelNr")).value);
+        let studi: Studi = studiHomoAssoc[matrikel];
         
-        for (let matrikel in studiHomoAssoc) {
-            let studi: Studi = studiHomoAssoc[matrikel];
-            let line: string = matrikel + ": ";
-        
-        if (studyMatrikel.value == studi.matrikel.toString()) {
-    
-            line += studi.name + ", " + studi.firstname + ", " + studi.age + " Jahre ";
-            line += studi.studyPath;                          
-            line += studi.gender ? "(M)" : "(F)";
-            output.value += line + "\n";
+        if (typeof studi === "undefined") {
+            output.value += "Kein Suchergebnis gefunden";
         }
         
         else {
-            let result: string = "Kein Suchergebnis gefunden";
-            output.value += result + "\n";
+            let line: string = matrikel + ": ";
+            line += studi.name + ", " + studi.firstname + ", " + studi.age + " Jahre, ";
+            line += studi.studyPath + ", ";                            
+            line += studi.gender ? "(M)" : "(W)";
+            output.value += line + "\n";
         }
-       }    
     }
+    
 
     // zusätzliche Konsolenausgaben zur Demonstration
     console.group("Simple Array");
