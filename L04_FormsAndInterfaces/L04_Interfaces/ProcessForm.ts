@@ -1,5 +1,14 @@
 namespace L04_Interfaces {
     
+/*  Aufgabe: Aufgabe 4.2: Events - Memory
+    Name: Franziska Heiﬂ
+    Matrikel: 257745
+    Datum: 05.05.18
+    
+    
+    Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
+    Dieser Code wurde zusammen mit Alena Hurst und Sofia Gschwend erarbeitet.*/      
+    
     window.addEventListener("load", init);
 
     function init(_event: Event): void {
