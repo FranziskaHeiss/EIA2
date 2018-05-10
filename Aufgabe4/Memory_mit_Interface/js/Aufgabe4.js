@@ -37,7 +37,7 @@ var Aufgabe4;
             player.setAttribute("placeholder", "Spielernamen eingeben");
             player.setAttribute("name", "player");
             player.setAttribute("maxlength", "15");
-            player.setAttribute("id", "player");
+            player.setAttribute("class", "player");
             document.getElementById("names").appendChild(player);
             // �ber die ID wird das Input-Feld dem "player" hinzugef�gt
             playerCounter++;
@@ -45,9 +45,11 @@ var Aufgabe4;
     }
     // Spieler entfernen bei KLick auf Button
     function removePlayer() {
-        document.getElementById("player").remove();
+        let allPlayer = document.getElementsByClassName("player");
+        let lastPlayer = allPlayer[allPlayer.length - 1];
+        lastPlayer.remove();
         playerCounter--;
-        // playerCounter zählt eins runter
+        // playerCounter z�hlt eins runter
     }
     // Stepper erzeugen zur Auswahl der Anzahl an Kartenpaaren
     function createStepper() {
@@ -88,7 +90,7 @@ var Aufgabe4;
         // cardArray = Array vom Anfang; Speicher f�r alle erzeugten Karten, die durch ".push" hinzugef�gt werden
         checkContent.push(card);
         // Alle Karten werden in checkContent-Array gepusht
-        // card.addEventListener("click", clickHandler);
+        card.addEventListener("click", clickHandler);
     }
     function clickHandler(_event) {
         //Event-Handler
@@ -184,7 +186,7 @@ var Aufgabe4;
         }
         playerInfo = document.getElementById("player-info");
         cardField = document.getElementById("card-div");
-        cardField.addEventListener("click", clickHandler);
+        //cardField.addEventListener("click", clickHandler);
         // Verweis auf die Funktion clickHandler
     }
 })(Aufgabe4 || (Aufgabe4 = {}));
