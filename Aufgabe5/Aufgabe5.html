@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<!--Aufgabe: Aufgabe 5: Node: Erster Server
+    Name: Franziska Heiß
+    Matrikel: 257745
+    Datum: 10.05.18
+    
+    
+    Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
+    Dieser Code wurde zusammen mit Alena Hurst und Sofia Gschwend erarbeitet.
+    -->
+
+<html>
+<head>
+<meta charset="utf-8">
+<title>Vorbereitung</title>
+</head>
+<body>
+
+    <h1>Vorbereitung</h1>
+    <h3>1. Was beschreibt das Interface AssocStringString und wozu kann es verwendet werden?</h3>
+       <p>Das Interface ist ein homogenes assoziatives Array, in dem Daten vom Typ string dem key zugeordnet werden können.
+          Diese Daten können über den Schlüssel "key" aufgerufen werden.</p>
+    
+    <h3>2. Was geschieht in Zeile 9 und was ist das Ergebnis?</h3>
+       <p>Es wird eine Variable port angelegt, vom Typ number, die eine Prozessumgebung erstellt.
+          Dieser port wird in Zeile 11 auf 8100 festgelegt. Damit kann dann im Browser auf die Applikation zugegriffen werden.</p>  
+       
+    <h3>3. Was geschieht in Zeile 25 von ServerTest.ts?</h3>
+       <h4>let query: AssocStringString = Url.parse(_request.url, true).query;</h4>
+       <p>Es wird die Variable query erstellt, vom Typ AssocStringString
+          Die url.parse() Methode wandelt einen URL-String um und gibt ein URL-Objekt zurück.
+          Wenn url.parse true ist, dann wird aus query ein neues Objekt vom Interface AssocStringString, welches dann durch iteriert werden kann. 
+          Ist die query false wird nur ein String erstellt und kein Objekt.</p>
+    
+    <h3>4. Wie arbeitet die for-in-Schleife in Zeile 29?</h3>
+       <p>Bei der For-in-Schleife werden alle Array-Stellen, die nicht den Schlüssel enthalten, nicht beachtet, im Gegensatz zur normalen For-Schleife. 
+          Die For-in-Schleife ist für Objekte gedacht, bei denen die richtige Reihenfolge unwichtig ist.</p> 
+    
+    <h3>5. Was bewirkt die Header-Information Access-Control-Allow-Origin?</h3>
+       <p>Der Access-Control-Allow-Origin bestimmt die Freigabeeinstellungen der Ressource. 
+          Die Inhalte der Ressource werden für alle zugänglich gemacht.</p>
+
+</body>
+</html>
