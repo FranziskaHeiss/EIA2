@@ -20,11 +20,11 @@
     <h1>Vorbereitung</h1>
     <h3>1. Was beschreibt das Interface AssocStringString und wozu kann es verwendet werden?</h3>
        <p>Das Interface ist ein homogenes assoziatives Array, in dem Daten vom Typ string dem key zugeordnet werden können.
-          Diese Daten können über den Schlüssel "key" aufgerufen werden.</p>
+          Diese Daten können über den Schlüssel "key" aufgerufen werden. Durch den Schlüssel kann auf ein gewünschtes Objekt zugegriffen werden.</p>
     
     <h3>2. Was geschieht in Zeile 9 und was ist das Ergebnis?</h3>
        <p>Es wird eine Variable port angelegt, vom Typ number, die eine Prozessumgebung erstellt.
-          Dieser port wird in Zeile 11 auf 8100 festgelegt. Damit kann dann im Browser auf die Applikation zugegriffen werden.</p>  
+          Dieser Port wird in Zeile 11 auf 8100 festgelegt. Damit kann dann über Browser auf den Server unter dem festgelegten Port zugegriffen werden.</p>  
        
     <h3>3. Was geschieht in Zeile 25 von ServerTest.ts?</h3>
        <h4>let query: AssocStringString = Url.parse(_request.url, true).query;</h4>
