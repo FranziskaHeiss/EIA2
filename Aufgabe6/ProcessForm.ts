@@ -55,7 +55,7 @@ namespace Aufgabe6 {
         }
     }
 
-    //Funktion für die Ausgabe des Refresh Felds
+    //Funktion für Refresh Feld
     function refresh(_event: Event): void {
         let xhr: XMLHttpRequest = new XMLHttpRequest();
         xhr.open("GET", address + "?command=refresh", true);
@@ -72,7 +72,7 @@ namespace Aufgabe6 {
         }           
     }
     
-    //Funktion für die Ausgabe der Suche nach einer Matrikelnummer   
+    //Funktion für die Suche per Matrikelnummer   
     function search(_event: Event): void {
         let mtrkl: string = inputs[6].value;
         

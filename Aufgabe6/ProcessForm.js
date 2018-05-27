@@ -44,7 +44,7 @@ var Aufgabe6;
             alert(xhr.response);
         }
     }
-    //Funktion f�r die Ausgabe des Refresh Felds
+    //Funktion f�r Refresh Feld
     function refresh(_event) {
         let xhr = new XMLHttpRequest();
         xhr.open("GET", address + "?command=refresh", true);
@@ -59,7 +59,7 @@ var Aufgabe6;
             output.value += xhr.response;
         }
     }
-    //Funktion f�r die Ausgabe der Suche nach einer Matrikelnummer   
+    //Funktion f�r die Suche per Matrikelnummer   
     function search(_event) {
         let mtrkl = inputs[6].value;
         let xhr = new XMLHttpRequest();
