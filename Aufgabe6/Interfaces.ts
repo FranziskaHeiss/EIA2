@@ -11,11 +11,11 @@ namespace Aufgabe6 {
     // Struktur des heterogenen assoziativen Arrays als Datensatz für eine studierende Person
     export interface Studi {
         firstname: string;
-        name: string;
-        studyPath: string;
+        name: string;       
         matrikel: number;
         age: number;
         gender: boolean;
+        studyPath: string;
        
     }
 

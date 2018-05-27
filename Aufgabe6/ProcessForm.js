@@ -27,10 +27,10 @@ var Aufgabe6;
         studi = {
             firstname: inputs[0].value,
             name: inputs[1].value,
-            studyPath: document.getElementsByTagName("select").item(0).value,
             matrikel: parseInt(matrikel),
             age: parseInt(inputs[3].value),
-            gender: genderButton.checked
+            gender: genderButton.checked,
+            studyPath: document.getElementsByTagName("select").item(0).value
         };
         let convert = JSON.stringify(studi);
         console.log(convert);
