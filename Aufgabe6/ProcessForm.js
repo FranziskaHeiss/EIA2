@@ -33,9 +33,15 @@ var Aufgabe6;
             studyPath: document.getElementsByTagName("select").item(0).value
         };
         let convert = JSON.stringify(studi);
+        // JavaScript-JSON-Objekt wird in einen string umgewandelt
         console.log(convert);
         let xhr = new XMLHttpRequest();
         xhr.open("GET", address + "?command=insert&data=" + convert, true);
+        // "GET": Methode, mit der Daten versendet werden
+        // address: Internetaddresse vom Datentyp string (zuvor in einer Varaible gespeichert)
+        // ?command=insert&data=: wird an die Internetaddresse angeh�ngt
+        // convert: an die Internetaddresse werden die Daten aus dem Interface als string angeh�ngt
+        // true: Asynchronous, zu einem sp�teren Zeitpunkt kann festgestellt werden, welche Antwort zu welcher Anfrage geh�rt
         xhr.addEventListener("readystatechange", handleStateChangeInsert);
         xhr.send();
     }

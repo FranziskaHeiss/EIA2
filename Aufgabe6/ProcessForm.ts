@@ -43,10 +43,16 @@ namespace Aufgabe6 {
             
         };
         let convert: string = JSON.stringify(studi);
+        // JavaScript-JSON-Objekt wird in einen string umgewandelt
         console.log(convert);
 
         let xhr: XMLHttpRequest = new XMLHttpRequest();
         xhr.open("GET", address + "?command=insert&data=" + convert, true);
+        // "GET": Methode, mit der Daten versendet werden
+        // address: Internetaddresse vom Datentyp string (zuvor in einer Varaible gespeichert)
+        // ?command=insert&data=: wird an die Internetaddresse angehängt
+        // convert: an die Internetaddresse werden die Daten aus dem Interface als string angehängt
+        // true: Asynchronous, zu einem späteren Zeitpunkt kann festgestellt werden, welche Antwort zu welcher Anfrage gehört
         xhr.addEventListener("readystatechange", handleStateChangeInsert);
         xhr.send();
     }
