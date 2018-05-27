@@ -19,11 +19,13 @@ namespace Aufgabe6 {
         let insertButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("insert");
         let refreshButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("refresh");
         let searchButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("checkSearch");
+        
         insertButton.addEventListener("click", insert);
         refreshButton.addEventListener("click", refresh);
         searchButton.addEventListener("click", search);
     }
 
+    //Funktion für die Eingabe und Übergabe der Daten
     function insert(_event: Event): void {
         let genderButton: HTMLInputElement = <HTMLInputElement>document.getElementById("male");
         let matrikel: string = inputs[2].value;
@@ -53,7 +55,7 @@ namespace Aufgabe6 {
         }
     }
 
-
+    //Funktion für die Ausgabe des Refresh Felds
     function refresh(_event: Event): void {
         let xhr: XMLHttpRequest = new XMLHttpRequest();
         xhr.open("GET", address + "?command=refresh", true);
@@ -70,6 +72,7 @@ namespace Aufgabe6 {
         }           
     }
     
+    //Funktion für die Ausgabe der Suche nach einer Matrikelnummer   
     function search(_event: Event): void {
         let mtrkl: string = inputs[6].value;
         
@@ -88,6 +91,4 @@ namespace Aufgabe6 {
         }           
     }
     
-            
-
 }

@@ -18,6 +18,7 @@ var Aufgabe6;
         refreshButton.addEventListener("click", refresh);
         searchButton.addEventListener("click", search);
     }
+    //Funktion f�r die Eingabe und �bergabe der Daten
     function insert(_event) {
         let genderButton = document.getElementById("male");
         let matrikel = inputs[2].value;
@@ -43,6 +44,7 @@ var Aufgabe6;
             alert(xhr.response);
         }
     }
+    //Funktion f�r die Ausgabe des Refresh Felds
     function refresh(_event) {
         let xhr = new XMLHttpRequest();
         xhr.open("GET", address + "?command=refresh", true);
@@ -57,6 +59,7 @@ var Aufgabe6;
             output.value += xhr.response;
         }
     }
+    //Funktion f�r die Ausgabe der Suche nach einer Matrikelnummer   
     function search(_event) {
         let mtrkl = inputs[6].value;
         let xhr = new XMLHttpRequest();
