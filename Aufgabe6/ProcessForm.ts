@@ -25,6 +25,9 @@ namespace Aufgabe6 {
         searchButton.addEventListener("click", search);
     }
 
+    
+    //Funktionen zur Antwortaufbereitung
+    
     //Funktion für die Eingabe und Übergabe der Daten
     function insert(_event: Event): void {
         let genderButton: HTMLInputElement = <HTMLInputElement>document.getElementById("male");

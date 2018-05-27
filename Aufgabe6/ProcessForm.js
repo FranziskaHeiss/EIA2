@@ -18,6 +18,7 @@ var Aufgabe6;
         refreshButton.addEventListener("click", refresh);
         searchButton.addEventListener("click", search);
     }
+    //Funktionen zur Antwortaufbereitung
     //Funktion f�r die Eingabe und �bergabe der Daten
     function insert(_event) {
         let genderButton = document.getElementById("male");
