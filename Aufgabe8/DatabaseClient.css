@@ -1,25 +1,41 @@
-/*  Aufgabe: Aufgabe 6: ClientServer - StudiVZ
-    Name: Franziska Heiﬂ
-    Matrikel: 257745
-    Datum: 27.05.18
-    
-    Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.*/ 
-
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300');
 
 * {
 	display: block;
 	vertical-align: top
 }
 
+body {
+	font-family: 'Open Sans', sans-serif;
+}
+
 head {
 	display: none;
 }
-
 
 input[type="radio"], input[type="checkbox"], input[type="number"], label {
 	display: inline;
 }
 
+input {
+	font-family: 'Open Sans', sans-serif;
+	margin: 3px 0px 3px 0px;
+}
+
+input[type="radio"] {
+	margin-top: 3px;
+	margin-bottom: 3px;
+}
+
+textarea {
+	font-family: 'Open Sans', sans-serif;
+}
+
 button {
+	font-family: 'Open Sans', sans-serif;
 	margin:1em 0em;
+}
+
+select {
+	font-family: 'Open Sans', sans-serif;
 }
