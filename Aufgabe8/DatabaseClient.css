@@ -2,7 +2,8 @@
 
 * {
 	display: block;
-	vertical-align: top
+	vertical-align: top;
+	font-size: 0.98;
 }
 
 body {
@@ -16,6 +17,7 @@ head {
 input[type="radio"], input[type="checkbox"], input[type="number"], label {
 	display: inline;
 }
+
 
 input {
 	font-family: 'Open Sans', sans-serif;
