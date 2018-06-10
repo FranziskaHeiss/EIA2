@@ -1,11 +1,12 @@
 var Aufgabe8;
 (function (Aufgabe8) {
-    /*  Aufgabe: Aufgabe 6: ClientServer - StudiVZ
+    /*  Aufgabe: Aufgabe 8: ClientServer - StudiVZ
         Name: Franziska Hei�
         Matrikel: 257745
-        Datum: 27.05.18
+        Datum: 10.06.18
         
-        Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.*/
+        Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
+        Dieser Code wurde zusammen mit Alena Hurst, Sofia Gschwend, Sabrina Kerl, Anna Lotz und Tim Lieberherr erarbeitet*/
     window.addEventListener("load", init);
     let address = "https://eia2node-franziheiss.herokuapp.com";
     let inputs = document.getElementsByTagName("input");
