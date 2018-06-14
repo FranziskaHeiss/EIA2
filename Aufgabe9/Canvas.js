@@ -7,7 +7,7 @@ var L09_Canvas;
         crc2 = canvas.getContext("2d");
         console.log(crc2);
         crc2.fillStyle = "rgba(0,153,255)";
-        crc2.fillRect(0, 0, 600, 400);
+        crc2.fillRect(0, 0, 1280, 720);
     }
 })(L09_Canvas || (L09_Canvas = {}));
 //# sourceMappingURL=Canvas.js.map
