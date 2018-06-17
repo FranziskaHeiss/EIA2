@@ -1,3 +1,11 @@
+/*  Aufgabe: Aufgabe 9: Canvas - Seaworld
+    Name: Franziska Heiﬂ
+    Matrikel: 257745
+    Datum: 17.06.18
+    
+    Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
+    Dieser Code wurde zusammen mit Alena Hurst erarbeitet*/ 
+
 namespace L09_Canvas {
     window.addEventListener("load", init);
     let crc2: CanvasRenderingContext2D;
@@ -7,67 +15,67 @@ namespace L09_Canvas {
         crc2 = canvas.getContext("2d");
         console.log(crc2);
 
-        
+
         background();
-        
+
         bigSeaGrass(700, 590);
         smallSeaGrass(740, 590);
         smallSeaGrass(680, 640);
-        
+
         bigSeaGrass(160, 640);
         bigSeaGrass(260, 590);
         smallSeaGrass(200, 590);
-         
-        sand();      
-        
+
+        sand();
+
         bigSeaGrass(0, 740);
         smallSeaGrass(30, 710);
-        
+
         stone2(100, 560);
         stone1(150, 590);
-        
+
         chest(700, 560);
         anchor(300, 550);
-           
+
         for (let b: number = 0; b < 20; b++) {
-            let v: number = Math.random() * (730 - 760)  + 760;
+            let v: number = Math.random() * (730 - 760) + 760;
             let w: number = Math.random() * 590;
             let r: number = Math.random() * 10;
             bubbles(v, w, r);
-         }    
-        
+        }
+
         for (let b: number = 0; b < 20; b++) {
-            let v: number = Math.random() * (200 - 250)  + 250;
+            let v: number = Math.random() * (200 - 250) + 250;
             let w: number = Math.random() * 550;
             let r: number = Math.random() * 10;
             bubbles(v, w, r);
-         }    
-            
-         for (let i: number = 0; i < 9; i++) {
+        }
+
+        for (let i: number = 0; i < 9; i++) {
             let x: number = Math.random() * crc2.canvas.width;
             let y: number = Math.random() * crc2.canvas.height;
             fish(x, y);
-         }    
+        }
     }
 
-    
+
     function background(): void {
-        
+
         let gradient: CanvasGradient = crc2.createLinearGradient(0, 0, 0, 500);
         gradient.addColorStop(0, "#63cfc6");
         gradient.addColorStop(1, "#003d66");
         crc2.fillStyle = gradient;
         crc2.fillRect(0, 0, 1000, 700);
-  
+
     }
-    
+
     function sand(): void {
 
         let gradient: CanvasGradient = crc2.createLinearGradient(300, 700, 300, 500);
         gradient.addColorStop(0, "#cc9933");
         gradient.addColorStop(1, "#b28f4a");
-        
-        crc2.fillStyle = gradient; 
+
+        crc2.fillStyle = gradient;
 
         crc2.beginPath();
         crc2.moveTo(0, 550);
@@ -89,7 +97,7 @@ namespace L09_Canvas {
         gradient.addColorStop(0, "#ff4d4d");
         gradient.addColorStop(1, "#ff751a");
         crc2.fillStyle = gradient;
-        
+
         crc2.beginPath();
         crc2.moveTo(_x, _y);
         crc2.quadraticCurveTo(_x + 30, _y + 30, _x + 60, _y);
@@ -100,21 +108,21 @@ namespace L09_Canvas {
         crc2.strokeStyle = "transparent";
         crc2.stroke();
         crc2.fill();
-        
+
     }
 
-    
+
     function anchor(_x: number, _y: number): void {
-        
+
         //crc2.setTransform(1, 0.5, -0.5, 1, 200, 500);
-        
+
         crc2.beginPath();
         crc2.arc(_x, _y, 12, 0, 2 * Math.PI);
         crc2.lineWidth = 7;
-        crc2.closePath();      
+        crc2.closePath();
         crc2.strokeStyle = "rgb(21, 30, 30)";
         crc2.stroke();
-        
+
         crc2.beginPath();
         crc2.moveTo(_x - 5, _y + 10);
         crc2.lineTo(_x + 5, _y + 10);
@@ -141,46 +149,46 @@ namespace L09_Canvas {
         crc2.fillStyle = "rgb(21, 30, 30)";
         crc2.fill();
         crc2.closePath();
-        crc2.strokeStyle = "transparent";  
+        crc2.strokeStyle = "transparent";
         crc2.stroke();
-     }
+    }
 
-    
-    
-   function chest(_x: number, _y: number): void {
-       
+
+
+    function chest(_x: number, _y: number): void {
+
         //part4
         crc2.fillStyle = "rgb(109, 77, 35)";
-       
-        crc2.beginPath(); 
+
+        crc2.beginPath();
         crc2.moveTo(_x, _y);
         crc2.lineTo(_x, _y + 50);
         crc2.lineTo(_x + 60, _y + 50);
         crc2.lineTo(_x + 60, _y);
         crc2.closePath();
         crc2.fill();
-        
-        crc2.strokeStyle = "transparent";        
+
+        crc2.strokeStyle = "transparent";
         crc2.stroke();
-        
+
         //part3
-        crc2.fillStyle =  "rgb(89, 63, 29)";
-        
+        crc2.fillStyle = "rgb(89, 63, 29)";
+
         crc2.beginPath();
         crc2.moveTo(_x + 110, _y + 100);
         crc2.lineTo(_x + 60, _y + 50);
         crc2.lineTo(_x + 60, _y);
         crc2.lineTo(_x + 110, _y + 50);
         crc2.closePath();
-        
+
         crc2.fill();
-        
-        crc2.strokeStyle = "transparent";        
+
+        crc2.strokeStyle = "transparent";
         crc2.stroke();
-        
+
         //part1
         crc2.fillStyle = "rgb(130, 89, 36)";
-        
+
         crc2.beginPath();
         crc2.moveTo(_x, _y);
         crc2.lineTo(_x, _y + 50);
@@ -188,14 +196,14 @@ namespace L09_Canvas {
         crc2.lineTo(_x + 40, _y + 50);
         crc2.closePath();
         crc2.fill();
-    
-        crc2.strokeStyle = "transparent";        
+
+        crc2.strokeStyle = "transparent";
         crc2.stroke();
-        
-        
+
+
         //part2
         crc2.fillStyle = "rgb(142, 100, 45)";
-        
+
         crc2.beginPath();
         crc2.moveTo(_x + 40, _y + 50);
         crc2.lineTo(_x + 110, _y + 50);
@@ -203,57 +211,57 @@ namespace L09_Canvas {
         crc2.lineTo(_x + 40, _y + 100);
         crc2.closePath();
         crc2.fill();
-        
-        crc2.strokeStyle = "transparent";        
+
+        crc2.strokeStyle = "transparent";
         crc2.stroke();
-    
+
         //part5 
-        crc2.fillStyle =  "rgb(114, 81, 39)";
-        
+        crc2.fillStyle = "rgb(114, 81, 39)";
+
         crc2.beginPath();
         crc2.moveTo(_x + 110, _y + 50);
         crc2.lineTo(_x + 160, _y + 10);
         crc2.lineTo(_x + 105, _y - 40);
         crc2.lineTo(_x + 60, _y);
         crc2.closePath();
-        
+
         crc2.fill();
-        
-        crc2.strokeStyle = "transparent";        
+
+        crc2.strokeStyle = "transparent";
         crc2.stroke();
 
         // Deckel 3D - vorne        
-        crc2.fillStyle =  "rgb(142, 100, 45)";
-        
+        crc2.fillStyle = "rgb(142, 100, 45)";
+
         crc2.beginPath();
         crc2.moveTo(_x + 110, _y + 50);
         crc2.quadraticCurveTo(_x + 150, _y + 50, _x + 160, _y + 10);
         crc2.closePath();
-        
+
         crc2.fill();
-        
-        crc2.strokeStyle = "transparent";        
+
+        crc2.strokeStyle = "transparent";
         crc2.stroke();
-        
+
         // Deckel 3D - hinten        
-        crc2.fillStyle =  "rgb(99, 72, 36)";
-        
+        crc2.fillStyle = "rgb(99, 72, 36)";
+
         crc2.beginPath();
         crc2.moveTo(_x + 60, _y);
         crc2.quadraticCurveTo(_x + 100, _y, _x + 105, _y - 40);
         crc2.closePath();
-        
+
         crc2.fill();
-        
+
         crc2.strokeStyle = "transparent";
         crc2.stroke();
     }
-    
-    
+
+
     function bigSeaGrass(_x: number, _y: number): void {
-        
-        crc2.fillStyle = "#336633"; 
-        
+
+        crc2.fillStyle = "#336633";
+
         crc2.beginPath();
         crc2.moveTo(_x, _y);
         crc2.quadraticCurveTo(_x - 15, _y - 30, _x, _y - 75);
@@ -264,17 +272,17 @@ namespace L09_Canvas {
         crc2.quadraticCurveTo(_x + 25, _y - 30, _x + 40, _y);
         crc2.closePath();
         crc2.fill();
-        
+
         crc2.strokeStyle = "transparent";
-        crc2.stroke();  
-        
+        crc2.stroke();
+
     }
-    
-    
+
+
     function smallSeaGrass(_x: number, _y: number): void {
-        
+
         crc2.fillStyle = "#339933";
-        
+
         crc2.beginPath();
         crc2.moveTo(_x, _y);
         crc2.quadraticCurveTo(_x + 15, _y - 25, _x, _y - 55);
@@ -284,21 +292,21 @@ namespace L09_Canvas {
         crc2.quadraticCurveTo(_x + 15, _y - 70, _x + 30, _y - 50);
         crc2.quadraticCurveTo(_x + 45, _y - 25, _x + 35, _y);
         crc2.closePath();
-        
+
         crc2.fill();
-        
+
         crc2.strokeStyle = "transparent";
         crc2.stroke();
-        
-}
+
+    }
     function stone1(_x: number, _y: number): void {
-     
+
         /*let gradient: CanvasGradient = crc2.createLinearGradient(100, 600, 300, 700);
         gradient.addColorStop(0, "#cc9933");
         gradient.addColorStop(1, "#b28f4a");
         
         crc2.fillStyle = gradient;*/
-        
+
         crc2.beginPath();
         crc2.moveTo(_x, _y);
         crc2.lineTo(_x + 20, _y - 15);
@@ -318,18 +326,18 @@ namespace L09_Canvas {
         crc2.closePath();
         crc2.strokeStyle = "rgb(102, 102, 102)";
         crc2.stroke();
-        
-    } 
-       
-    
+
+    }
+
+
     function stone2(_x: number, _y: number): void {
-     
+
         /*let gradient: CanvasGradient = crc2.createLinearGradient(300, 700, 300, 500);
         gradient.addColorStop(0, "#cc9933");
         gradient.addColorStop(1, "#b28f4a");
         
         crc2.fillStyle = gradient;*/
-        
+
         crc2.beginPath();
         crc2.moveTo(_x, _y);
         crc2.lineTo(_x + 15, _y - 10);
@@ -354,10 +362,10 @@ namespace L09_Canvas {
         crc2.closePath();
         crc2.strokeStyle = "rgb(102, 102, 102)";
         crc2.stroke();
-        
-        }
-    
-        
+
+    }
+
+
     function bubbles(_x: number, _y: number, _r: number): void {
         crc2.fillStyle = "rgb(206, 220, 226, 0.6)";
 
@@ -365,49 +373,8 @@ namespace L09_Canvas {
         crc2.arc(_x, _y, _r, 0, 2 * Math.PI);
         crc2.closePath();
         crc2.fill();
-        
+
         crc2.strokeStyle = "transparent";
         crc2.stroke();
-     }
-    
-        /*<canvas id="myCanvas" width="1000" height="700" style="border:1px solid #d3d3d3;">
-    Your browser does not support the HTML5 canvas tag.</canvas>
-    
-    <script>
-    
-    var c = document.getElementById("myCanvas");
-    var ctx = c.getContext("2d");
-    ctx.beginPath();
-            ctx.moveTo(0, 550);
-            ctx.quadraticCurveTo(120, 500, 300, 580);
-            ctx.quadraticCurveTo(400, 625, 500, 635);
-            ctx.quadraticCurveTo(630, 640, 700, 600);
-            ctx.quadraticCurveTo(855, 500, 1000, 500);
-            ctx.lineTo(1000, 700);
-            ctx.lineTo(0, 700);
-            ctx.closePath();        
-            ctx.stroke();   
-    
-    
-    ctx.beginPath();
-            ctx.moveTo(550, 635);
-            ctx.quadraticCurveTo(560, 600, 550, 570); 
-            ctx.quadraticCurveTo(540, 540, 555, 51);
-            ctx.quadraticCurveTo(540, 500, 540, 570);
-            ctx.stroke();   
-    </script> 
-      
-
-    
-    var c = document.getElementById("myCanvas");
-var ctx = c.getContext("2d");
-ctx.beginPath();
-ctx.moveTo(20, 50);
-ctx.quadraticCurveTo(50, 80, 80, 50);
-ctx.lineTo(100, 64);
-ctx.quadraticCurveTo(85, 45, 100, 30);
-ctx.lineTo(80, 45);
-ctx.quadraticCurveTo(48, 15, 20, 50);
-//ctx.stroke();*/
-    
     }
+}      
