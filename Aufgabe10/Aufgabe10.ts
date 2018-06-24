@@ -26,6 +26,7 @@ namespace Aufgabe10 {
         //Hintergrund 
         environment();
 
+        //rechts
         for (let b: number = 0; b < 20; b++) {
             let bubbles: BubblesOne = new BubblesOne();
             bubbles.x = Math.random() * (730 - 760) + 760;           
@@ -34,6 +35,7 @@ namespace Aufgabe10 {
             bubbleGroupOne.push(bubbles);
         }
 
+        //links
         for (let b: number = 0; b < 20; b++) {
             let bubbles: BubblesTwo = new BubblesTwo();
             bubbles.x = Math.random() * (200 - 250) + 250;
@@ -404,16 +406,5 @@ namespace Aufgabe10 {
         crc2.stroke();
 
     }
-
-    function bubbles(_x: number, _y: number, _r: number): void {
-        crc2.fillStyle = "rgb(206, 220, 226, 0.6)";
-
-        crc2.beginPath();
-        crc2.arc(_x, _y, _r, 0, 2 * Math.PI);
-        crc2.closePath();
-        crc2.fill();
-
-        crc2.strokeStyle = "transparent";
-        crc2.stroke();
-    }
+  
 }      

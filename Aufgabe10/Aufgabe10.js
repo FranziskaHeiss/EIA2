@@ -18,6 +18,7 @@ var Aufgabe10;
         Aufgabe10.crc2 = canvas.getContext("2d");
         //Hintergrund 
         environment();
+        //rechts
         for (let b = 0; b < 20; b++) {
             let bubbles = new Aufgabe10.BubblesOne();
             bubbles.x = Math.random() * (730 - 760) + 760;
@@ -25,6 +26,7 @@ var Aufgabe10;
             bubbles.radius = Math.random() * 10;
             bubbleGroupOne.push(bubbles);
         }
+        //links
         for (let b = 0; b < 20; b++) {
             let bubbles = new Aufgabe10.BubblesTwo();
             bubbles.x = Math.random() * (200 - 250) + 250;
@@ -309,15 +311,6 @@ var Aufgabe10;
         Aufgabe10.crc2.fill();
         Aufgabe10.crc2.closePath();
         Aufgabe10.crc2.strokeStyle = "rgb(102, 102, 102)";
-        Aufgabe10.crc2.stroke();
-    }
-    function bubbles(_x, _y, _r) {
-        Aufgabe10.crc2.fillStyle = "rgb(206, 220, 226, 0.6)";
-        Aufgabe10.crc2.beginPath();
-        Aufgabe10.crc2.arc(_x, _y, _r, 0, 2 * Math.PI);
-        Aufgabe10.crc2.closePath();
-        Aufgabe10.crc2.fill();
-        Aufgabe10.crc2.strokeStyle = "transparent";
         Aufgabe10.crc2.stroke();
     }
 })(Aufgabe10 || (Aufgabe10 = {}));
