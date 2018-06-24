@@ -1,7 +1,7 @@
-/*  Aufgabe: Aufgabe 9: Canvas - Seaworld
+/*  Aufgabe: Aufgabe 10: Classes: OO Seaworld
     Name: Franziska Hei�
     Matrikel: 257745
-    Datum: 17.06.18
+    Datum: 24.06.18
     
     Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
     Dieser Code wurde zusammen mit Alena Hurst erarbeitet*/
@@ -9,25 +9,28 @@ var Aufgabe10;
 (function (Aufgabe10) {
     window.addEventListener("load", init);
     let fishGroup = [];
+    let bubbleGroupOne = [];
+    let bubbleGroupTwo = [];
     let n = 8;
     let imgData;
     function init(_event) {
         let canvas = document.getElementsByTagName("canvas")[0];
         Aufgabe10.crc2 = canvas.getContext("2d");
-        console.log(Aufgabe10.crc2);
         //Hintergrund 
         environment();
         for (let b = 0; b < 20; b++) {
-            let v = Math.random() * (730 - 760) + 760;
-            let w = Math.random() * 590;
-            let r = Math.random() * 10;
-            bubbles(v, w, r);
+            let bubbles = new Aufgabe10.BubblesOne();
+            bubbles.x = Math.random() * (730 - 760) + 760;
+            bubbles.y = Math.random() * 550;
+            bubbles.radius = Math.random() * 10;
+            bubbleGroupOne.push(bubbles);
         }
         for (let b = 0; b < 20; b++) {
-            let v = Math.random() * (200 - 250) + 250;
-            let w = Math.random() * 550;
-            let r = Math.random() * 10;
-            bubbles(v, w, r);
+            let bubbles = new Aufgabe10.BubblesTwo();
+            bubbles.x = Math.random() * (200 - 250) + 250;
+            bubbles.y = Math.random() * 550;
+            bubbles.radius = Math.random() * 10;
+            bubbleGroupTwo.push(bubbles);
         }
         for (let i = 0; i < n; i++) {
             let fish = new Aufgabe10.Fish();
@@ -44,14 +47,29 @@ var Aufgabe10;
         moveObjects();
         drawObjects();
     }
+    // moveObjects-Funktion
     function moveObjects() {
         for (let i = 0; i < fishGroup.length; i++) {
             fishGroup[i].move();
         }
+        for (let i = 0; i < bubbleGroupOne.length; i++) {
+            bubbleGroupOne[i].moveBubbles();
+        }
+        for (let i = 0; i < bubbleGroupTwo.length; i++) {
+            bubbleGroupTwo[i].moveBubbles();
+        }
     }
+    //drawObjects-Funktion
     function drawObjects() {
-        for (let i = 0; i < fishGroup.length; i++)
+        for (let i = 0; i < fishGroup.length; i++) {
             fishGroup[i].draw();
+        }
+        for (let i = 0; i < bubbleGroupOne.length; i++) {
+            bubbleGroupOne[i].drawBubbles();
+        }
+        for (let i = 0; i < bubbleGroupTwo.length; i++) {
+            bubbleGroupTwo[i].drawBubbles();
+        }
     }
     function environment() {
         background();

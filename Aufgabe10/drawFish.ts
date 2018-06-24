@@ -3,10 +3,18 @@ namespace Aufgabe10 {
         x: number;
         y: number;
 
-        // declare method without keyword function
+       
         move(): void {
-            this.x += Math.random() * 4 - 2;
-            this.y += Math.random() * 4 - 2;
+            this.x -= 2;
+            this.y += 0;
+            if (this.x < -200) {
+                this.x = crc2.canvas.width;
+                this.y += 0;    
+            }
+            if (this.y < 0) {
+                this.y = crc2.canvas.height;
+                this.x -= 2;   
+          }
         }
 
         draw(): void {

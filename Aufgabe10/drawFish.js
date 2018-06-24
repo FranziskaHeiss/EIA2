@@ -1,10 +1,17 @@
 var Aufgabe10;
 (function (Aufgabe10) {
     class Fish {
-        // declare method without keyword function
         move() {
-            this.x += Math.random() * 4 - 2;
-            this.y += Math.random() * 4 - 2;
+            this.x -= 2;
+            this.y += 0;
+            if (this.x < -200) {
+                this.x = Aufgabe10.crc2.canvas.width;
+                this.y += 0;
+            }
+            if (this.y < 0) {
+                this.y = Aufgabe10.crc2.canvas.height;
+                this.x -= 2;
+            }
         }
         draw() {
             let gradient = Aufgabe10.crc2.createLinearGradient(300, 600, 300, 500);

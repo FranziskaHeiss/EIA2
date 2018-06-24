@@ -1,7 +1,7 @@
-/*  Aufgabe: Aufgabe 9: Canvas - Seaworld
+/*  Aufgabe: Aufgabe 10: Classes: OO Seaworld
     Name: Franziska Heiﬂ
     Matrikel: 257745
-    Datum: 17.06.18
+    Datum: 24.06.18
     
     Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
     Dieser Code wurde zusammen mit Alena Hurst erarbeitet*/
@@ -11,30 +11,35 @@ namespace Aufgabe10 {
     window.addEventListener("load", init);
     export let crc2: CanvasRenderingContext2D;
     let fishGroup: Fish[] = [];
+    let bubbleGroupOne: BubblesOne[] = [];
+    let bubbleGroupTwo: BubblesTwo[] = [];
     let n: number = 8;
+
     let imgData: ImageData;
 
 
     function init(_event: Event): void {
         let canvas: HTMLCanvasElement = document.getElementsByTagName("canvas")[0];
         crc2 = canvas.getContext("2d");
-        console.log(crc2);
+
 
         //Hintergrund 
         environment();
 
         for (let b: number = 0; b < 20; b++) {
-            let v: number = Math.random() * (730 - 760) + 760;
-            let w: number = Math.random() * 590;
-            let r: number = Math.random() * 10;
-            bubbles(v, w, r);
+            let bubbles: BubblesOne = new BubblesOne();
+            bubbles.x = Math.random() * (730 - 760) + 760;           
+            bubbles.y = Math.random() * 550;
+            bubbles.radius = Math.random() * 10;
+            bubbleGroupOne.push(bubbles);
         }
 
         for (let b: number = 0; b < 20; b++) {
-            let v: number = Math.random() * (200 - 250) + 250;
-            let w: number = Math.random() * 550;
-            let r: number = Math.random() * 10;
-            bubbles(v, w, r);
+            let bubbles: BubblesTwo = new BubblesTwo();
+            bubbles.x = Math.random() * (200 - 250) + 250;
+            bubbles.y = Math.random() * 550;
+            bubbles.radius = Math.random() * 10;
+            bubbleGroupTwo.push(bubbles);
         }
 
         for (let i: number = 0; i < n; i++) {
@@ -45,12 +50,14 @@ namespace Aufgabe10 {
         }
 
         imgData = crc2.getImageData(0, 0, canvas.width, canvas.height);
+
         animate();
 
     }
 
 
     function animate(): void {
+
         window.setTimeout(animate, 10);
 
         crc2.putImageData(imgData, 0, 0); // die Zahlen bestimmen den Ankerpunkt des Hintergrundes
@@ -59,15 +66,37 @@ namespace Aufgabe10 {
         drawObjects();
     }
 
+    
+    // moveObjects-Funktion
     function moveObjects(): void {
+
         for (let i: number = 0; i < fishGroup.length; i++) {
             fishGroup[i].move();
         }
+
+        for (let i: number = 0; i < bubbleGroupOne.length; i++) {
+            bubbleGroupOne[i].moveBubbles();
+        }
+
+        for (let i: number = 0; i < bubbleGroupTwo.length; i++) {
+            bubbleGroupTwo[i].moveBubbles();
+        }
     }
 
+    
+    //drawObjects-Funktion
     function drawObjects(): void {
-        for (let i: number = 0; i < fishGroup.length; i++)
+        
+        for (let i: number = 0; i < fishGroup.length; i++) {
             fishGroup[i].draw();
+        }
+        for (let i: number = 0; i < bubbleGroupOne.length; i++) {
+            bubbleGroupOne[i].drawBubbles();
+        }
+
+        for (let i: number = 0; i < bubbleGroupTwo.length; i++) {
+            bubbleGroupTwo[i].drawBubbles();
+        }
     }
 
 
