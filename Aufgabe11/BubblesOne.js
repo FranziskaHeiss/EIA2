@@ -6,19 +6,19 @@ var Aufgabe11;
             super();
             this.setRandomPosition();
         }
-        moveBubbles() {
+        setRandomPosition() {
+            this.x = Math.random() * (730 - 760) + 760;
+            this.y = Math.random() * 550;
+            this.radius = Math.random() * 10;
+        }
+        move() {
             this.x += 0;
             this.y -= 2;
             if (this.y < 0) {
                 this.y = 590;
             }
         }
-        setRandomPosition() {
-            this.x = Math.random() * (730 - 760) + 760;
-            this.y = Math.random() * 550;
-            this.radius = Math.random() * 10;
-        }
-        drawBubbles() {
+        draw() {
             Aufgabe11.crc2.fillStyle = "rgb(206, 220, 226, 0.6)";
             Aufgabe11.crc2.beginPath();
             Aufgabe11.crc2.arc(this.x, this.y, this.radius, 0, 2 * Math.PI, true);

@@ -13,15 +13,15 @@ namespace Aufgabe11 {
     let movingObjects: MovingObjects[] = [];
     let n: number = 8;
 
-    
-    export let canvas: HTMLCanvasElement;
+
+    let canvas: HTMLCanvasElement;
     let imgData: ImageData;
 
 
     function init(_event: Event): void {
         canvas = document.getElementsByTagName("canvas")[0];
-        crc2 = canvas.getContext("2d");       
-       
+        crc2 = canvas.getContext("2d");
+        canvas.addEventListener("click", insertFood);
 
         //Hintergrund 
         environment();
@@ -39,6 +39,7 @@ namespace Aufgabe11 {
             movingObjects.push(bubbles);
         }
 
+
         for (let i: number = 0; i < n; i++) {
             let fish: Fish = new Fish();
             movingObjects.push(fish);
@@ -47,6 +48,21 @@ namespace Aufgabe11 {
 
         animate();
 
+    }
+
+    function insertFood(_event: MouseEvent): void {
+        
+        let newPositionX: number = _event.clientX;
+        let newPositionY: number = _event.clientY;
+
+        
+        for (let i: number = 0; i < 4; i++) {
+            let flakes: Flakes = new Flakes(newPositionX, newPositionY);
+            movingObjects.push(flakes);
+            newPositionX += Math.random() * 100; 
+            newPositionX -= Math.random() * 100; 
+            newPositionY += Math.random() * 40;         
+        } 
     }
 
 
@@ -61,11 +77,10 @@ namespace Aufgabe11 {
         drawObjects();
     }
 
-
     // moveObjects-Funktion
     function moveObjects(): void {
 
-        for (let i: number = 0; i < movingObjects.length; i++) {       
+        for (let i: number = 0; i < movingObjects.length; i++) {
             movingObjects[i].move();
         }
     }
@@ -78,7 +93,4 @@ namespace Aufgabe11 {
             movingObjects[i].draw();
         }
     }
-
-
-
 }//namespace      

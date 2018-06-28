@@ -10,13 +10,15 @@ var Aufgabe11;
     window.addEventListener("load", init);
     let movingObjects = [];
     let n = 8;
+    let canvas;
     let imgData;
     function init(_event) {
-        Aufgabe11.canvas = document.getElementsByTagName("canvas")[0];
-        Aufgabe11.crc2 = Aufgabe11.canvas.getContext("2d");
+        canvas = document.getElementsByTagName("canvas")[0];
+        Aufgabe11.crc2 = canvas.getContext("2d");
+        canvas.addEventListener("click", insertFood);
         //Hintergrund 
         Aufgabe11.environment();
-        imgData = Aufgabe11.crc2.getImageData(0, 0, Aufgabe11.canvas.width, Aufgabe11.canvas.height);
+        imgData = Aufgabe11.crc2.getImageData(0, 0, canvas.width, canvas.height);
         //rechts
         for (let b = 0; b < 20; b++) {
             let bubbles = new Aufgabe11.BubblesOne();
@@ -32,6 +34,17 @@ var Aufgabe11;
             movingObjects.push(fish);
         }
         animate();
+    }
+    function insertFood(_event) {
+        let newPositionX = _event.clientX;
+        let newPositionY = _event.clientY;
+        for (let i = 0; i < 4; i++) {
+            let flakes = new Aufgabe11.Flakes(newPositionX, newPositionY);
+            movingObjects.push(flakes);
+            newPositionX += Math.random() * 100;
+            newPositionX -= Math.random() * 100;
+            newPositionY += Math.random() * 40;
+        }
     }
     function animate() {
         window.setTimeout(animate, 10);

@@ -6,18 +6,18 @@ namespace Aufgabe11 {
             super();        
         }
         
-        moveBubbles(): void {
+        setRandomPosition(): void {
+            this.x = Math.random() * (200 - 250) + 250; //Math.random()* (max - min) + min 
+            this.y = Math.random() * 550;
+            this.radius = Math.random() * 10;
+            }
+        
+        move(): void {
             this.x += 0;
             this.y -= 2;
             if (this.y < 0) {
                 this.y = 540;
             }    
-        } 
-        
-        setRandomPosition(): void {
-            this.x = Math.random() * (200 - 250) + 250;
-            this.y = Math.random() * 550;
-            this.radius = Math.random() * 10;
-            }
+        }   
    }
 }

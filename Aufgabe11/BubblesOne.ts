@@ -2,6 +2,7 @@ namespace Aufgabe11 {
     
     //rechts
     export class BubblesOne extends MovingObjects {
+        
         radius: number;
        
         constructor() {
@@ -9,21 +10,21 @@ namespace Aufgabe11 {
             this.setRandomPosition();
         }
 
-        moveBubbles(): void {
+        setRandomPosition(): void {
+            this.x = Math.random() * (730 - 760) + 760;           
+            this.y = Math.random() * 550;
+            this.radius = Math.random() * 10;
+            }
+        
+        move(): void {
             this.x += 0;           
             this.y -= 2;
             if (this.y < 0) {
                 this.y = 590;
             }
         }
-        
-        setRandomPosition(): void {
-            this.x = Math.random() * (730 - 760) + 760;           
-            this.y = Math.random() * 550;
-            this.radius = Math.random() * 10;
-            }
 
-        drawBubbles(): void {
+        draw(): void {
             crc2.fillStyle = "rgb(206, 220, 226, 0.6)";
 
             crc2.beginPath();
