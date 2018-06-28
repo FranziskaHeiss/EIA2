@@ -13,13 +13,13 @@ var Aufgabe11;
                 this.y += 0;
             }
             if (this.y < 0) {
-                this.y = Aufgabe11.crc2.canvas.height;
+                this.y = Aufgabe11.crc2.canvas.height - 200;
                 this.x -= 2;
             }
         }
         setRandomPosition() {
             this.x = Math.random() * Aufgabe11.crc2.canvas.width;
-            this.y = Math.random() * Aufgabe11.crc2.canvas.height;
+            this.y = Math.random() * Aufgabe11.crc2.canvas.height - 200;
         }
         draw() {
             let gradient = Aufgabe11.crc2.createLinearGradient(300, 600, 300, 500);

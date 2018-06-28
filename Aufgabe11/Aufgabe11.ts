@@ -1,10 +1,10 @@
-/*  Aufgabe: Aufgabe 10: Classes: OO Seaworld
+/*  Aufgabe: Aufgabe 11: Inheritance: Seaworld
     Name: Franziska Heiﬂ
     Matrikel: 257745
-    Datum: 24.06.18
+    Datum: 28.06.18
     
     Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
-    Dieser Code wurde zusammen mit Alena Hurst erarbeitet*/
+    Dieser Code wurde zusammen mit Alena Hurst und Anna Lotz erarbeitet*/
 
 namespace Aufgabe11 {
 

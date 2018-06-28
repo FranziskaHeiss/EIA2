@@ -15,14 +15,14 @@ namespace Aufgabe11 {
                 this.y += 0;
             }
             if (this.y < 0) {
-                this.y = crc2.canvas.height;
+                this.y = crc2.canvas.height - 200;
                 this.x -= 2;
             }
         }
 
         setRandomPosition(): void {
             this.x = Math.random() * crc2.canvas.width;
-            this.y = Math.random() * crc2.canvas.height;
+            this.y = Math.random() * crc2.canvas.height - 200;
         }
 
         draw(): void {

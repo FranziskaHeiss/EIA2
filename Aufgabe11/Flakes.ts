@@ -2,6 +2,7 @@ namespace Aufgabe11 {
     export class Flakes extends MovingObjects {
         radius: number;
         color: string;
+        stop: number; 
 
         constructor(newPositionX: number, newPositionY: number) {
             super();
@@ -9,14 +10,15 @@ namespace Aufgabe11 {
             this.x = newPositionX;
             this.y = newPositionY;
             this.radius = 3;  
+            this.stop = Math.random() * (690 - 640) + 640;
         }
 
         move(): void {
             this.x += 0;
             this.y += 1;
 
-            if (this.y > 670) {
-                this.y = 670;
+            if (this.y > this.stop) {
+                this.y = this.stop;
             }
         }
 

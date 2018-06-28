@@ -7,12 +7,13 @@ var Aufgabe11;
             this.x = newPositionX;
             this.y = newPositionY;
             this.radius = 3;
+            this.stop = Math.random() * (690 - 640) + 640;
         }
         move() {
             this.x += 0;
             this.y += 1;
-            if (this.y > 670) {
-                this.y = 670;
+            if (this.y > this.stop) {
+                this.y = this.stop;
             }
         }
         draw() {
