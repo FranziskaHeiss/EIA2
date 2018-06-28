@@ -39,5 +39,5 @@ var Aufgabe11;
         }
     }
     Aufgabe11.Fish = Fish;
-})(Aufgabe11 || (Aufgabe11 = {}));
+})(Aufgabe11 || (Aufgabe11 = {})); //namespace
 //# sourceMappingURL=Fish.js.map

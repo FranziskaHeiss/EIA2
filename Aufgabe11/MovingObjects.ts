@@ -16,5 +16,5 @@ namespace Aufgabe11 {
         }
  
         
-} //class MovingObjects zu
-}
+  } //class MovingObjects zu
+}//namepsace

@@ -50,10 +50,4 @@ namespace Aufgabe11 {
         }
     }
 
-
-
-
-
-
-
-}
+}//namespace
