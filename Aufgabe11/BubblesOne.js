@@ -4,7 +4,7 @@ var Aufgabe11;
     class BubblesOne extends Aufgabe11.MovingObjects {
         constructor() {
             super();
-            this.setRandomPosition;
+            this.setRandomPosition();
         }
         moveBubbles() {
             this.x += 0;

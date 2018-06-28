@@ -4,9 +4,9 @@ namespace Aufgabe11 {
     export class BubblesOne extends MovingObjects {
         radius: number;
        
-        constructor(){
+        constructor() {
             super();
-            this.setRandomPosition;
+            this.setRandomPosition();
         }
 
         moveBubbles(): void {
@@ -17,7 +17,7 @@ namespace Aufgabe11 {
             }
         }
         
-        setRandomPosition(): void{
+        setRandomPosition(): void {
             this.x = Math.random() * (730 - 760) + 760;           
             this.y = Math.random() * 550;
             this.radius = Math.random() * 10;
