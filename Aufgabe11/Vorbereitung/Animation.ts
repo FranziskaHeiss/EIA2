@@ -1,11 +1,11 @@
-namespace L11 {
+namespace Vorbereitung {
+    
     window.addEventListener("load", init);
     export let crc2: CanvasRenderingContext2D;
     let stars: DavidStar[] = [];
-    let n: number = 100;
+    let n: number = 15;
 
     //let rects: Rect[] = [];
-
     function init(_event: Event): void {
         let canvas: HTMLCanvasElement = document.getElementsByTagName("canvas")[0];
         crc2 = canvas.getContext("2d");
@@ -14,20 +14,43 @@ namespace L11 {
         canvas.addEventListener("click", insertNewObject);
 
         for (let i: number = 0; i < n; i++) {
-            let star: DavidStar = new DavidStar("#00ffff");
+            let star: DavidStar = new DavidStar("#b70730");
             stars.push(star);
 
-            let rect: Rect = new Rect("#ff0000");
+            let rect: Rect = new Rect("#4b754c");
             stars.push(rect);
         }
-
 
         animate();
     }
 
-    function insertNewObject(_event: Event): void {
-        let star: DavidStar = new DavidStar("#ffff00");
-        stars.push(star);
+    function insertNewObject(_event: MouseEvent): void {
+        let randomObject: number = Math.floor(Math.random() * 3);
+        let newPositionX: number = _event.clientX;
+        let newPositonY: number = _event.clientY;
+
+        switch (randomObject) {
+            case 0:
+                let star: DavidStar = new DavidStar("#4a5b77");
+                star.x = newPositionX;
+                star.y = newPositonY;
+                stars.push(star);
+                break;
+
+            case 1:
+                let rect: Rect = new Rect("#efa017");
+                rect.x = newPositionX;
+                rect.y = newPositonY;
+                stars.push(rect);
+                break;
+
+            case 2:
+                let blueDavidStar: DavidStarBlue = new DavidStarBlue("#1adbce");
+                blueDavidStar.x = newPositionX;
+                blueDavidStar.y = newPositonY;
+                stars.push(blueDavidStar);
+                break;
+        }
     }
 
     function animate(): void {

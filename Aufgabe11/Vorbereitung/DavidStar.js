@@ -1,13 +1,13 @@
-var L11;
-(function (L11) {
+var Vorbereitung;
+(function (Vorbereitung) {
     class DavidStar {
         constructor(_color) {
             this.setRandomPosition();
             this.color = _color;
         }
         setRandomPosition() {
-            this.x = Math.random() * L11.crc2.canvas.width;
-            this.y = Math.random() * L11.crc2.canvas.height;
+            this.x = Math.random() * Vorbereitung.crc2.canvas.width;
+            this.y = Math.random() * Vorbereitung.crc2.canvas.height;
         }
         // declare method without keyword function
         move() {
@@ -15,20 +15,20 @@ var L11;
             this.y += Math.random() * 4 - 2;
         }
         draw() {
-            L11.crc2.beginPath();
-            L11.crc2.moveTo(this.x, this.y - 20);
-            L11.crc2.lineTo(this.x + 20, this.y + 10);
-            L11.crc2.lineTo(this.x - 20, this.y + 10);
-            L11.crc2.closePath();
-            L11.crc2.moveTo(this.x, this.y + 20);
-            L11.crc2.lineTo(this.x + 20, this.y - 10);
-            L11.crc2.lineTo(this.x - 20, this.y - 10);
-            L11.crc2.closePath();
-            L11.crc2.fillStyle = this.color;
-            L11.crc2.stroke();
-            L11.crc2.fill();
+            Vorbereitung.crc2.beginPath();
+            Vorbereitung.crc2.moveTo(this.x, this.y - 20);
+            Vorbereitung.crc2.lineTo(this.x + 20, this.y + 10);
+            Vorbereitung.crc2.lineTo(this.x - 20, this.y + 10);
+            Vorbereitung.crc2.closePath();
+            Vorbereitung.crc2.moveTo(this.x, this.y + 20);
+            Vorbereitung.crc2.lineTo(this.x + 20, this.y - 10);
+            Vorbereitung.crc2.lineTo(this.x - 20, this.y - 10);
+            Vorbereitung.crc2.closePath();
+            Vorbereitung.crc2.fillStyle = this.color;
+            Vorbereitung.crc2.stroke();
+            Vorbereitung.crc2.fill();
         }
     }
-    L11.DavidStar = DavidStar;
-})(L11 || (L11 = {}));
+    Vorbereitung.DavidStar = DavidStar;
+})(Vorbereitung || (Vorbereitung = {}));
 //# sourceMappingURL=DavidStar.js.map
