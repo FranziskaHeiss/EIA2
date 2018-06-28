@@ -41,9 +41,9 @@ var Aufgabe11;
         for (let i = 0; i < 4; i++) {
             let flakes = new Aufgabe11.Flakes(newPositionX, newPositionY);
             movingObjects.push(flakes);
-            newPositionX += Math.random() * 100;
-            newPositionX -= Math.random() * 100;
-            newPositionY += Math.random() * 40;
+            newPositionX += Math.random() * 60;
+            newPositionX -= Math.random() * 60;
+            newPositionY += Math.random() * 30;
         }
     }
     function animate() {
