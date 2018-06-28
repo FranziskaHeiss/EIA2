@@ -6,7 +6,7 @@ namespace Aufgabe11 {
         constructor() {
             //
         }
-      
+ 
         move(): void {
             //
         }

@@ -13,6 +13,7 @@ namespace Aufgabe11 {
     let movingObjects: MovingObjects[] = [];
     let n: number = 8;
 
+    
     export let canvas: HTMLCanvasElement;
     let imgData: ImageData;
 
@@ -20,12 +21,11 @@ namespace Aufgabe11 {
     function init(_event: Event): void {
         canvas = document.getElementsByTagName("canvas")[0];
         crc2 = canvas.getContext("2d");       
-        
+       
 
         //Hintergrund 
         environment();
         imgData = crc2.getImageData(0, 0, canvas.width, canvas.height);
-        
 
         //rechts
         for (let b: number = 0; b < 20; b++) {
@@ -65,7 +65,7 @@ namespace Aufgabe11 {
     // moveObjects-Funktion
     function moveObjects(): void {
 
-        for (let i: number = 0; i < movingObjects.length; i++) {
+        for (let i: number = 0; i < movingObjects.length; i++) {       
             movingObjects[i].move();
         }
     }
