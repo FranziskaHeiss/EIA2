@@ -1,6 +1,6 @@
 namespace Aufgabe11 {
      //links
-    export class BubblesTwo extends BubblesOne {
+    export class BubbleTwo extends BubbleOne {
         
         constructor() {
             super();        

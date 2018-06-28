@@ -1,6 +1,6 @@
 var Aufgabe11;
 (function (Aufgabe11) {
-    class Flakes extends Aufgabe11.MovingObjects {
+    class Flake extends Aufgabe11.MovingObjects {
         constructor(newPositionX, newPositionY) {
             super();
             this.setRandomColor();
@@ -39,6 +39,6 @@ var Aufgabe11;
             }
         }
     }
-    Aufgabe11.Flakes = Flakes;
+    Aufgabe11.Flake = Flake;
 })(Aufgabe11 || (Aufgabe11 = {})); //namespace
-//# sourceMappingURL=Flakes.js.map
+//# sourceMappingURL=Flake.js.map

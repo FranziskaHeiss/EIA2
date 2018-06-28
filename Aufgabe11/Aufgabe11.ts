@@ -29,13 +29,13 @@ namespace Aufgabe11 {
 
         //rechts
         for (let b: number = 0; b < 20; b++) {
-            let bubbles: BubblesOne = new BubblesOne();
+            let bubbles: BubbleOne = new BubbleOne();
             movingObjects.push(bubbles);
         }
 
         //links
         for (let b: number = 0; b < 20; b++) {
-            let bubbles: BubblesTwo = new BubblesTwo();
+            let bubbles: BubbleTwo = new BubbleTwo();
             movingObjects.push(bubbles);
         }
 
@@ -57,7 +57,7 @@ namespace Aufgabe11 {
 
         
         for (let i: number = 0; i < 4; i++) {
-            let flakes: Flakes = new Flakes(newPositionX, newPositionY);
+            let flakes: Flake = new Flake(newPositionX, newPositionY);
             movingObjects.push(flakes);
             newPositionX += Math.random() * 60; 
             newPositionX -= Math.random() * 60; 

@@ -1,5 +1,5 @@
 namespace Aufgabe11 {
-    export class Flakes extends MovingObjects {
+    export class Flake extends MovingObjects {
         radius: number;
         color: string;
         stop: number; 

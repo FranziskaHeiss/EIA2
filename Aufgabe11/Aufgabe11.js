@@ -21,12 +21,12 @@ var Aufgabe11;
         imgData = Aufgabe11.crc2.getImageData(0, 0, canvas.width, canvas.height);
         //rechts
         for (let b = 0; b < 20; b++) {
-            let bubbles = new Aufgabe11.BubblesOne();
+            let bubbles = new Aufgabe11.BubbleOne();
             movingObjects.push(bubbles);
         }
         //links
         for (let b = 0; b < 20; b++) {
-            let bubbles = new Aufgabe11.BubblesTwo();
+            let bubbles = new Aufgabe11.BubbleTwo();
             movingObjects.push(bubbles);
         }
         for (let i = 0; i < n; i++) {
@@ -39,7 +39,7 @@ var Aufgabe11;
         let newPositionX = _event.clientX;
         let newPositionY = _event.clientY;
         for (let i = 0; i < 4; i++) {
-            let flakes = new Aufgabe11.Flakes(newPositionX, newPositionY);
+            let flakes = new Aufgabe11.Flake(newPositionX, newPositionY);
             movingObjects.push(flakes);
             newPositionX += Math.random() * 60;
             newPositionX -= Math.random() * 60;

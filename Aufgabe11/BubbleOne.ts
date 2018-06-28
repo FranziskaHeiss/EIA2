@@ -1,7 +1,7 @@
 namespace Aufgabe11 {
     
     //rechts
-    export class BubblesOne extends MovingObjects {
+    export class BubbleOne extends MovingObjects {
         
         radius: number;
        

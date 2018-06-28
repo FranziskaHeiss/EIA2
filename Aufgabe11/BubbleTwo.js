@@ -1,7 +1,7 @@
 var Aufgabe11;
 (function (Aufgabe11) {
     //links
-    class BubblesTwo extends Aufgabe11.BubblesOne {
+    class BubbleTwo extends Aufgabe11.BubbleOne {
         constructor() {
             super();
         }
@@ -18,6 +18,6 @@ var Aufgabe11;
             }
         }
     }
-    Aufgabe11.BubblesTwo = BubblesTwo;
+    Aufgabe11.BubbleTwo = BubbleTwo;
 })(Aufgabe11 || (Aufgabe11 = {}));
-//# sourceMappingURL=BubblesTwo.js.map
+//# sourceMappingURL=BubbleTwo.js.map
