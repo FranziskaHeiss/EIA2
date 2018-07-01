@@ -59,8 +59,8 @@ namespace Aufgabe11 {
         for (let i: number = 0; i < 4; i++) {
             let flakes: Flake = new Flake(newPositionX, newPositionY);
             movingObjects.push(flakes);
-            newPositionX += Math.random() * 60; 
-            newPositionX -= Math.random() * 60; 
+            newPositionX += Math.random() * 50; 
+            newPositionX -= Math.random() * 50; 
             newPositionY += Math.random() * 30;         
         } 
     }

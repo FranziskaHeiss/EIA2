@@ -41,8 +41,8 @@ var Aufgabe11;
         for (let i = 0; i < 4; i++) {
             let flakes = new Aufgabe11.Flake(newPositionX, newPositionY);
             movingObjects.push(flakes);
-            newPositionX += Math.random() * 60;
-            newPositionX -= Math.random() * 60;
+            newPositionX += Math.random() * 50;
+            newPositionX -= Math.random() * 50;
             newPositionY += Math.random() * 30;
         }
     }

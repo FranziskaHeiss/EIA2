@@ -22,7 +22,7 @@ var Aufgabe11;
             this.y = Math.random() * Aufgabe11.crc2.canvas.height - 200;
         }
         draw() {
-            let gradient = Aufgabe11.crc2.createLinearGradient(300, 600, 300, 500);
+            let gradient = Aufgabe11.crc2.createLinearGradient(300, 500, 300, 300);
             gradient.addColorStop(0, "#ff4d4d");
             gradient.addColorStop(1, "#ff751a");
             Aufgabe11.crc2.fillStyle = gradient;

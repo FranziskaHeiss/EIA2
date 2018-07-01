@@ -27,7 +27,7 @@ namespace Aufgabe11 {
 
         draw(): void {
 
-            let gradient: CanvasGradient = crc2.createLinearGradient(300, 600, 300, 500);
+            let gradient: CanvasGradient = crc2.createLinearGradient(300, 500, 300, 300);
 
             gradient.addColorStop(0, "#ff4d4d");
             gradient.addColorStop(1, "#ff751a");
