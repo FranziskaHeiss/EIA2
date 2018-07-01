@@ -1,3 +1,11 @@
+/*  Aufgabe: Aufgabe 11: Inheritance: Seaworld
+    Name: Franziska Heiﬂ
+    Matrikel: 257745
+    Datum: 28.06.18
+    
+    Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
+    Dieser Code wurde zusammen mit Alena Hurst und Sofia Gschwend erarbeitet*/
+
 namespace Vorbereitung {
     
     window.addEventListener("load", init);
@@ -14,10 +22,10 @@ namespace Vorbereitung {
         canvas.addEventListener("click", insertNewObject);
 
         for (let i: number = 0; i < n; i++) {
-            let star: DavidStar = new DavidStar("#b70730");
+            let star: DavidStar = new DavidStar("#2BFF34");
             stars.push(star);
 
-            let rect: Rect = new Rect("#4b754c");
+            let rect: Rect = new Rect("#E8D848");
             stars.push(rect);
         }
 
@@ -31,21 +39,21 @@ namespace Vorbereitung {
 
         switch (randomObject) {
             case 0:
-                let star: DavidStar = new DavidStar("#4a5b77");
+                let star: DavidStar = new DavidStar("#28B2AA");
                 star.x = newPositionX;
                 star.y = newPositonY;
                 stars.push(star);
                 break;
 
             case 1:
-                let rect: Rect = new Rect("#efa017");
+                let rect: Rect = new Rect("#FF8721");
                 rect.x = newPositionX;
                 rect.y = newPositonY;
                 stars.push(rect);
                 break;
 
             case 2:
-                let blueDavidStar: DavidStarBlue = new DavidStarBlue("#1adbce");
+                let blueDavidStar: DavidStarBlue = new DavidStarBlue("#D331FF");
                 blueDavidStar.x = newPositionX;
                 blueDavidStar.y = newPositonY;
                 stars.push(blueDavidStar);

@@ -4,7 +4,7 @@
     Datum: 28.06.18
     
     Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
-    Dieser Code wurde zusammen mit Alena Hurst und Anna Lotz erarbeitet*/
+    Dieser Code wurde zusammen mit Alena Hurst, Anna Lotz und Sofia Gschwend erarbeitet*/
 
 namespace Aufgabe11 {
 
