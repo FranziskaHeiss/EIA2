@@ -35,27 +35,27 @@ namespace Vorbereitung {
     function insertNewObject(_event: MouseEvent): void {
         let randomObject: number = Math.floor(Math.random() * 3);
         let newPositionX: number = _event.clientX;
-        let newPositonY: number = _event.clientY;
+        let newPositionY: number = _event.clientY;
 
         switch (randomObject) {
             case 0:
                 let star: DavidStar = new DavidStar("#28B2AA");
                 star.x = newPositionX;
-                star.y = newPositonY;
+                star.y = newPositionY;
                 stars.push(star);
                 break;
 
             case 1:
                 let rect: Rect = new Rect("#FF8721");
                 rect.x = newPositionX;
-                rect.y = newPositonY;
+                rect.y = newPositionY;
                 stars.push(rect);
                 break;
 
             case 2:
                 let blueDavidStar: DavidStarBlue = new DavidStarBlue("#D331FF");
                 blueDavidStar.x = newPositionX;
-                blueDavidStar.y = newPositonY;
+                blueDavidStar.y = newPositionY;
                 stars.push(blueDavidStar);
                 break;
         }

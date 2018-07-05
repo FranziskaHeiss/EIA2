@@ -27,24 +27,24 @@ var Vorbereitung;
     function insertNewObject(_event) {
         let randomObject = Math.floor(Math.random() * 3);
         let newPositionX = _event.clientX;
-        let newPositonY = _event.clientY;
+        let newPositionY = _event.clientY;
         switch (randomObject) {
             case 0:
                 let star = new Vorbereitung.DavidStar("#28B2AA");
                 star.x = newPositionX;
-                star.y = newPositonY;
+                star.y = newPositionY;
                 stars.push(star);
                 break;
             case 1:
                 let rect = new Vorbereitung.Rect("#FF8721");
                 rect.x = newPositionX;
-                rect.y = newPositonY;
+                rect.y = newPositionY;
                 stars.push(rect);
                 break;
             case 2:
                 let blueDavidStar = new Vorbereitung.DavidStarBlue("#D331FF");
                 blueDavidStar.x = newPositionX;
-                blueDavidStar.y = newPositonY;
+                blueDavidStar.y = newPositionY;
                 stars.push(blueDavidStar);
                 break;
         }
