@@ -12,7 +12,7 @@ namespace AbschlussAufgabe {
         gradient.addColorStop(0, "#63cfc6");
         gradient.addColorStop(1, "#003d66");
         crc2.fillStyle = gradient;
-        crc2.fillRect(0, 0, 1000, 700);
+        crc2.fillRect(0, 0, 640, 360);
 
     }
 
