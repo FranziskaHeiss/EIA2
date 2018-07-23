@@ -18,9 +18,9 @@ namespace AbschlussAufgabe {
         environment();
         imgData = crc2.getImageData(0, 0, canvas.width, canvas.height);
 
-        if (breite < hoehe) {
+        if (breite > hoehe) {
             canvas.style.setProperty("height", 0.95 * hoehe + "px");
-        } else if (hoehe < breite) {
+        } else if (hoehe > breite) {
             canvas.style.setProperty("width", 0.95 * breite + "px");
         }
 
