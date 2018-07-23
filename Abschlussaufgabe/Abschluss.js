@@ -12,10 +12,10 @@ var AbschlussAufgabe;
         //Hintergrund 
         AbschlussAufgabe.environment();
         imgData = AbschlussAufgabe.crc2.getImageData(0, 0, AbschlussAufgabe.canvas.width, AbschlussAufgabe.canvas.height);
-        if (breite > hoehe) {
+        if (breite < hoehe) {
             AbschlussAufgabe.canvas.style.setProperty("height", 0.95 * hoehe + "px");
         }
-        else if (hoehe > breite) {
+        else if (hoehe < breite) {
             AbschlussAufgabe.canvas.style.setProperty("width", 0.95 * breite + "px");
         }
     }
