@@ -1,6 +1,6 @@
 namespace AbschlussAufgabe {
     export class Wolke extends MovingObject {
-        
+
         constructor() {
             super();
             this.setRandomPosition();
@@ -35,6 +35,21 @@ namespace AbschlussAufgabe {
 
             crc2.beginPath();
             crc2.moveTo(this.x, this.y);
+            crc2.quadraticCurveTo(this.x + 5, this.y - 20, this.x + 20, this.y - 12);
+            crc2.quadraticCurveTo(this.x + 35, this.y - 30, this.x + 50, this.y - 15);
+            crc2.quadraticCurveTo(this.x + 65, this.y - 25, this.x + 75, this.y - 10);
+            crc2.quadraticCurveTo(this.x + 95, this.y - 10, this.x + 90, this.y + 10);
+            crc2.quadraticCurveTo(this.x + 100, this.y + 25, this.x + 85, this.y + 30);
+            crc2.quadraticCurveTo(this.x + 80, this.y + 45, this.x + 65, this.y + 40);
+            crc2.quadraticCurveTo(this.x + 50, this.y + 55, this.x + 35, this.y + 40);
+            crc2.quadraticCurveTo(this.x + 20, this.y + 50, this.x + 10, this.y + 35);
+            crc2.quadraticCurveTo(this.x - 5, this.y + 35, this.x, this.y + 20);
+            crc2.quadraticCurveTo(this.x - 15, this.y + 10, this.x, this.y);
+            crc2.stroke();
+
+
+            /*crc2.beginPath();
+            crc2.moveTo(this.x, this.y);
             crc2.quadraticCurveTo(this.x + 10, this.y - 20, this.x + 30, this.y - 10);
             crc2.quadraticCurveTo(this.x + 53, this.y - 35, this.x + 80, this.y - 15);
             crc2.quadraticCurveTo(this.x + 100, this.y - 25, this.x + 110, this.y - 5);
@@ -45,8 +60,8 @@ namespace AbschlussAufgabe {
             crc2.quadraticCurveTo(this.x + 15, this.y + 55, this.x + 10, this.y + 40);
             crc2.quadraticCurveTo(this.x - 10, this.y + 40, this.x - 5, this.y + 25);
             crc2.quadraticCurveTo(this.x - 20, this.y + 10, this.x, this.y);
-            crc2.stroke(); 
-                    
+            crc2.stroke(); */
+
             crc2.fill();
 
         }
