@@ -12,4 +12,4 @@ var AbschlussAufgabe;
         AbschlussAufgabe.crc2.fillRect(0, 0, 640, 360);
     }
 })(AbschlussAufgabe || (AbschlussAufgabe = {})); //namespace
-//# sourceMappingURL=Background_Flieger.js.map
+//# sourceMappingURL=Background_Plane.js.map

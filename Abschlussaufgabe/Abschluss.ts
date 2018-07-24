@@ -7,10 +7,10 @@ namespace AbschlussAufgabe {
 
     export let movingObjects: MovingObject[] = [];
 
-    let flieger: Papierflieger = new Papierflieger();
-    movingObjects.push(flieger);
+    let plane: Paperplane = new Paperplane();
+    movingObjects.push(plane);
     
-    let blub: HTMLCanvasElement;
+    let canvasClick: HTMLCanvasElement;
     
 
     function init(_event: Event): void {
@@ -23,26 +23,26 @@ namespace AbschlussAufgabe {
         imgData = crc2.getImageData(0, 0, canvas.width, canvas.height);
 
         for (let b: number = 0; b < 5; b++) {
-            let wolken: Wolke = new Wolke();
-            movingObjects.push(wolken);
+            let clouds: Cloud = new Cloud();
+            movingObjects.push(clouds);
         }
 
         animate();
 
-        blub = <HTMLCanvasElement>document.getElementsByTagName("canvas")[0];
-        blub.addEventListener("mousedown", accelerate);
-        blub.addEventListener("touchstart", accelerate);
-        console.log(blub);
+        canvasClick = <HTMLCanvasElement>document.getElementsByTagName("canvas")[0];
+        canvasClick.addEventListener("mousedown", accelerate);
+        canvasClick.addEventListener("touchstart", accelerate);
+        console.log(canvasClick);
         function accelerate(): void {
-            flieger.gravity = -0.3;
+            plane.gravity = -0.10;
             console.log("test");
         }
         
-        blub.addEventListener("mouseup", accelerate2);
-        blub.addEventListener("touchend", accelerate2);
-        console.log(blub);
+        canvasClick.addEventListener("mouseup", accelerate2);
+        canvasClick.addEventListener("touchend", accelerate2);
+        console.log(canvasClick);
         function accelerate2(): void {
-            flieger.gravity = 0.2;
+            plane.gravity = 0.5;
             console.log("test2");
         }      
         
@@ -77,7 +77,7 @@ namespace AbschlussAufgabe {
     }
 
     function newPosition(): void {
-        flieger.newPos();
+        plane.newPos();
     }
 
 

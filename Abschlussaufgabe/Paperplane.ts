@@ -1,5 +1,5 @@
 namespace AbschlussAufgabe {
-    export class Papierflieger extends MovingObject {
+    export class Paperplane extends MovingObject {
 
         positionX: number = 0;
         positionY: number = 0;

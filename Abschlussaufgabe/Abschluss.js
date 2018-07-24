@@ -3,9 +3,9 @@ var AbschlussAufgabe;
     window.addEventListener("load", init);
     let imgData;
     AbschlussAufgabe.movingObjects = [];
-    let flieger = new AbschlussAufgabe.Papierflieger();
-    AbschlussAufgabe.movingObjects.push(flieger);
-    let blub;
+    let plane = new AbschlussAufgabe.Paperplane();
+    AbschlussAufgabe.movingObjects.push(plane);
+    let canvasClick;
     function init(_event) {
         AbschlussAufgabe.canvas = document.getElementsByTagName("canvas")[0];
         AbschlussAufgabe.crc2 = AbschlussAufgabe.canvas.getContext("2d");
@@ -14,23 +14,23 @@ var AbschlussAufgabe;
         AbschlussAufgabe.environment();
         imgData = AbschlussAufgabe.crc2.getImageData(0, 0, AbschlussAufgabe.canvas.width, AbschlussAufgabe.canvas.height);
         for (let b = 0; b < 5; b++) {
-            let wolken = new AbschlussAufgabe.Wolke();
-            AbschlussAufgabe.movingObjects.push(wolken);
+            let clouds = new AbschlussAufgabe.Cloud();
+            AbschlussAufgabe.movingObjects.push(clouds);
         }
         animate();
-        blub = document.getElementsByTagName("canvas")[0];
-        blub.addEventListener("mousedown", accelerate);
-        blub.addEventListener("touchstart", accelerate);
-        console.log(blub);
+        canvasClick = document.getElementsByTagName("canvas")[0];
+        canvasClick.addEventListener("mousedown", accelerate);
+        canvasClick.addEventListener("touchstart", accelerate);
+        console.log(canvasClick);
         function accelerate() {
-            flieger.gravity = -0.3;
+            plane.gravity = -0.10;
             console.log("test");
         }
-        blub.addEventListener("mouseup", accelerate2);
-        blub.addEventListener("touchend", accelerate2);
-        console.log(blub);
+        canvasClick.addEventListener("mouseup", accelerate2);
+        canvasClick.addEventListener("touchend", accelerate2);
+        console.log(canvasClick);
         function accelerate2() {
-            flieger.gravity = 0.2;
+            plane.gravity = 0.5;
             console.log("test2");
         }
     }
@@ -55,7 +55,7 @@ var AbschlussAufgabe;
         }
     }
     function newPosition() {
-        flieger.newPos();
+        plane.newPos();
     }
 })(AbschlussAufgabe || (AbschlussAufgabe = {})); //namespace
 //# sourceMappingURL=Abschluss.js.map

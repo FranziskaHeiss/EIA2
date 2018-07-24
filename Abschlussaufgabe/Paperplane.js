@@ -1,6 +1,6 @@
 var AbschlussAufgabe;
 (function (AbschlussAufgabe) {
-    class Papierflieger extends AbschlussAufgabe.MovingObject {
+    class Paperplane extends AbschlussAufgabe.MovingObject {
         constructor() {
             super();
             this.positionX = 0;
@@ -53,6 +53,6 @@ var AbschlussAufgabe;
             }
         }
     }
-    AbschlussAufgabe.Papierflieger = Papierflieger;
+    AbschlussAufgabe.Paperplane = Paperplane;
 })(AbschlussAufgabe || (AbschlussAufgabe = {})); //namespace
-//# sourceMappingURL=Papierflieger.js.map
+//# sourceMappingURL=Paperplane.js.map

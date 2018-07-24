@@ -1,6 +1,6 @@
 var AbschlussAufgabe;
 (function (AbschlussAufgabe) {
-    class Wolke extends AbschlussAufgabe.MovingObject {
+    class Cloud extends AbschlussAufgabe.MovingObject {
         constructor() {
             super();
             this.setRandomPosition();
@@ -42,6 +42,6 @@ var AbschlussAufgabe;
             AbschlussAufgabe.crc2.fill();
         }
     }
-    AbschlussAufgabe.Wolke = Wolke;
+    AbschlussAufgabe.Cloud = Cloud;
 })(AbschlussAufgabe || (AbschlussAufgabe = {})); //namespace
-//# sourceMappingURL=Wolke.js.map
+//# sourceMappingURL=Cloud.js.map
