@@ -4,10 +4,14 @@ namespace AbschlussAufgabe {
     export let crc2: CanvasRenderingContext2D;
     export let canvas: HTMLCanvasElement;
     let imgData: ImageData;
-    //let breite: number = <number>(window.innerWidth);
-    //let hoehe: number = <number>(window.innerHeight);
 
     export let movingObjects: MovingObject[] = [];
+
+    let flieger: Papierflieger = new Papierflieger();
+    movingObjects.push(flieger);
+    
+    let blub: HTMLButtonElement;
+    
 
     function init(_event: Event): void {
         canvas = document.getElementsByTagName("canvas")[0];
@@ -18,22 +22,29 @@ namespace AbschlussAufgabe {
         environment();
         imgData = crc2.getImageData(0, 0, canvas.width, canvas.height);
 
-        /*if (breite > hoehe) {
-            canvas.style.setProperty("height", 0.9 * hoehe + "px");
-        } else if (hoehe > breite) {
-            canvas.style.setProperty("width", 0.9 * breite + "px");
-        }*/
-
-        /*for (let i: number = 0; i < 1; i++) {*/
-        let flieger: Papierflieger = new Papierflieger();
-        movingObjects.push(flieger);
-        
         for (let b: number = 0; b < 5; b++) {
             let wolken: Wolke = new Wolke();
             movingObjects.push(wolken);
         }
-            
+
         animate();
+
+        blub = <HTMLButtonElement>document.getElementById("Button");
+        blub.addEventListener("mousedown", accelerate);
+        console.log(blub);
+        function accelerate(): void {
+            flieger.gravity = -0.3;
+            console.log("test");
+        }
+        
+        blub.addEventListener("mouseup", accelerate2);
+        console.log(blub);
+        function accelerate2(): void {
+            flieger.gravity = 0.2;
+            console.log("test2");
+        }
+        
+        
     }
 
     function animate(): void {
@@ -45,6 +56,7 @@ namespace AbschlussAufgabe {
 
         moveObjects();
         drawObjects();
+        newPosition();
     }
 
     // moveObjects-Funktion
@@ -55,7 +67,6 @@ namespace AbschlussAufgabe {
         }
     }
 
-
     //drawObjects-Funktion
     function drawObjects(): void {
 
@@ -63,5 +74,11 @@ namespace AbschlussAufgabe {
             movingObjects[i].draw();
         }
     }
+
+    function newPosition(): void {
+        flieger.newPos();
+    }
+
+
 
 }//namespace

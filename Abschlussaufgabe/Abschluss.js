@@ -2,9 +2,10 @@ var AbschlussAufgabe;
 (function (AbschlussAufgabe) {
     window.addEventListener("load", init);
     let imgData;
-    //let breite: number = <number>(window.innerWidth);
-    //let hoehe: number = <number>(window.innerHeight);
     AbschlussAufgabe.movingObjects = [];
+    let flieger = new AbschlussAufgabe.Papierflieger();
+    AbschlussAufgabe.movingObjects.push(flieger);
+    let blub;
     function init(_event) {
         AbschlussAufgabe.canvas = document.getElementsByTagName("canvas")[0];
         AbschlussAufgabe.crc2 = AbschlussAufgabe.canvas.getContext("2d");
@@ -12,19 +13,24 @@ var AbschlussAufgabe;
         //Hintergrund 
         AbschlussAufgabe.environment();
         imgData = AbschlussAufgabe.crc2.getImageData(0, 0, AbschlussAufgabe.canvas.width, AbschlussAufgabe.canvas.height);
-        /*if (breite > hoehe) {
-            canvas.style.setProperty("height", 0.9 * hoehe + "px");
-        } else if (hoehe > breite) {
-            canvas.style.setProperty("width", 0.9 * breite + "px");
-        }*/
-        /*for (let i: number = 0; i < 1; i++) {*/
-        let flieger = new AbschlussAufgabe.Papierflieger();
-        AbschlussAufgabe.movingObjects.push(flieger);
         for (let b = 0; b < 5; b++) {
             let wolken = new AbschlussAufgabe.Wolke();
             AbschlussAufgabe.movingObjects.push(wolken);
         }
         animate();
+        blub = document.getElementById("Button");
+        blub.addEventListener("mousedown", accelerate);
+        console.log(blub);
+        function accelerate() {
+            flieger.gravity = -0.3;
+            console.log("test");
+        }
+        blub.addEventListener("mouseup", accelerate2);
+        console.log(blub);
+        function accelerate2() {
+            flieger.gravity = 0.2;
+            console.log("test2");
+        }
     }
     function animate() {
         window.setTimeout(animate, 10);
@@ -32,6 +38,7 @@ var AbschlussAufgabe;
         AbschlussAufgabe.crc2.putImageData(imgData, 0, 0); // die Zahlen bestimmen den Ankerpunkt des Hintergrundes
         moveObjects();
         drawObjects();
+        newPosition();
     }
     // moveObjects-Funktion
     function moveObjects() {
@@ -44,6 +51,9 @@ var AbschlussAufgabe;
         for (let i = 0; i < AbschlussAufgabe.movingObjects.length; i++) {
             AbschlussAufgabe.movingObjects[i].draw();
         }
+    }
+    function newPosition() {
+        flieger.newPos();
     }
 })(AbschlussAufgabe || (AbschlussAufgabe = {})); //namespace
 //# sourceMappingURL=Abschluss.js.map

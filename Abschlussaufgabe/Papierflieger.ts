@@ -1,22 +1,27 @@
 namespace AbschlussAufgabe {
     export class Papierflieger extends MovingObject {
 
+        speedX: number = 0;
+        speedY: number = 0;
+        gravity: number = 0.05;
+        gravitySpeed: number = 0;
+
         constructor() {
             super();
-            this.setStartPosition(); 
+            this.setStartPosition();
         }
 
         setStartPosition(): void {
-            this.x = 20; 
-            this.y = 100; 
-            }
-        
+            this.x = 20;
+            this.y = 100;
+        }
+
         draw(): void {
             crc2.beginPath();
             crc2.fillStyle = "rgb(179, 179, 179)";
             crc2.moveTo(this.x, this.y);
             crc2.lineTo(this.x - 10, this.y - 15);
-            crc2.lineTo(this.x - 73, this.y - 3);
+            crc2.lineTo(this.x + 73, this.y - 3);
             crc2.lineTo(this.x, this.y);
             crc2.lineTo(this.x - 5, this.y + 15);
             crc2.lineTo(this.x + 3, this.y + 8);
@@ -25,11 +30,27 @@ namespace AbschlussAufgabe {
             crc2.lineTo(this.x + 4, this.y + 8);
             crc2.lineTo(this.x - 5, this.y + 16);
             crc2.lineTo(this.x + 3, this.y + 14);
-            crc2.closePath();
+
             crc2.stroke();
-            
+
             crc2.fill();
             console.log("Hallo");
+        }
+
+        newPos(): void {
+            this.gravitySpeed += this.gravity;
+            this.x += this.speedX;
+            this.y += this.speedY + this.gravitySpeed;
+            this.hitBottom();
+            
+        }
+
+        hitBottom(): void {
+            var rockbottom: number = canvas.height;
+            if (this.y > rockbottom) {
+                this.y = rockbottom;
+                this.gravitySpeed = 0;               
+            }
         }
 
     }
