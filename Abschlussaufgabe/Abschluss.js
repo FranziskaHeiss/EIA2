@@ -2,8 +2,8 @@ var AbschlussAufgabe;
 (function (AbschlussAufgabe) {
     window.addEventListener("load", init);
     let imgData;
-    let breite = (window.innerWidth);
-    let hoehe = (window.innerHeight);
+    //let breite: number = <number>(window.innerWidth);
+    //let hoehe: number = <number>(window.innerHeight);
     AbschlussAufgabe.movingObjects = [];
     function init(_event) {
         AbschlussAufgabe.canvas = document.getElementsByTagName("canvas")[0];
@@ -12,12 +12,14 @@ var AbschlussAufgabe;
         //Hintergrund 
         AbschlussAufgabe.environment();
         imgData = AbschlussAufgabe.crc2.getImageData(0, 0, AbschlussAufgabe.canvas.width, AbschlussAufgabe.canvas.height);
-        if (breite > hoehe) {
-            AbschlussAufgabe.canvas.style.setProperty("height", 0.95 * hoehe + "px");
-        }
-        else if (hoehe > breite) {
-            AbschlussAufgabe.canvas.style.setProperty("width", 0.95 * breite + "px");
-        }
+        /*if (breite > hoehe) {
+            canvas.style.setProperty("height", 0.95 * hoehe + "px");
+        } else if (hoehe > breite) {
+            canvas.style.setProperty("width", 0.95 * breite + "px");
+        }*/
+        /*for (let i: number = 0; i < 1; i++) {*/
+        let flieger = new AbschlussAufgabe.Papierflieger();
+        AbschlussAufgabe.movingObjects.push(flieger);
         for (let b = 0; b < 5; b++) {
             let wolken = new AbschlussAufgabe.Wolke();
             AbschlussAufgabe.movingObjects.push(wolken);

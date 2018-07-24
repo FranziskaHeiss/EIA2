@@ -4,8 +4,8 @@ namespace AbschlussAufgabe {
     export let crc2: CanvasRenderingContext2D;
     export let canvas: HTMLCanvasElement;
     let imgData: ImageData;
-    let breite: number = <number>(window.innerWidth);
-    let hoehe: number = <number>(window.innerHeight);
+    //let breite: number = <number>(window.innerWidth);
+    //let hoehe: number = <number>(window.innerHeight);
 
     export let movingObjects: MovingObject[] = [];
 
@@ -18,21 +18,24 @@ namespace AbschlussAufgabe {
         environment();
         imgData = crc2.getImageData(0, 0, canvas.width, canvas.height);
 
-        if (breite > hoehe) {
+        /*if (breite > hoehe) {
             canvas.style.setProperty("height", 0.95 * hoehe + "px");
         } else if (hoehe > breite) {
             canvas.style.setProperty("width", 0.95 * breite + "px");
-        }
+        }*/
+
+        /*for (let i: number = 0; i < 1; i++) {*/
+        let flieger: Papierflieger = new Papierflieger();
+        movingObjects.push(flieger);
         
         for (let b: number = 0; b < 5; b++) {
             let wolken: Wolke = new Wolke();
             movingObjects.push(wolken);
         }
-
-       
+            
         animate();
     }
-    
+
     function animate(): void {
 
         window.setTimeout(animate, 10);
