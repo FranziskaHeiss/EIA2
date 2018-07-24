@@ -10,7 +10,7 @@ namespace AbschlussAufgabe {
     let flieger: Papierflieger = new Papierflieger();
     movingObjects.push(flieger);
     
-    let blub: HTMLButtonElement;
+    let blub: HTMLCanvasElement;
     
 
     function init(_event: Event): void {
@@ -29,8 +29,9 @@ namespace AbschlussAufgabe {
 
         animate();
 
-        blub = <HTMLButtonElement>document.getElementById("Button");
+        blub = <HTMLCanvasElement>document.getElementsByTagName("canvas")[0];
         blub.addEventListener("mousedown", accelerate);
+        blub.addEventListener("touchstart", accelerate);
         console.log(blub);
         function accelerate(): void {
             flieger.gravity = -0.3;
@@ -38,12 +39,12 @@ namespace AbschlussAufgabe {
         }
         
         blub.addEventListener("mouseup", accelerate2);
+        blub.addEventListener("touchend", accelerate2);
         console.log(blub);
         function accelerate2(): void {
             flieger.gravity = 0.2;
             console.log("test2");
-        }
-        
+        }      
         
     }
 

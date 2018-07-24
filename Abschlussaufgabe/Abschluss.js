@@ -18,14 +18,16 @@ var AbschlussAufgabe;
             AbschlussAufgabe.movingObjects.push(wolken);
         }
         animate();
-        blub = document.getElementById("Button");
+        blub = document.getElementsByTagName("canvas")[0];
         blub.addEventListener("mousedown", accelerate);
+        blub.addEventListener("touchstart", accelerate);
         console.log(blub);
         function accelerate() {
             flieger.gravity = -0.3;
             console.log("test");
         }
         blub.addEventListener("mouseup", accelerate2);
+        blub.addEventListener("touchend", accelerate2);
         console.log(blub);
         function accelerate2() {
             flieger.gravity = 0.2;
