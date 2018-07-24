@@ -13,9 +13,9 @@ var AbschlussAufgabe;
         AbschlussAufgabe.environment();
         imgData = AbschlussAufgabe.crc2.getImageData(0, 0, AbschlussAufgabe.canvas.width, AbschlussAufgabe.canvas.height);
         /*if (breite > hoehe) {
-            canvas.style.setProperty("height", 0.95 * hoehe + "px");
+            canvas.style.setProperty("height", 0.9 * hoehe + "px");
         } else if (hoehe > breite) {
-            canvas.style.setProperty("width", 0.95 * breite + "px");
+            canvas.style.setProperty("width", 0.9 * breite + "px");
         }*/
         /*for (let i: number = 0; i < 1; i++) {*/
         let flieger = new AbschlussAufgabe.Papierflieger();

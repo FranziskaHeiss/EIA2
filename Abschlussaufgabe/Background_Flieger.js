@@ -9,7 +9,7 @@ var AbschlussAufgabe;
         gradient.addColorStop(0, "#63cfc6");
         gradient.addColorStop(1, "#003d66");
         AbschlussAufgabe.crc2.fillStyle = gradient;
-        AbschlussAufgabe.crc2.fillRect(0, 0, 1000, 360);
+        AbschlussAufgabe.crc2.fillRect(0, 0, 720, 360);
     }
 })(AbschlussAufgabe || (AbschlussAufgabe = {})); //namespace
 //# sourceMappingURL=Background_Flieger.js.map
