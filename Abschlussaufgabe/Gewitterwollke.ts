@@ -1,5 +1,5 @@
 namespace AbschlussAufgabe {
-    export class Gewitterwolke extends Wolke {
+    export class Gewitterwolke extends Cloud {
    
         constructor() {
             super();

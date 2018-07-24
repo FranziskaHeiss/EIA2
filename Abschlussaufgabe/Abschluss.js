@@ -23,14 +23,14 @@ var AbschlussAufgabe;
         canvasClick.addEventListener("touchstart", accelerate);
         console.log(canvasClick);
         function accelerate() {
-            plane.gravity = -0.10;
+            plane.gravity = -0.1;
             console.log("test");
         }
         canvasClick.addEventListener("mouseup", accelerate2);
         canvasClick.addEventListener("touchend", accelerate2);
         console.log(canvasClick);
         function accelerate2() {
-            plane.gravity = 0.5;
+            plane.gravity = 0.05;
             console.log("test2");
         }
     }

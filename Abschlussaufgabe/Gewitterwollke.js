@@ -1,6 +1,6 @@
 var AbschlussAufgabe;
 (function (AbschlussAufgabe) {
-    class Gewitterwolke extends AbschlussAufgabe.Wolke {
+    class Gewitterwolke extends AbschlussAufgabe.Cloud {
         constructor() {
             super();
             this.setRandomPosition();

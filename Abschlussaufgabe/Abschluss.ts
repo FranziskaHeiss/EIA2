@@ -34,7 +34,7 @@ namespace AbschlussAufgabe {
         canvasClick.addEventListener("touchstart", accelerate);
         console.log(canvasClick);
         function accelerate(): void {
-            plane.gravity = -0.10;
+            plane.gravity = -0.1;
             console.log("test");
         }
         
@@ -42,7 +42,7 @@ namespace AbschlussAufgabe {
         canvasClick.addEventListener("touchend", accelerate2);
         console.log(canvasClick);
         function accelerate2(): void {
-            plane.gravity = 0.5;
+            plane.gravity = 0.05;
             console.log("test2");
         }      
         
