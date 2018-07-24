@@ -1,9 +1,9 @@
 namespace AbschlussAufgabe {
     export class Papierflieger extends MovingObject {
 
-        speedX: number = 0;
-        speedY: number = 0;
-        gravity: number = 0.05;
+        positionX: number = 0;
+        positionY: number = 0;
+        gravity: number = 0.03;
         gravitySpeed: number = 0;
 
         constructor() {
@@ -39,19 +39,27 @@ namespace AbschlussAufgabe {
 
         newPos(): void {
             this.gravitySpeed += this.gravity;
-            this.x += this.speedX;
-            this.y += this.speedY + this.gravitySpeed;
+            this.x += this.positionX;
+            this.y += this.positionY + this.gravitySpeed;
             this.hitBottom();
-            
+            this.hitTop();
         }
 
         hitBottom(): void {
-            var rockbottom: number = canvas.height;
-            if (this.y > rockbottom) {
-                this.y = rockbottom;
-                this.gravitySpeed = 0;               
+            let bottom: number = canvas.height;
+            if (this.y > bottom) {
+                this.y = bottom;
+                this.gravitySpeed = 0; 
+                //alert("Game Over");              
             }
         }
 
+        hitTop(): void {
+            let top: number = canvas.height - canvas.height;
+            if (this.y < top) {
+                this.y = top;
+                this.gravitySpeed = 0;               
+            }
+        }
     }
 } //namespace

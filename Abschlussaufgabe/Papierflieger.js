@@ -3,9 +3,9 @@ var AbschlussAufgabe;
     class Papierflieger extends AbschlussAufgabe.MovingObject {
         constructor() {
             super();
-            this.speedX = 0;
-            this.speedY = 0;
-            this.gravity = 0.05;
+            this.positionX = 0;
+            this.positionY = 0;
+            this.gravity = 0.03;
             this.gravitySpeed = 0;
             this.setStartPosition();
         }
@@ -33,14 +33,22 @@ var AbschlussAufgabe;
         }
         newPos() {
             this.gravitySpeed += this.gravity;
-            this.x += this.speedX;
-            this.y += this.speedY + this.gravitySpeed;
+            this.x += this.positionX;
+            this.y += this.positionY + this.gravitySpeed;
             this.hitBottom();
+            this.hitTop();
         }
         hitBottom() {
-            var rockbottom = AbschlussAufgabe.canvas.height;
-            if (this.y > rockbottom) {
-                this.y = rockbottom;
+            let bottom = AbschlussAufgabe.canvas.height;
+            if (this.y > bottom) {
+                this.y = bottom;
+                this.gravitySpeed = 0;
+            }
+        }
+        hitTop() {
+            let top = AbschlussAufgabe.canvas.height - AbschlussAufgabe.canvas.height;
+            if (this.y < top) {
+                this.y = top;
                 this.gravitySpeed = 0;
             }
         }
