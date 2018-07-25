@@ -7,7 +7,13 @@ var AbschlussAufgabe;
     let plane = new AbschlussAufgabe.Paperplane();
     AbschlussAufgabe.score = 0;
     let canvasClick;
-    function init(_event) {
+    function init() {
+        document.getElementById("start").addEventListener("click", startGame);
+        document.getElementById("game").style.display = "none";
+    }
+    function startGame(_event) {
+        document.getElementById("interface").style.display = "none";
+        document.getElementById("game").style.display = "block";
         AbschlussAufgabe.canvas = document.getElementsByTagName("canvas")[0];
         AbschlussAufgabe.crc2 = AbschlussAufgabe.canvas.getContext("2d");
         //Hintergrund 
@@ -17,7 +23,10 @@ var AbschlussAufgabe;
             let clouds = new AbschlussAufgabe.Cloud();
             AbschlussAufgabe.movingObjects.push(clouds);
         }
-        window.setTimeout(createStars, 2000);
+        for (let i = 0; i < 2; i++) {
+            let stars = new AbschlussAufgabe.Star();
+            AbschlussAufgabe.collectables.push(stars);
+        }
         animate();
         canvasClick = document.getElementsByTagName("canvas")[0];
         canvasClick.addEventListener("mousedown", accelerateUp);
@@ -31,12 +40,6 @@ var AbschlussAufgabe;
             plane.gravity = 0.05;
         }
     } // init-Funktion 
-    function createStars() {
-        for (let i = 0; i < 6; i++) {
-            let stars = new AbschlussAufgabe.Star();
-            AbschlussAufgabe.collectables.push(stars);
-        }
-    }
     function animate() {
         window.setTimeout(animate, 10);
         AbschlussAufgabe.crc2.clearRect(0, 0, AbschlussAufgabe.crc2.canvas.width, AbschlussAufgabe.crc2.canvas.height);

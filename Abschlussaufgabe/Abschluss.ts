@@ -13,8 +13,16 @@ namespace AbschlussAufgabe {
 
     let canvasClick: HTMLCanvasElement;
 
+    function init(): void {
+        document.getElementById("start").addEventListener("click", startGame);
+        document.getElementById("game").style.display = "none";
+    }
 
-    function init(_event: Event): void {
+    function startGame(_event: Event): void {
+
+        document.getElementById("interface").style.display = "none";
+        document.getElementById("game").style.display = "block";
+
         canvas = document.getElementsByTagName("canvas")[0];
         crc2 = canvas.getContext("2d");
 
@@ -27,9 +35,10 @@ namespace AbschlussAufgabe {
             movingObjects.push(clouds);
         }
 
-        
-        window.setTimeout(createStars, 2000);
-        
+        for (let i: number = 0; i < 2; i++) {
+            let stars: Star = new Star();
+            collectables.push(stars);
+        }
 
         animate();
 
@@ -46,13 +55,6 @@ namespace AbschlussAufgabe {
             plane.gravity = 0.05;
         }
     }// init-Funktion 
-
-    function createStars(): void {
-        for (let i: number = 0; i < 6; i++) {         
-        let stars: Star = new Star();
-        collectables.push(stars);
-            }
-    }
 
     function animate(): void {
 
