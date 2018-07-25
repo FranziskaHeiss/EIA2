@@ -4,6 +4,9 @@ var AbschlussAufgabe;
         constructor() {
             //
         }
+        checkPosition() {
+            //    
+        }
         move() {
             //
         }

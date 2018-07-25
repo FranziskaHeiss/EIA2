@@ -6,26 +6,22 @@ var AbschlussAufgabe;
             this.setRandomPosition();
         }
         move() {
-            this.x -= 0.3;
-            this.y += 0;
-            if (this.x < -150) {
-                this.x = AbschlussAufgabe.crc2.canvas.width;
-                this.y += 0;
-            }
-            if (this.y < 0) {
-                this.y = AbschlussAufgabe.crc2.canvas.height - 200;
-                this.x -= 2;
+            this.x -= 0.4;
+        }
+        checkPosition() {
+            if (this.x < -200) {
+                this.setNewRandomSpawnPoint();
             }
         }
         setRandomPosition() {
-            this.x = Math.random() * AbschlussAufgabe.crc2.canvas.width;
+            this.x = Math.random() * AbschlussAufgabe.crc2.canvas.width + 300;
             this.y = Math.random() * AbschlussAufgabe.crc2.canvas.height - 200;
         }
+        setNewRandomSpawnPoint() {
+            this.x = AbschlussAufgabe.canvas.width + 50;
+            this.y = Math.random() * ((AbschlussAufgabe.crc2.canvas.height - 200) - 50) + 50; // Math.random() * (max - min) + min
+        }
         draw() {
-            let gradient = AbschlussAufgabe.crc2.createLinearGradient(300, 500, 300, 300);
-            gradient.addColorStop(0, "#ff4d4d");
-            gradient.addColorStop(1, "#ff751a");
-            AbschlussAufgabe.crc2.fillStyle = gradient;
             AbschlussAufgabe.crc2.beginPath();
             AbschlussAufgabe.crc2.moveTo(this.x, this.y);
             AbschlussAufgabe.crc2.quadraticCurveTo(this.x + 5, this.y - 20, this.x + 20, this.y - 12);

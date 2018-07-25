@@ -16,8 +16,8 @@ namespace AbschlussAufgabe {
 
     function init(_event: Event): void {
         canvas = document.getElementsByTagName("canvas")[0];
-        crc2 = canvas.getContext("2d");        
-      
+        crc2 = canvas.getContext("2d");
+
         //Hintergrund 
         environment();
         imgData = crc2.getImageData(0, 0, canvas.width, canvas.height);
@@ -27,10 +27,9 @@ namespace AbschlussAufgabe {
             movingObjects.push(clouds);
         }
 
-        for (let i: number = 0; i < 6; i++) {
-            let stars: Star = new Star();
-            collectables.push(stars);
-        }
+        
+        window.setTimeout(createStars, 2000);
+        
 
         animate();
 
@@ -48,6 +47,13 @@ namespace AbschlussAufgabe {
         }
     }// init-Funktion 
 
+    function createStars(): void {
+        for (let i: number = 0; i < 6; i++) {         
+        let stars: Star = new Star();
+        collectables.push(stars);
+            }
+    }
+
     function animate(): void {
 
         window.setTimeout(animate, 10);
@@ -59,15 +65,17 @@ namespace AbschlussAufgabe {
         drawObjects();
         newPosition();
     }// animate-Funktion 
-   
+
     function moveObjects(): void {
 
         for (let i: number = 0; i < movingObjects.length; i++) {
+            movingObjects[i].checkPosition();
             movingObjects[i].move();
             plane.checkPosition();
         }
 
         for (let a: number = 0; a < collectables.length; a++) {
+            collectables[a].checkPosition();
             collectables[a].move();
         }
     }// movingObjects-Funktion 
@@ -85,10 +93,10 @@ namespace AbschlussAufgabe {
         }
     }//drawObjects-Funktion
 
-     export function createObjects(): void {
-            let stars: Star = new Star();
-            collectables.push(stars);
-        }
+    export function createObjects(): void {
+        let stars: Star = new Star();
+        collectables.push(stars);
+    }
 
     function newPosition(): void {
         plane.newPos();

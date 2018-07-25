@@ -11,8 +11,8 @@ var AbschlussAufgabe;
             this.setStartPosition();
         }
         setStartPosition() {
-            this.x = 20;
-            this.y = 100;
+            this.x = 50;
+            this.y = 220;
         }
         draw() {
             AbschlussAufgabe.crc2.beginPath();
@@ -62,7 +62,6 @@ var AbschlussAufgabe;
                     if (window.alert) {
                         location.reload();
                     }
-                    console.log("gameOver");
                 }
             } //cloud-Schleife
             for (let b = 0; b < AbschlussAufgabe.collectables.length; b++) {
@@ -71,12 +70,12 @@ var AbschlussAufgabe;
                         AbschlussAufgabe.score += 1;
                         let index = b;
                         AbschlussAufgabe.collectables.splice(index, 1);
-                        window.setTimeout(AbschlussAufgabe.createObjects, 300);
+                        window.setTimeout(AbschlussAufgabe.createObjects, 400);
                     }
                 }
-            }
-        }
+            } //collectables-Schleife
+        } //checkPosition
     }
-    AbschlussAufgabe.Paperplane = Paperplane;
+    AbschlussAufgabe.Paperplane = Paperplane; //class
 })(AbschlussAufgabe || (AbschlussAufgabe = {})); //namespace
 //# sourceMappingURL=Paperplane.js.map

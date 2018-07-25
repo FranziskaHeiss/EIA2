@@ -17,10 +17,7 @@ var AbschlussAufgabe;
             let clouds = new AbschlussAufgabe.Cloud();
             AbschlussAufgabe.movingObjects.push(clouds);
         }
-        for (let i = 0; i < 6; i++) {
-            let stars = new AbschlussAufgabe.Star();
-            AbschlussAufgabe.collectables.push(stars);
-        }
+        window.setTimeout(createStars, 2000);
         animate();
         canvasClick = document.getElementsByTagName("canvas")[0];
         canvasClick.addEventListener("mousedown", accelerateUp);
@@ -34,6 +31,12 @@ var AbschlussAufgabe;
             plane.gravity = 0.05;
         }
     } // init-Funktion 
+    function createStars() {
+        for (let i = 0; i < 6; i++) {
+            let stars = new AbschlussAufgabe.Star();
+            AbschlussAufgabe.collectables.push(stars);
+        }
+    }
     function animate() {
         window.setTimeout(animate, 10);
         AbschlussAufgabe.crc2.clearRect(0, 0, AbschlussAufgabe.crc2.canvas.width, AbschlussAufgabe.crc2.canvas.height);
@@ -44,10 +47,12 @@ var AbschlussAufgabe;
     } // animate-Funktion 
     function moveObjects() {
         for (let i = 0; i < AbschlussAufgabe.movingObjects.length; i++) {
+            AbschlussAufgabe.movingObjects[i].checkPosition();
             AbschlussAufgabe.movingObjects[i].move();
             plane.checkPosition();
         }
         for (let a = 0; a < AbschlussAufgabe.collectables.length; a++) {
+            AbschlussAufgabe.collectables[a].checkPosition();
             AbschlussAufgabe.collectables[a].move();
         }
     } // movingObjects-Funktion 

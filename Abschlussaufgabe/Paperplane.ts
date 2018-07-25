@@ -14,8 +14,8 @@ namespace AbschlussAufgabe {
         }
 
         setStartPosition(): void {
-            this.x = 20;
-            this.y = 100;
+            this.x = 50;
+            this.y = 220;
         }
 
         draw(): void {
@@ -36,11 +36,11 @@ namespace AbschlussAufgabe {
             crc2.stroke();
 
             crc2.fill();
-            
-            
+
+
             crc2.font = "21px Arial";
             crc2.fillText("SCORE: " + score, 20, 37);
-            
+
         }
 
         newPos(): void {
@@ -67,37 +67,35 @@ namespace AbschlussAufgabe {
                 this.gravitySpeed = 0;
             }
         }
-        
+
         checkPosition(): void {
             for (let i: number = 0; i < movingObjects.length; i++) {
-              if (this.y <= movingObjects[i].y + 25 && this.y >= movingObjects[i].y - 25 && this.x <= movingObjects[i].x + 25 && this.x >= movingObjects[i]. x - 25) {
-                    
+                if (this.y <= movingObjects[i].y + 25 && this.y >= movingObjects[i].y - 25 && this.x <= movingObjects[i].x + 25 && this.x >= movingObjects[i].x - 25) {
+
                     // Alert-Box mit der Benachrichtigung "GAME OVER"
                     window.alert("GAME OVER");
-                    
+
                     if (window.alert) {
-                        location.reload();    
-                    }
-                    console.log("gameOver");
+                        location.reload();
+                    }                 
                 }
-              }//cloud-Schleife
-            
+            }//cloud-Schleife
+
             for (let b: number = 0; b < collectables.length; b++) {
                 if (this.y <= collectables[b].y + 1 && this.y >= collectables[b].y - 21) {
                     if (this.x <= collectables[b].x + 12 && this.x >= collectables[b].x - 12) {
-                        
+
                         score += 1;
-                        
+
                         let index: number = b;
-                        collectables.splice(index, 1);   
-                        
-                        window.setTimeout(createObjects, 300);
+                        collectables.splice(index, 1);
+
+                        window.setTimeout(createObjects, 400);
                     }
                 }
-             }
-        }
+            }//collectables-Schleife
+        }//checkPosition
         
         
-        
-  }
+    }//class
 } //namespace

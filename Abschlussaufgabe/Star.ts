@@ -9,20 +9,17 @@ namespace AbschlussAufgabe {
         }
 
         move(): void {
-            this.x -= 2;
-            this.y += 0;
-            if (this.x < -200) {
-                this.x = crc2.canvas.width;
-                this.y += 0;
-            }
-            if (this.y < 0) {
-                this.y = crc2.canvas.height - 200;
-                this.x -= 2;
-            }
+            this.x -= 2;            
         }
-
+       
+        setNewRandomSpawnPoint(): void {
+            this.x = canvas.width + 50;
+            this.y = Math.random() * ((crc2.canvas.height - 200) - 50) + 50; 
+        }
+        
         setRandomPosition(): void {
-            this.x = Math.random() * crc2.canvas.width;
+            this.x = Math.random() * ((crc2.canvas.width + 200) - crc2.canvas.width) + crc2.canvas.width;
+            //this.x = Math.random() * ((crc2.canvas.width + 600) - (crc2.canvas.width)) + (crc2.canvas.width + 450);
             this.y = Math.random() * crc2.canvas.height - 200;
         }
 
