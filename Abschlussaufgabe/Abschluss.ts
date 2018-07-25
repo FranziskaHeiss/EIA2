@@ -6,18 +6,18 @@ namespace AbschlussAufgabe {
     let imgData: ImageData;
 
     export let movingObjects: MovingObject[] = [];
+    export let collectables: Star[] = [];
 
     let plane: Paperplane = new Paperplane();
-    movingObjects.push(plane);
-    
+    export let score: number = 0;
+
     let canvasClick: HTMLCanvasElement;
-    
+
 
     function init(_event: Event): void {
         canvas = document.getElementsByTagName("canvas")[0];
-        crc2 = canvas.getContext("2d");
-        //canvas.addEventListener("click", insertFood);
-
+        crc2 = canvas.getContext("2d");        
+      
         //Hintergrund 
         environment();
         imgData = crc2.getImageData(0, 0, canvas.width, canvas.height);
@@ -27,26 +27,26 @@ namespace AbschlussAufgabe {
             movingObjects.push(clouds);
         }
 
+        for (let i: number = 0; i < 6; i++) {
+            let stars: Star = new Star();
+            collectables.push(stars);
+        }
+
         animate();
 
         canvasClick = <HTMLCanvasElement>document.getElementsByTagName("canvas")[0];
-        canvasClick.addEventListener("mousedown", accelerate);
-        canvasClick.addEventListener("touchstart", accelerate);
-        console.log(canvasClick);
-        function accelerate(): void {
+        canvasClick.addEventListener("mousedown", accelerateUp);
+        canvasClick.addEventListener("touchstart", accelerateUp);
+        function accelerateUp(): void {
             plane.gravity = -0.1;
-            console.log("test");
         }
-        
-        canvasClick.addEventListener("mouseup", accelerate2);
-        canvasClick.addEventListener("touchend", accelerate2);
-        console.log(canvasClick);
-        function accelerate2(): void {
+
+        canvasClick.addEventListener("mouseup", accelerateDown);
+        canvasClick.addEventListener("touchend", accelerateDown);
+        function accelerateDown(): void {
             plane.gravity = 0.05;
-            console.log("test2");
-        }      
-        
-    }
+        }
+    }// init-Funktion 
 
     function animate(): void {
 
@@ -58,27 +58,41 @@ namespace AbschlussAufgabe {
         moveObjects();
         drawObjects();
         newPosition();
-    }
-
-    // moveObjects-Funktion
+    }// animate-Funktion 
+   
     function moveObjects(): void {
 
         for (let i: number = 0; i < movingObjects.length; i++) {
             movingObjects[i].move();
+            plane.checkPosition();
         }
-    }
 
-    //drawObjects-Funktion
+        for (let a: number = 0; a < collectables.length; a++) {
+            collectables[a].move();
+        }
+    }// movingObjects-Funktion 
+
     function drawObjects(): void {
+
+        plane.draw();
 
         for (let i: number = 0; i < movingObjects.length; i++) {
             movingObjects[i].draw();
         }
-    }
+
+        for (let a: number = 0; a < collectables.length; a++) {
+            collectables[a].draw();
+        }
+    }//drawObjects-Funktion
+
+     export function createObjects(): void {
+            let stars: Star = new Star();
+            collectables.push(stars);
+        }
 
     function newPosition(): void {
         plane.newPos();
-    }
+    }// newPosition-Funktion 
 
 
 

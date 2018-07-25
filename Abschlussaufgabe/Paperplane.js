@@ -5,8 +5,9 @@ var AbschlussAufgabe;
             super();
             this.positionX = 0;
             this.positionY = 0;
-            this.gravity = 0.03;
+            this.gravity = 0;
             this.gravitySpeed = 0;
+            this.distanceToStar = 5;
             this.setStartPosition();
         }
         setStartPosition() {
@@ -29,7 +30,8 @@ var AbschlussAufgabe;
             AbschlussAufgabe.crc2.lineTo(this.x + 3, this.y + 14);
             AbschlussAufgabe.crc2.stroke();
             AbschlussAufgabe.crc2.fill();
-            console.log("Hallo");
+            AbschlussAufgabe.crc2.font = "21px Arial";
+            AbschlussAufgabe.crc2.fillText("SCORE: " + AbschlussAufgabe.score, 20, 37);
         }
         newPos() {
             this.gravitySpeed += this.gravity;
@@ -50,6 +52,28 @@ var AbschlussAufgabe;
             if (this.y < top) {
                 this.y = top;
                 this.gravitySpeed = 0;
+            }
+        }
+        checkPosition() {
+            for (let i = 0; i < AbschlussAufgabe.movingObjects.length; i++) {
+                if (this.y <= AbschlussAufgabe.movingObjects[i].y + 25 && this.y >= AbschlussAufgabe.movingObjects[i].y - 25 && this.x <= AbschlussAufgabe.movingObjects[i].x + 25 && this.x >= AbschlussAufgabe.movingObjects[i].x - 25) {
+                    // Alert-Box mit der Benachrichtigung "GAME OVER"
+                    window.alert("GAME OVER");
+                    if (window.alert) {
+                        location.reload();
+                    }
+                    console.log("gameOver");
+                }
+            } //cloud-Schleife
+            for (let b = 0; b < AbschlussAufgabe.collectables.length; b++) {
+                if (this.y <= AbschlussAufgabe.collectables[b].y + 1 && this.y >= AbschlussAufgabe.collectables[b].y - 21) {
+                    if (this.x <= AbschlussAufgabe.collectables[b].x + 12 && this.x >= AbschlussAufgabe.collectables[b].x - 12) {
+                        AbschlussAufgabe.score += 1;
+                        let index = b;
+                        AbschlussAufgabe.collectables.splice(index, 1);
+                        window.setTimeout(AbschlussAufgabe.createObjects, 300);
+                    }
+                }
             }
         }
     }

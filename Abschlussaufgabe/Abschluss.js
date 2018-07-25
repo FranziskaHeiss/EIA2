@@ -3,13 +3,13 @@ var AbschlussAufgabe;
     window.addEventListener("load", init);
     let imgData;
     AbschlussAufgabe.movingObjects = [];
+    AbschlussAufgabe.collectables = [];
     let plane = new AbschlussAufgabe.Paperplane();
-    AbschlussAufgabe.movingObjects.push(plane);
+    AbschlussAufgabe.score = 0;
     let canvasClick;
     function init(_event) {
         AbschlussAufgabe.canvas = document.getElementsByTagName("canvas")[0];
         AbschlussAufgabe.crc2 = AbschlussAufgabe.canvas.getContext("2d");
-        //canvas.addEventListener("click", insertFood);
         //Hintergrund 
         AbschlussAufgabe.environment();
         imgData = AbschlussAufgabe.crc2.getImageData(0, 0, AbschlussAufgabe.canvas.width, AbschlussAufgabe.canvas.height);
@@ -17,23 +17,23 @@ var AbschlussAufgabe;
             let clouds = new AbschlussAufgabe.Cloud();
             AbschlussAufgabe.movingObjects.push(clouds);
         }
+        for (let i = 0; i < 6; i++) {
+            let stars = new AbschlussAufgabe.Star();
+            AbschlussAufgabe.collectables.push(stars);
+        }
         animate();
         canvasClick = document.getElementsByTagName("canvas")[0];
-        canvasClick.addEventListener("mousedown", accelerate);
-        canvasClick.addEventListener("touchstart", accelerate);
-        console.log(canvasClick);
-        function accelerate() {
+        canvasClick.addEventListener("mousedown", accelerateUp);
+        canvasClick.addEventListener("touchstart", accelerateUp);
+        function accelerateUp() {
             plane.gravity = -0.1;
-            console.log("test");
         }
-        canvasClick.addEventListener("mouseup", accelerate2);
-        canvasClick.addEventListener("touchend", accelerate2);
-        console.log(canvasClick);
-        function accelerate2() {
+        canvasClick.addEventListener("mouseup", accelerateDown);
+        canvasClick.addEventListener("touchend", accelerateDown);
+        function accelerateDown() {
             plane.gravity = 0.05;
-            console.log("test2");
         }
-    }
+    } // init-Funktion 
     function animate() {
         window.setTimeout(animate, 10);
         AbschlussAufgabe.crc2.clearRect(0, 0, AbschlussAufgabe.crc2.canvas.width, AbschlussAufgabe.crc2.canvas.height);
@@ -41,21 +41,32 @@ var AbschlussAufgabe;
         moveObjects();
         drawObjects();
         newPosition();
-    }
-    // moveObjects-Funktion
+    } // animate-Funktion 
     function moveObjects() {
         for (let i = 0; i < AbschlussAufgabe.movingObjects.length; i++) {
             AbschlussAufgabe.movingObjects[i].move();
+            plane.checkPosition();
         }
-    }
-    //drawObjects-Funktion
+        for (let a = 0; a < AbschlussAufgabe.collectables.length; a++) {
+            AbschlussAufgabe.collectables[a].move();
+        }
+    } // movingObjects-Funktion 
     function drawObjects() {
+        plane.draw();
         for (let i = 0; i < AbschlussAufgabe.movingObjects.length; i++) {
             AbschlussAufgabe.movingObjects[i].draw();
         }
+        for (let a = 0; a < AbschlussAufgabe.collectables.length; a++) {
+            AbschlussAufgabe.collectables[a].draw();
+        }
+    } //drawObjects-Funktion
+    function createObjects() {
+        let stars = new AbschlussAufgabe.Star();
+        AbschlussAufgabe.collectables.push(stars);
     }
+    AbschlussAufgabe.createObjects = createObjects;
     function newPosition() {
         plane.newPos();
-    }
+    } // newPosition-Funktion 
 })(AbschlussAufgabe || (AbschlussAufgabe = {})); //namespace
 //# sourceMappingURL=Abschluss.js.map
