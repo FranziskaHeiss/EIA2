@@ -92,7 +92,7 @@ namespace AbschlussAufgabe {
             for (let i: number = 0; i < movingObjects.length; i++) {
 
                 if (this.x <= movingObjects[i].x + 90 && this.x >= movingObjects[i].x) {
-                    if (this.y <= movingObjects[i].y + 40 && this.y >= movingObjects[i].y - 15) {
+                    if (this.y <= movingObjects[i].y + 40 && this.y >= movingObjects[i].y - 10) {
 
                         gameOver(); 
                         
@@ -100,14 +100,14 @@ namespace AbschlussAufgabe {
                 }
 
                 if (this.x - 75 <= movingObjects[i].x + 90 && this.x - 75 >= movingObjects[i].x) {
-                    if (this.y + 31 <= movingObjects[i].y + 40 && this.y + 31 >= movingObjects[i].y - 15) {
+                    if (this.y + 31 <= movingObjects[i].y + 40 && this.y + 31 >= movingObjects[i].y - 10) {
                         
                         gameOver();
                     }
                 }
 
                 if (this.x - 85 <= movingObjects[i].x + 90 && this.x - 85 >= movingObjects[i].x) {
-                    if (this.y - 14 <= movingObjects[i].y + 40 && this.y - 14 >= movingObjects[i].y - 15) {
+                    if (this.y - 14 <= movingObjects[i].y + 40 && this.y - 14 >= movingObjects[i].y - 10) {
                         
                         gameOver(); 
                     }
@@ -117,7 +117,7 @@ namespace AbschlussAufgabe {
 
             //Einsammeln von Sternen 
             for (let b: number = 0; b < collectables.length; b++) {
-                if (this.x <= collectables[b].x + 5 && this.x >= collectables[b].x - 25) {
+                if (this.x <= collectables[b].x + 4 && this.x >= collectables[b].x - 40) {
                     if (this.y <= collectables[b].y + 15 && this.y >= collectables[b].y - 15) {
 
                         score += 1;
@@ -128,7 +128,7 @@ namespace AbschlussAufgabe {
                         window.setTimeout(createObjects, 400);
                     }
                 }
-                if (this.x - 85 <= collectables[b].x + 5 && this.x - 85 >= collectables[b].x - 25) {
+                if (this.x - 85 <= collectables[b].x + 20 && this.x - 85 >= collectables[b].x - 25) {
                     if (this.y - 14 <= collectables[b].y + 15 && this.y - 14 >= collectables[b].y - 15) {
 
                         score += 1;
@@ -140,7 +140,7 @@ namespace AbschlussAufgabe {
                     }
                 }
 
-                if (this.x - 75 <= collectables[b].x + 5 && this.x - 75 >= collectables[b].x - 25) {
+                if (this.x - 75 <= collectables[b].x + 20 && this.x - 75 >= collectables[b].x - 25) {
                     if (this.y + 31 <= collectables[b].y + 15 && this.y + 31 >= collectables[b].y - 15) {
 
                         score += 1;
