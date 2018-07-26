@@ -13,15 +13,17 @@ namespace AbschlussAufgabe {
 
     let canvasClick: HTMLCanvasElement;
 
-    function init(): void {
+
+    export function init(): void {
         document.getElementById("start").addEventListener("click", startGame);
         document.getElementById("game").style.display = "none";
+        document.getElementById("gameover").style.display = "none";
     }
 
     function startGame(_event: Event): void {
 
         document.getElementById("interface").style.display = "none";
-        document.getElementById("game").style.display = "block";
+        document.getElementById("game").style.display = "initial";
 
         canvas = document.getElementsByTagName("canvas")[0];
         crc2 = canvas.getContext("2d");
@@ -30,15 +32,15 @@ namespace AbschlussAufgabe {
         environment();
         imgData = crc2.getImageData(0, 0, canvas.width, canvas.height);
 
-        for (let b: number = 0; b < 5; b++) {
+        for (let b: number = 0; b < 10; b++) {
             let clouds: Cloud = new Cloud();
             movingObjects.push(clouds);
         }
 
-        for (let i: number = 0; i < 2; i++) {
-            let stars: Star = new Star();
-            collectables.push(stars);
-        }
+        //for (let i: number = 0; i < 2; i++) {
+        let stars: Star = new Star();
+        collectables.push(stars);
+
 
         animate();
 
@@ -104,6 +106,12 @@ namespace AbschlussAufgabe {
         plane.newPos();
     }// newPosition-Funktion 
 
+
+    export function gameOver(): void {
+        document.getElementById("interface").style.display = "none";
+        document.getElementById("game").style.display = "none";
+        document.getElementById("gameover").style.display = "initial";
+    }
 
 
 }//namespace

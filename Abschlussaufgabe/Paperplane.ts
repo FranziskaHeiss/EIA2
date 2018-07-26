@@ -14,32 +14,49 @@ namespace AbschlussAufgabe {
         }
 
         setStartPosition(): void {
-            this.x = 50;
+            this.x = 100;
             this.y = 220;
         }
 
         draw(): void {
+
+            crc2.fillStyle = "rgb(255, 255, 255)";
+
             crc2.beginPath();
-            crc2.fillStyle = "rgb(179, 179, 179)";
             crc2.moveTo(this.x, this.y);
-            crc2.lineTo(this.x - 10, this.y - 15);
-            crc2.lineTo(this.x + 73, this.y - 3);
-            crc2.lineTo(this.x, this.y);
-            crc2.lineTo(this.x - 5, this.y + 15);
-            crc2.lineTo(this.x + 3, this.y + 8);
-            crc2.lineTo(this.x + 70, this.y - 2);
-            crc2.lineTo(this.x, this.y + 29);
-            crc2.lineTo(this.x + 4, this.y + 8);
-            crc2.lineTo(this.x - 5, this.y + 16);
-            crc2.lineTo(this.x + 3, this.y + 14);
-
+            crc2.lineTo(this.x - 80, this.y + 17);
+            crc2.lineTo(this.x - 75, this.y + 1);
+            crc2.lineWidth = 2;
             crc2.stroke();
+            crc2.fill();
 
+            crc2.beginPath();
+            crc2.moveTo(this.x, this.y);
+            crc2.lineTo(this.x - 85, this.y - 14);
+            crc2.lineTo(this.x - 75, this.y + 1);
+            crc2.lineTo(this.x - 1, this.y);
+            crc2.stroke();
+            crc2.fill();
+
+            crc2.beginPath();
+            crc2.moveTo(this.x, this.y + 1);
+            crc2.lineTo(this.x - 75, this.y + 31);
+            crc2.lineTo(this.x - 72, this.y + 9);
+            crc2.lineTo(this.x, this.y + 1);
+            crc2.stroke();
+            crc2.fill();
+
+            crc2.beginPath();
+            crc2.moveTo(this.x - 71, this.y + 8);
+            crc2.lineTo(this.x - 80, this.y + 16);
+            crc2.lineWidth = 1;
+            crc2.stroke();
             crc2.fill();
 
 
-            crc2.font = "21px Arial";
-            crc2.fillText("SCORE: " + score, 20, 37);
+            crc2.font = "23px Calibri";
+            crc2.fillText("SCORE: " + score, 740, 30);
+
 
         }
 
@@ -55,8 +72,8 @@ namespace AbschlussAufgabe {
             let bottom: number = canvas.height;
             if (this.y > bottom) {
                 this.y = bottom;
-                this.gravitySpeed = 0;
-                //alert("Game Over");              
+               
+                gameOver(); 
             }
         }
 
@@ -64,26 +81,67 @@ namespace AbschlussAufgabe {
             let top: number = canvas.height - canvas.height;
             if (this.y < top) {
                 this.y = top;
-                this.gravitySpeed = 0;
+
+                gameOver(); //Funktionsaufruf
             }
         }
 
         checkPosition(): void {
+
+            //Kollision mit Wolken 
             for (let i: number = 0; i < movingObjects.length; i++) {
-                if (this.y <= movingObjects[i].y + 25 && this.y >= movingObjects[i].y - 25 && this.x <= movingObjects[i].x + 25 && this.x >= movingObjects[i].x - 25) {
 
-                    // Alert-Box mit der Benachrichtigung "GAME OVER"
-                    window.alert("GAME OVER");
+                if (this.x <= movingObjects[i].x + 90 && this.x >= movingObjects[i].x) {
+                    if (this.y <= movingObjects[i].y + 40 && this.y >= movingObjects[i].y - 15) {
 
-                    if (window.alert) {
-                        location.reload();
-                    }                 
+                        gameOver(); 
+                        
+                    }
+                }
+
+                if (this.x - 75 <= movingObjects[i].x + 90 && this.x - 75 >= movingObjects[i].x) {
+                    if (this.y + 31 <= movingObjects[i].y + 40 && this.y + 31 >= movingObjects[i].y - 15) {
+                        
+                        gameOver();
+                    }
+                }
+
+                if (this.x - 85 <= movingObjects[i].x + 90 && this.x - 85 >= movingObjects[i].x) {
+                    if (this.y - 14 <= movingObjects[i].y + 40 && this.y - 14 >= movingObjects[i].y - 15) {
+                        
+                        gameOver(); 
+                    }
                 }
             }//cloud-Schleife
 
+
+            //Einsammeln von Sternen 
             for (let b: number = 0; b < collectables.length; b++) {
-                if (this.y <= collectables[b].y + 1 && this.y >= collectables[b].y - 21) {
-                    if (this.x <= collectables[b].x + 12 && this.x >= collectables[b].x - 12) {
+                if (this.x <= collectables[b].x + 5 && this.x >= collectables[b].x - 25) {
+                    if (this.y <= collectables[b].y + 15 && this.y >= collectables[b].y - 15) {
+
+                        score += 1;
+
+                        let index: number = b;
+                        collectables.splice(index, 1);
+
+                        window.setTimeout(createObjects, 400);
+                    }
+                }
+                if (this.x - 85 <= collectables[b].x + 5 && this.x - 85 >= collectables[b].x - 25) {
+                    if (this.y - 14 <= collectables[b].y + 15 && this.y - 14 >= collectables[b].y - 15) {
+
+                        score += 1;
+
+                        let index: number = b;
+                        collectables.splice(index, 1);
+
+                        window.setTimeout(createObjects, 400);
+                    }
+                }
+
+                if (this.x - 75 <= collectables[b].x + 5 && this.x - 75 >= collectables[b].x - 25) {
+                    if (this.y + 31 <= collectables[b].y + 15 && this.y + 31 >= collectables[b].y - 15) {
 
                         score += 1;
 
@@ -95,7 +153,7 @@ namespace AbschlussAufgabe {
                 }
             }//collectables-Schleife
         }//checkPosition
-        
-        
+
+
     }//class
 } //namespace

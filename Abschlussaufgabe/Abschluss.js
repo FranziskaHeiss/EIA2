@@ -10,23 +10,24 @@ var AbschlussAufgabe;
     function init() {
         document.getElementById("start").addEventListener("click", startGame);
         document.getElementById("game").style.display = "none";
+        document.getElementById("gameover").style.display = "none";
     }
+    AbschlussAufgabe.init = init;
     function startGame(_event) {
         document.getElementById("interface").style.display = "none";
-        document.getElementById("game").style.display = "block";
+        document.getElementById("game").style.display = "initial";
         AbschlussAufgabe.canvas = document.getElementsByTagName("canvas")[0];
         AbschlussAufgabe.crc2 = AbschlussAufgabe.canvas.getContext("2d");
         //Hintergrund 
         AbschlussAufgabe.environment();
         imgData = AbschlussAufgabe.crc2.getImageData(0, 0, AbschlussAufgabe.canvas.width, AbschlussAufgabe.canvas.height);
-        for (let b = 0; b < 5; b++) {
+        for (let b = 0; b < 10; b++) {
             let clouds = new AbschlussAufgabe.Cloud();
             AbschlussAufgabe.movingObjects.push(clouds);
         }
-        for (let i = 0; i < 2; i++) {
-            let stars = new AbschlussAufgabe.Star();
-            AbschlussAufgabe.collectables.push(stars);
-        }
+        //for (let i: number = 0; i < 2; i++) {
+        let stars = new AbschlussAufgabe.Star();
+        AbschlussAufgabe.collectables.push(stars);
         animate();
         canvasClick = document.getElementsByTagName("canvas")[0];
         canvasClick.addEventListener("mousedown", accelerateUp);
@@ -76,5 +77,11 @@ var AbschlussAufgabe;
     function newPosition() {
         plane.newPos();
     } // newPosition-Funktion 
+    function gameOver() {
+        document.getElementById("interface").style.display = "none";
+        document.getElementById("game").style.display = "none";
+        document.getElementById("gameover").style.display = "initial";
+    }
+    AbschlussAufgabe.gameOver = gameOver;
 })(AbschlussAufgabe || (AbschlussAufgabe = {})); //namespace
 //# sourceMappingURL=Abschluss.js.map

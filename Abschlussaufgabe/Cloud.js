@@ -6,7 +6,7 @@ var AbschlussAufgabe;
             this.setRandomPosition();
         }
         move() {
-            this.x -= 0.4;
+            this.x -= 1;
         }
         checkPosition() {
             if (this.x < -200) {
@@ -14,12 +14,36 @@ var AbschlussAufgabe;
             }
         }
         setRandomPosition() {
-            this.x = Math.random() * AbschlussAufgabe.crc2.canvas.width + 300;
-            this.y = Math.random() * AbschlussAufgabe.crc2.canvas.height - 200;
+            this.x = Math.random() * AbschlussAufgabe.crc2.canvas.width + 400;
+            // this.y = Math.random() * crc2.canvas.height - 200;
+            let c = Math.floor(Math.random() * 3);
+            switch (c) {
+                case 0:
+                    this.y = 100;
+                    break;
+                case 1:
+                    this.y = 250;
+                    break;
+                case 2:
+                    this.y = 410;
+                    break;
+            }
         }
         setNewRandomSpawnPoint() {
             this.x = AbschlussAufgabe.canvas.width + 50;
-            this.y = Math.random() * ((AbschlussAufgabe.crc2.canvas.height - 200) - 50) + 50; // Math.random() * (max - min) + min
+            //this.y = Math.random() * ((crc2.canvas.height - 200) - 50) + 50; // Math.random() * (max - min) + min
+            let e = Math.floor(Math.random() * 3);
+            switch (e) {
+                case 0:
+                    this.y = 100;
+                    break;
+                case 1:
+                    this.y = 250;
+                    break;
+                case 2:
+                    this.y = 410;
+                    break;
+            }
         }
         draw() {
             AbschlussAufgabe.crc2.beginPath();
