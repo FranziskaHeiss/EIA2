@@ -61,7 +61,7 @@ var AbschlussAufgabe;
             }
         }
         hitTop() {
-            let top = AbschlussAufgabe.canvas.height - (AbschlussAufgabe.canvas.height + 10);
+            let top = AbschlussAufgabe.canvas.height - (AbschlussAufgabe.canvas.height + 20);
             if (this.y < top) {
                 this.y = top;
                 AbschlussAufgabe.gameOver(); //Funktionsaufruf
@@ -70,25 +70,25 @@ var AbschlussAufgabe;
         checkPosition() {
             //Kollision mit Wolken 
             for (let i = 0; i < AbschlussAufgabe.movingObjects.length; i++) {
-                if (this.x <= AbschlussAufgabe.movingObjects[i].x + 90 && this.x >= AbschlussAufgabe.movingObjects[i].x) {
-                    if (this.y <= AbschlussAufgabe.movingObjects[i].y + 45 && this.y >= AbschlussAufgabe.movingObjects[i].y - 15) {
+                if (this.x <= AbschlussAufgabe.movingObjects[i].x + 85 && this.x >= AbschlussAufgabe.movingObjects[i].x) {
+                    if (this.y <= AbschlussAufgabe.movingObjects[i].y + 40 && this.y >= AbschlussAufgabe.movingObjects[i].y - 15) {
                         AbschlussAufgabe.gameOver();
                     }
                 }
-                if (this.x - 75 <= AbschlussAufgabe.movingObjects[i].x + 90 && this.x - 75 >= AbschlussAufgabe.movingObjects[i].x - 10) {
-                    if (this.y + 31 <= AbschlussAufgabe.movingObjects[i].y + 45 && this.y + 31 >= AbschlussAufgabe.movingObjects[i].y - 15) {
+                if (this.x - 75 <= AbschlussAufgabe.movingObjects[i].x + 85 && this.x - 75 >= AbschlussAufgabe.movingObjects[i].x - 10) {
+                    if (this.y + 31 <= AbschlussAufgabe.movingObjects[i].y + 40 && this.y + 31 >= AbschlussAufgabe.movingObjects[i].y - 15) {
                         AbschlussAufgabe.gameOver();
                     }
                 }
-                if (this.x - 85 <= AbschlussAufgabe.movingObjects[i].x + 90 && this.x - 85 >= AbschlussAufgabe.movingObjects[i].x) {
-                    if (this.y - 14 <= AbschlussAufgabe.movingObjects[i].y + 45 && this.y - 14 >= AbschlussAufgabe.movingObjects[i].y - 15) {
+                if (this.x - 85 <= AbschlussAufgabe.movingObjects[i].x + 85 && this.x - 85 >= AbschlussAufgabe.movingObjects[i].x) {
+                    if (this.y - 14 <= AbschlussAufgabe.movingObjects[i].y + 40 && this.y - 14 >= AbschlussAufgabe.movingObjects[i].y - 15) {
                         AbschlussAufgabe.gameOver();
                     }
                 }
             } //cloud-Schleife
             //Einsammeln von Sternen 
             for (let b = 0; b < AbschlussAufgabe.collectables.length; b++) {
-                if (this.x <= AbschlussAufgabe.collectables[b].x + 4 && this.x >= AbschlussAufgabe.collectables[b].x - 40) {
+                if (this.x <= AbschlussAufgabe.collectables[b].x + 25 && this.x >= AbschlussAufgabe.collectables[b].x - 20) {
                     if (this.y <= AbschlussAufgabe.collectables[b].y + 15 && this.y >= AbschlussAufgabe.collectables[b].y - 15) {
                         AbschlussAufgabe.score += 1;
                         let index = b;

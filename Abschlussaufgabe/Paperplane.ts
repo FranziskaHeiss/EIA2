@@ -78,7 +78,7 @@ namespace AbschlussAufgabe {
         }
 
         hitTop(): void {
-            let top: number = canvas.height - (canvas.height + 10);
+            let top: number = canvas.height - (canvas.height + 20);
             if (this.y < top) {
                 this.y = top;
 
@@ -91,23 +91,23 @@ namespace AbschlussAufgabe {
             //Kollision mit Wolken 
             for (let i: number = 0; i < movingObjects.length; i++) {
 
-                if (this.x <= movingObjects[i].x + 90 && this.x >= movingObjects[i].x) {
-                    if (this.y <= movingObjects[i].y + 45 && this.y >= movingObjects[i].y - 15) {
+                if (this.x <= movingObjects[i].x + 85 && this.x >= movingObjects[i].x) {
+                    if (this.y <= movingObjects[i].y + 40 && this.y >= movingObjects[i].y - 15) {
 
                         gameOver(); 
                         
                     }
                 }
 
-                if (this.x - 75 <= movingObjects[i].x + 90 && this.x - 75 >= movingObjects[i].x - 10) {
-                    if (this.y + 31 <= movingObjects[i].y + 45 && this.y + 31 >= movingObjects[i].y - 15) {
+                if (this.x - 75 <= movingObjects[i].x + 85 && this.x - 75 >= movingObjects[i].x - 10) {
+                    if (this.y + 31 <= movingObjects[i].y + 40 && this.y + 31 >= movingObjects[i].y - 15) {
                         
                         gameOver();
                     }
                 }
 
-                if (this.x - 85 <= movingObjects[i].x + 90 && this.x - 85 >= movingObjects[i].x) {
-                    if (this.y - 14 <= movingObjects[i].y + 45 && this.y - 14 >= movingObjects[i].y - 15) {
+                if (this.x - 85 <= movingObjects[i].x + 85 && this.x - 85 >= movingObjects[i].x) {
+                    if (this.y - 14 <= movingObjects[i].y + 40 && this.y - 14 >= movingObjects[i].y - 15) {
                         
                         gameOver(); 
                     }
@@ -117,7 +117,7 @@ namespace AbschlussAufgabe {
 
             //Einsammeln von Sternen 
             for (let b: number = 0; b < collectables.length; b++) {
-                if (this.x <= collectables[b].x + 4 && this.x >= collectables[b].x - 40) {
+                if (this.x <= collectables[b].x + 25 && this.x >= collectables[b].x - 20) {
                     if (this.y <= collectables[b].y + 15 && this.y >= collectables[b].y - 15) {
 
                         score += 1;

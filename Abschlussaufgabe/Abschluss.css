@@ -1,7 +1,72 @@
-* {
-	image-rendering: -moz-crisp-edges;
-	image-rendering: -webkit-crisp-edges;	
-	image-rendering: crisp-edges;
+@import url('https://fonts.googleapis.com/css?family=Gaegu:400,700');
+
+html {
+	font-size: 1em;
+	line-height: 1.4em;
+	font-family: 'Gaegu', cursive;
+	color: #161d1d;
+	background-color: #dadada;
+}
+
+canvas {
+	display: block;
+	margin: auto;
+	margin-top: 2em;
+}
+
+#interface {
+	margin: auto;
+	width: 60%;
+	display: block;
+	text-align: center;	
+	background-color: white;
+	padding-left: 2em;
+	padding-right: 2em;
+	padding-top: 1em;
+	padding-bottom: 2em;
+	margin-top: 2em;
+	box-shadow: 1px 2px 25px 1px #878787;
+}
+
+#gameover {
+	margin: auto;
+	display: block;
+	text-align: center;
+	width: 50%;
+	background-color: white;	
+	padding-top: 1em;
+	padding-bottom: 2em;
+	margin-top: 2em;
+	box-shadow: 10px 10px 15px black;
 }
 
 
+button {
+  font-family: 'Gaegu', cursive;
+  display: inline-block;
+  padding: 3px 15px;
+  font-size: 20px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #18323C;
+  background-color: #92D4EF;
+  border: none;
+  border-radius: 7px;
+  box-shadow: 1px 5px 2px #54636fcc;
+}
+
+button:hover {
+	background-color:#4ebae4;	
+	}
+
+button:active {
+  background-color: #4ebae4;
+  box-shadow: 1px 5px 2px #666;
+  transform: translateY(4px);
+}
+
+p {
+		padding: 2em, 2em, 2em,2em;
+}
