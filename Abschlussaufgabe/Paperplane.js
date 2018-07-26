@@ -54,14 +54,14 @@ var AbschlussAufgabe;
             this.hitTop();
         }
         hitBottom() {
-            let bottom = AbschlussAufgabe.canvas.height;
+            let bottom = AbschlussAufgabe.canvas.height + 10;
             if (this.y > bottom) {
                 this.y = bottom;
                 AbschlussAufgabe.gameOver();
             }
         }
         hitTop() {
-            let top = AbschlussAufgabe.canvas.height - AbschlussAufgabe.canvas.height;
+            let top = AbschlussAufgabe.canvas.height - (AbschlussAufgabe.canvas.height + 10);
             if (this.y < top) {
                 this.y = top;
                 AbschlussAufgabe.gameOver(); //Funktionsaufruf
@@ -71,17 +71,17 @@ var AbschlussAufgabe;
             //Kollision mit Wolken 
             for (let i = 0; i < AbschlussAufgabe.movingObjects.length; i++) {
                 if (this.x <= AbschlussAufgabe.movingObjects[i].x + 90 && this.x >= AbschlussAufgabe.movingObjects[i].x) {
-                    if (this.y <= AbschlussAufgabe.movingObjects[i].y + 40 && this.y >= AbschlussAufgabe.movingObjects[i].y - 10) {
+                    if (this.y <= AbschlussAufgabe.movingObjects[i].y + 45 && this.y >= AbschlussAufgabe.movingObjects[i].y - 15) {
                         AbschlussAufgabe.gameOver();
                     }
                 }
-                if (this.x - 75 <= AbschlussAufgabe.movingObjects[i].x + 90 && this.x - 75 >= AbschlussAufgabe.movingObjects[i].x) {
-                    if (this.y + 31 <= AbschlussAufgabe.movingObjects[i].y + 40 && this.y + 31 >= AbschlussAufgabe.movingObjects[i].y - 10) {
+                if (this.x - 75 <= AbschlussAufgabe.movingObjects[i].x + 90 && this.x - 75 >= AbschlussAufgabe.movingObjects[i].x - 10) {
+                    if (this.y + 31 <= AbschlussAufgabe.movingObjects[i].y + 45 && this.y + 31 >= AbschlussAufgabe.movingObjects[i].y - 15) {
                         AbschlussAufgabe.gameOver();
                     }
                 }
                 if (this.x - 85 <= AbschlussAufgabe.movingObjects[i].x + 90 && this.x - 85 >= AbschlussAufgabe.movingObjects[i].x) {
-                    if (this.y - 14 <= AbschlussAufgabe.movingObjects[i].y + 40 && this.y - 14 >= AbschlussAufgabe.movingObjects[i].y - 10) {
+                    if (this.y - 14 <= AbschlussAufgabe.movingObjects[i].y + 45 && this.y - 14 >= AbschlussAufgabe.movingObjects[i].y - 15) {
                         AbschlussAufgabe.gameOver();
                     }
                 }

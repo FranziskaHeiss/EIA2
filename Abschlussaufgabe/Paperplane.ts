@@ -69,7 +69,7 @@ namespace AbschlussAufgabe {
         }
 
         hitBottom(): void {
-            let bottom: number = canvas.height;
+            let bottom: number = canvas.height + 10;
             if (this.y > bottom) {
                 this.y = bottom;
                
@@ -78,7 +78,7 @@ namespace AbschlussAufgabe {
         }
 
         hitTop(): void {
-            let top: number = canvas.height - canvas.height;
+            let top: number = canvas.height - (canvas.height + 10);
             if (this.y < top) {
                 this.y = top;
 
@@ -92,22 +92,22 @@ namespace AbschlussAufgabe {
             for (let i: number = 0; i < movingObjects.length; i++) {
 
                 if (this.x <= movingObjects[i].x + 90 && this.x >= movingObjects[i].x) {
-                    if (this.y <= movingObjects[i].y + 40 && this.y >= movingObjects[i].y - 10) {
+                    if (this.y <= movingObjects[i].y + 45 && this.y >= movingObjects[i].y - 15) {
 
                         gameOver(); 
                         
                     }
                 }
 
-                if (this.x - 75 <= movingObjects[i].x + 90 && this.x - 75 >= movingObjects[i].x) {
-                    if (this.y + 31 <= movingObjects[i].y + 40 && this.y + 31 >= movingObjects[i].y - 10) {
+                if (this.x - 75 <= movingObjects[i].x + 90 && this.x - 75 >= movingObjects[i].x - 10) {
+                    if (this.y + 31 <= movingObjects[i].y + 45 && this.y + 31 >= movingObjects[i].y - 15) {
                         
                         gameOver();
                     }
                 }
 
                 if (this.x - 85 <= movingObjects[i].x + 90 && this.x - 85 >= movingObjects[i].x) {
-                    if (this.y - 14 <= movingObjects[i].y + 40 && this.y - 14 >= movingObjects[i].y - 10) {
+                    if (this.y - 14 <= movingObjects[i].y + 45 && this.y - 14 >= movingObjects[i].y - 15) {
                         
                         gameOver(); 
                     }
