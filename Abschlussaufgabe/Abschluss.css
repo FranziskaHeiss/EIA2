@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Gaegu:400,700');
 
 html {
-	font-size: 1em;
+	font-size: 1.5em;
 	line-height: 1.4em;
 	font-family: 'Gaegu', cursive;
 	color: #161d1d;
@@ -16,7 +16,7 @@ canvas {
 
 #interface {
 	margin: auto;
-	width: 70%;
+	width: 60%;
 	display: block;
 	text-align: center;
 	background-color: white;
@@ -24,14 +24,13 @@ canvas {
 	padding-right: 2em;
 	padding-top: 0.2em;
 	padding-bottom: 2em;
-	margin-top: 1.2em;
+	margin-top: 2em;
 	box-shadow: 1px 2px 25px 1px #878787;
 }
 
-#gameover {
-	font-size: 1.5em; 
+#gameover {	
 	margin: auto;
-	width: 80%;
+	width: 60%;
 	display: block;
 	text-align: center;
 	background-color: white;
@@ -47,11 +46,11 @@ canvas {
 	font-size: 1.5em; 
 }
 
-button {
+button {	
+	font-size: 1.2em; 
 	font-family: 'Gaegu', cursive;
 	padding: 3px 15px;
-	display: block;
-	font-size: 20px;
+	display: block;	
 	cursor: pointer;
 	text-align: center;
 	text-decoration: none;
