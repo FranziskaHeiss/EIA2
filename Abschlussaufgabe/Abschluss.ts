@@ -9,7 +9,10 @@ namespace AbschlussAufgabe {
     export let collectables: Star[] = [];
 
     let plane: Paperplane = new Paperplane();
+
     export let score: number = 0;
+    let node: HTMLDivElement;
+    let writeScore: boolean = false;
 
     let canvasClick: HTMLCanvasElement;
 
@@ -23,7 +26,7 @@ namespace AbschlussAufgabe {
     function startGame(_event: Event): void {
 
         document.getElementById("interface").style.display = "none";
-        document.getElementById("game").style.display = "initial";
+        document.getElementById("game").style.display = "block";
 
         canvas = document.getElementsByTagName("canvas")[0];
         crc2 = canvas.getContext("2d");
@@ -108,10 +111,19 @@ namespace AbschlussAufgabe {
 
 
     export function gameOver(): void {
+
         document.getElementById("interface").style.display = "none";
         document.getElementById("game").style.display = "none";
-        document.getElementById("gameover").style.display = "initial";
-    }
+        document.getElementById("gameover").style.display = "block";
+        
+        if (!writeScore) {
+            node = <HTMLDivElement>document.getElementById("yourscore");
+            let content: string = "";
+            content = "Your score: " + score;
+            node.innerHTML += content;
+            writeScore = true;
 
+        }
+    }
 
 }//namespace

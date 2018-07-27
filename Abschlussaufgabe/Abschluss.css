@@ -16,57 +16,74 @@ canvas {
 
 #interface {
 	margin: auto;
-	width: 80%;
+	width: 70%;
 	display: block;
-	text-align: center;	
+	text-align: center;
 	background-color: white;
 	padding-left: 2em;
 	padding-right: 2em;
-	padding-top: 0.5em;
+	padding-top: 0.2em;
 	padding-bottom: 2em;
-	margin-top: 1em;
+	margin-top: 1.2em;
 	box-shadow: 1px 2px 25px 1px #878787;
 }
 
 #gameover {
+	font-size: 1.5em; 
 	margin: auto;
+	width: 80%;
 	display: block;
 	text-align: center;
-	width: 50%;
-	background-color: white;	
-	padding-top: 1em;
+	background-color: white;
+	padding-left: 0.5em;
+	padding-right: 0.5em;
+	padding-top: 0.5em;
 	padding-bottom: 2em;
-	margin-top: 2em;
-	box-shadow: 10px 10px 15px black;
+	margin-top: 1.2em;
+	box-shadow: 1px 2px 25px 1px #878787;
 }
 
+#gameover p {
+	font-size: 1.5em; 
+}
 
 button {
-  font-family: 'Gaegu', cursive;
-  display: block;
-  padding: 3px 15px;
-  font-size: 20px;
-  cursor: pointer;
-  text-align: center;
-  text-decoration: none;
-  outline: none;
-  color: #18323C;
-  background-color: #92D4EF;
-  border: none;
-  border-radius: 7px;
-  box-shadow: 1px 5px 2px #54636fcc;
+	font-family: 'Gaegu', cursive;
+	padding: 3px 15px;
+	display: block;
+	font-size: 20px;
+	cursor: pointer;
+	text-align: center;
+	text-decoration: none;
+	outline: none;
+	color: #18323C;
+	background-color: #92D4EF;
+	border: none;
+	border-radius: 7px;
+	box-shadow: 1px 5px 2px #54636fcc;
+	align-content: center;
+	margin: auto;
+	margin-top: 1.2em;
 }
 
 button:hover {
-	background-color:#4ebae4;	
-	}
+	background-color: #4ebae4;
+}
 
 button:active {
-  background-color: #4ebae4;
-  box-shadow: 1px 5px 2px #666;
-  transform: translateY(4px);
+	background-color: #4ebae4;
+	box-shadow: 1px 5px 2px #666;
+	transform: translateY(4px);
 }
 
 p {
-		padding: 2em, 2em, 2em,2em;
+	padding: 2em, 2em, 2em, 2em;
+}
+
+a {
+  text-decoration: none; 
+}
+
+#yourscore {
+	margin: 2em; 
 }

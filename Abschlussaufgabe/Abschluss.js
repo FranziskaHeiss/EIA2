@@ -6,6 +6,8 @@ var AbschlussAufgabe;
     AbschlussAufgabe.collectables = [];
     let plane = new AbschlussAufgabe.Paperplane();
     AbschlussAufgabe.score = 0;
+    let node;
+    let writeScore = false;
     let canvasClick;
     function init() {
         document.getElementById("start").addEventListener("click", startGame);
@@ -15,7 +17,7 @@ var AbschlussAufgabe;
     AbschlussAufgabe.init = init;
     function startGame(_event) {
         document.getElementById("interface").style.display = "none";
-        document.getElementById("game").style.display = "initial";
+        document.getElementById("game").style.display = "block";
         AbschlussAufgabe.canvas = document.getElementsByTagName("canvas")[0];
         AbschlussAufgabe.crc2 = AbschlussAufgabe.canvas.getContext("2d");
         //Hintergrund 
@@ -80,7 +82,14 @@ var AbschlussAufgabe;
     function gameOver() {
         document.getElementById("interface").style.display = "none";
         document.getElementById("game").style.display = "none";
-        document.getElementById("gameover").style.display = "initial";
+        document.getElementById("gameover").style.display = "block";
+        if (!writeScore) {
+            node = document.getElementById("yourscore");
+            let content = "";
+            content = "Your score: " + AbschlussAufgabe.score;
+            node.innerHTML += content;
+            writeScore = true;
+        }
     }
     AbschlussAufgabe.gameOver = gameOver;
 })(AbschlussAufgabe || (AbschlussAufgabe = {})); //namespace
