@@ -6,19 +6,16 @@ namespace AbschlussAufgabe {
             this.setRandomPosition();
         }
 
-        move(): void {
-            this.x -= 1;          
-        }
 
         checkPosition(): void {
             if (this.x < -200) {
-                this.setNewRandomSpawnPoint();               
+                this.setNewRandomSpawnPoint();
             }
         }
-        
+
         setRandomPosition(): void {
             this.x = Math.random() * crc2.canvas.width + 400;
-           // this.y = Math.random() * crc2.canvas.height - 200;
+            // this.y = Math.random() * crc2.canvas.height - 200;
             let c: number = Math.floor(Math.random() * 3);
             switch (c) {
                 case 0:
@@ -32,8 +29,7 @@ namespace AbschlussAufgabe {
                     break;
             }
         }
-        
-        
+
         setNewRandomSpawnPoint(): void {
             this.x = canvas.width + 50;
             //this.y = Math.random() * ((crc2.canvas.height - 200) - 50) + 50; // Math.random() * (max - min) + min
@@ -50,10 +46,11 @@ namespace AbschlussAufgabe {
                     break;
             }
         }
-        
+
         draw(): void {
 
-            
+            crc2.fillStyle = "rgb(217, 217, 217)";
+
             crc2.beginPath();
             crc2.moveTo(this.x, this.y);
             crc2.quadraticCurveTo(this.x + 5, this.y - 20, this.x + 20, this.y - 12);
@@ -66,11 +63,15 @@ namespace AbschlussAufgabe {
             crc2.quadraticCurveTo(this.x + 20, this.y + 50, this.x + 10, this.y + 35);
             crc2.quadraticCurveTo(this.x - 5, this.y + 35, this.x, this.y + 20);
             crc2.quadraticCurveTo(this.x - 15, this.y + 10, this.x, this.y);
+            crc2.lineWidth = 2;
+            crc2.strokeStyle = "rgb(102, 102, 102)";
             crc2.stroke();
 
             crc2.fill();
+        }
 
+        move(): void {
+            this.x -= 1;
         }
     }
-
 } //namespace

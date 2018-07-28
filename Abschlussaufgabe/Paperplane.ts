@@ -6,7 +6,7 @@ namespace AbschlussAufgabe {
         gravity: number = 0;
         gravitySpeed: number = 0;
         star: Star;
-        distanceToStar: number = 5;
+        
 
         constructor() {
             super();
@@ -27,6 +27,7 @@ namespace AbschlussAufgabe {
             crc2.lineTo(this.x - 80, this.y + 17);
             crc2.lineTo(this.x - 75, this.y + 1);
             crc2.lineWidth = 2;
+            crc2.strokeStyle = "rgb(26, 26, 26)";
             crc2.stroke();
             crc2.fill();
 
@@ -35,6 +36,8 @@ namespace AbschlussAufgabe {
             crc2.lineTo(this.x - 85, this.y - 14);
             crc2.lineTo(this.x - 75, this.y + 1);
             crc2.lineTo(this.x - 1, this.y);
+            crc2.lineWidth = 2;
+            crc2.strokeStyle = "rgb(26, 26, 26)";
             crc2.stroke();
             crc2.fill();
 
@@ -43,6 +46,8 @@ namespace AbschlussAufgabe {
             crc2.lineTo(this.x - 75, this.y + 31);
             crc2.lineTo(this.x - 72, this.y + 9);
             crc2.lineTo(this.x, this.y + 1);
+            crc2.lineWidth = 2;
+            crc2.strokeStyle = "rgb(26, 26, 26)";
             crc2.stroke();
             crc2.fill();
 
@@ -50,7 +55,8 @@ namespace AbschlussAufgabe {
             crc2.moveTo(this.x - 71, this.y + 8);
             crc2.lineTo(this.x - 80, this.y + 16);
             crc2.lineWidth = 1;
-            crc2.stroke();
+            crc2.strokeStyle = "rgb(26, 26, 26)";
+            crc2.stroke();          
             crc2.fill();
 
 
@@ -125,7 +131,7 @@ namespace AbschlussAufgabe {
                         let index: number = b;
                         collectables.splice(index, 1);
 
-                        window.setTimeout(createObjects, 400);
+                        window.setTimeout(createStar, 400);
                     }
                 }
                 if (this.x - 85 <= collectables[b].x + 20 && this.x - 85 >= collectables[b].x - 25) {
@@ -136,7 +142,7 @@ namespace AbschlussAufgabe {
                         let index: number = b;
                         collectables.splice(index, 1);
 
-                        window.setTimeout(createObjects, 400);
+                        window.setTimeout(createStar, 400);
                     }
                 }
 
@@ -148,7 +154,7 @@ namespace AbschlussAufgabe {
                         let index: number = b;
                         collectables.splice(index, 1);
 
-                        window.setTimeout(createObjects, 400);
+                        window.setTimeout(createStar, 400);
                     }
                 }
             }//collectables-Schleife

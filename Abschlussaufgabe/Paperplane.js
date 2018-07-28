@@ -7,7 +7,6 @@ var AbschlussAufgabe;
             this.positionY = 0;
             this.gravity = 0;
             this.gravitySpeed = 0;
-            this.distanceToStar = 5;
             this.setStartPosition();
         }
         setStartPosition() {
@@ -21,6 +20,7 @@ var AbschlussAufgabe;
             AbschlussAufgabe.crc2.lineTo(this.x - 80, this.y + 17);
             AbschlussAufgabe.crc2.lineTo(this.x - 75, this.y + 1);
             AbschlussAufgabe.crc2.lineWidth = 2;
+            AbschlussAufgabe.crc2.strokeStyle = "rgb(26, 26, 26)";
             AbschlussAufgabe.crc2.stroke();
             AbschlussAufgabe.crc2.fill();
             AbschlussAufgabe.crc2.beginPath();
@@ -28,6 +28,8 @@ var AbschlussAufgabe;
             AbschlussAufgabe.crc2.lineTo(this.x - 85, this.y - 14);
             AbschlussAufgabe.crc2.lineTo(this.x - 75, this.y + 1);
             AbschlussAufgabe.crc2.lineTo(this.x - 1, this.y);
+            AbschlussAufgabe.crc2.lineWidth = 2;
+            AbschlussAufgabe.crc2.strokeStyle = "rgb(26, 26, 26)";
             AbschlussAufgabe.crc2.stroke();
             AbschlussAufgabe.crc2.fill();
             AbschlussAufgabe.crc2.beginPath();
@@ -35,12 +37,15 @@ var AbschlussAufgabe;
             AbschlussAufgabe.crc2.lineTo(this.x - 75, this.y + 31);
             AbschlussAufgabe.crc2.lineTo(this.x - 72, this.y + 9);
             AbschlussAufgabe.crc2.lineTo(this.x, this.y + 1);
+            AbschlussAufgabe.crc2.lineWidth = 2;
+            AbschlussAufgabe.crc2.strokeStyle = "rgb(26, 26, 26)";
             AbschlussAufgabe.crc2.stroke();
             AbschlussAufgabe.crc2.fill();
             AbschlussAufgabe.crc2.beginPath();
             AbschlussAufgabe.crc2.moveTo(this.x - 71, this.y + 8);
             AbschlussAufgabe.crc2.lineTo(this.x - 80, this.y + 16);
             AbschlussAufgabe.crc2.lineWidth = 1;
+            AbschlussAufgabe.crc2.strokeStyle = "rgb(26, 26, 26)";
             AbschlussAufgabe.crc2.stroke();
             AbschlussAufgabe.crc2.fill();
             AbschlussAufgabe.crc2.font = "23px Calibri";
@@ -93,7 +98,7 @@ var AbschlussAufgabe;
                         AbschlussAufgabe.score += 1;
                         let index = b;
                         AbschlussAufgabe.collectables.splice(index, 1);
-                        window.setTimeout(AbschlussAufgabe.createObjects, 400);
+                        window.setTimeout(AbschlussAufgabe.createStar, 400);
                     }
                 }
                 if (this.x - 85 <= AbschlussAufgabe.collectables[b].x + 20 && this.x - 85 >= AbschlussAufgabe.collectables[b].x - 25) {
@@ -101,7 +106,7 @@ var AbschlussAufgabe;
                         AbschlussAufgabe.score += 1;
                         let index = b;
                         AbschlussAufgabe.collectables.splice(index, 1);
-                        window.setTimeout(AbschlussAufgabe.createObjects, 400);
+                        window.setTimeout(AbschlussAufgabe.createStar, 400);
                     }
                 }
                 if (this.x - 75 <= AbschlussAufgabe.collectables[b].x + 20 && this.x - 75 >= AbschlussAufgabe.collectables[b].x - 25) {
@@ -109,7 +114,7 @@ var AbschlussAufgabe;
                         AbschlussAufgabe.score += 1;
                         let index = b;
                         AbschlussAufgabe.collectables.splice(index, 1);
-                        window.setTimeout(AbschlussAufgabe.createObjects, 400);
+                        window.setTimeout(AbschlussAufgabe.createStar, 400);
                     }
                 }
             } //collectables-Schleife

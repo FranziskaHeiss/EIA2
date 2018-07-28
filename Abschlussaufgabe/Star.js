@@ -5,14 +5,11 @@ var AbschlussAufgabe;
             super();
             this.setRandomPosition();
         }
-        move() {
-            this.x -= 1;
-        }
-        setNewRandomSpawnPoint() {
-            this.x = AbschlussAufgabe.canvas.width + 50;
-            //this.y = Math.random() * ((crc2.canvas.height - 200) - 50) + 50;
-            let e = Math.floor(Math.random() * 3);
-            switch (e) {
+        setRandomPosition() {
+            this.x = Math.random() * ((AbschlussAufgabe.crc2.canvas.width + 200) - AbschlussAufgabe.crc2.canvas.width) + AbschlussAufgabe.crc2.canvas.width;
+            //this.y = Math.random() * crc2.canvas.height - 200;
+            let c = Math.floor(Math.random() * 3);
+            switch (c) {
                 case 0:
                     this.y = 30;
                     break;
@@ -24,11 +21,11 @@ var AbschlussAufgabe;
                     break;
             }
         }
-        setRandomPosition() {
-            this.x = Math.random() * ((AbschlussAufgabe.crc2.canvas.width + 200) - AbschlussAufgabe.crc2.canvas.width) + AbschlussAufgabe.crc2.canvas.width;
-            //this.y = Math.random() * crc2.canvas.height - 200;
-            let c = Math.floor(Math.random() * 3);
-            switch (c) {
+        setNewRandomSpawnPoint() {
+            this.x = AbschlussAufgabe.canvas.width + 50;
+            //this.y = Math.random() * ((crc2.canvas.height - 200) - 50) + 50;
+            let e = Math.floor(Math.random() * 3);
+            switch (e) {
                 case 0:
                     this.y = 30;
                     break;
@@ -56,6 +53,8 @@ var AbschlussAufgabe;
             }
             AbschlussAufgabe.crc2.lineJoin = "round";
             AbschlussAufgabe.crc2.closePath();
+            AbschlussAufgabe.crc2.lineWidth = 2;
+            AbschlussAufgabe.crc2.strokeStyle = "rgb(102, 102, 102)";
             AbschlussAufgabe.crc2.stroke();
             AbschlussAufgabe.crc2.fill();
             /*crc2.fillStyle = "rgb(255, 185, 015)";

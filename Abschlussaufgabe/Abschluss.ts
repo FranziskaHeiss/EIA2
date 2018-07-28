@@ -40,7 +40,6 @@ namespace AbschlussAufgabe {
             movingObjects.push(clouds);
         }
 
-        //for (let i: number = 0; i < 2; i++) {
         let stars: Star = new Star();
         collectables.push(stars);
 
@@ -70,7 +69,7 @@ namespace AbschlussAufgabe {
 
         moveObjects();
         drawObjects();
-        newPosition();
+        plane.newPos();
     }// animate-Funktion 
 
     function moveObjects(): void {
@@ -100,15 +99,10 @@ namespace AbschlussAufgabe {
         }
     }//drawObjects-Funktion
 
-    export function createObjects(): void {
+    export function createStar(): void {
         let stars: Star = new Star();
         collectables.push(stars);
     }
-
-    function newPosition(): void {
-        plane.newPos();
-    }// newPosition-Funktion 
-
 
     export function gameOver(): void {
 

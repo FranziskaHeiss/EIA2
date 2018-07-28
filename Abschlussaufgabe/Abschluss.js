@@ -27,7 +27,6 @@ var AbschlussAufgabe;
             let clouds = new AbschlussAufgabe.Cloud();
             AbschlussAufgabe.movingObjects.push(clouds);
         }
-        //for (let i: number = 0; i < 2; i++) {
         let stars = new AbschlussAufgabe.Star();
         AbschlussAufgabe.collectables.push(stars);
         animate();
@@ -49,7 +48,7 @@ var AbschlussAufgabe;
         AbschlussAufgabe.crc2.putImageData(imgData, 0, 0); // die Zahlen bestimmen den Ankerpunkt des Hintergrundes
         moveObjects();
         drawObjects();
-        newPosition();
+        plane.newPos();
     } // animate-Funktion 
     function moveObjects() {
         for (let i = 0; i < AbschlussAufgabe.movingObjects.length; i++) {
@@ -71,14 +70,11 @@ var AbschlussAufgabe;
             AbschlussAufgabe.collectables[a].draw();
         }
     } //drawObjects-Funktion
-    function createObjects() {
+    function createStar() {
         let stars = new AbschlussAufgabe.Star();
         AbschlussAufgabe.collectables.push(stars);
     }
-    AbschlussAufgabe.createObjects = createObjects;
-    function newPosition() {
-        plane.newPos();
-    } // newPosition-Funktion 
+    AbschlussAufgabe.createStar = createStar;
     function gameOver() {
         document.getElementById("interface").style.display = "none";
         document.getElementById("game").style.display = "none";

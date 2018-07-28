@@ -5,9 +5,6 @@ var AbschlussAufgabe;
             super();
             this.setRandomPosition();
         }
-        move() {
-            this.x -= 1;
-        }
         checkPosition() {
             if (this.x < -200) {
                 this.setNewRandomSpawnPoint();
@@ -46,6 +43,7 @@ var AbschlussAufgabe;
             }
         }
         draw() {
+            AbschlussAufgabe.crc2.fillStyle = "rgb(217, 217, 217)";
             AbschlussAufgabe.crc2.beginPath();
             AbschlussAufgabe.crc2.moveTo(this.x, this.y);
             AbschlussAufgabe.crc2.quadraticCurveTo(this.x + 5, this.y - 20, this.x + 20, this.y - 12);
@@ -58,8 +56,13 @@ var AbschlussAufgabe;
             AbschlussAufgabe.crc2.quadraticCurveTo(this.x + 20, this.y + 50, this.x + 10, this.y + 35);
             AbschlussAufgabe.crc2.quadraticCurveTo(this.x - 5, this.y + 35, this.x, this.y + 20);
             AbschlussAufgabe.crc2.quadraticCurveTo(this.x - 15, this.y + 10, this.x, this.y);
+            AbschlussAufgabe.crc2.lineWidth = 2;
+            AbschlussAufgabe.crc2.strokeStyle = "rgb(102, 102, 102)";
             AbschlussAufgabe.crc2.stroke();
             AbschlussAufgabe.crc2.fill();
+        }
+        move() {
+            this.x -= 1;
         }
     }
     AbschlussAufgabe.Cloud = Cloud;

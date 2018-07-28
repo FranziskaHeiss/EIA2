@@ -18,7 +18,5 @@ namespace AbschlussAufgabe {
         draw(): void {
             //
         }
-
-//piep
     } //class MovingObjects zu
 }//namepsace
