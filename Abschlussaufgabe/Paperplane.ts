@@ -7,7 +7,6 @@ namespace AbschlussAufgabe {
         gravitySpeed: number = 0;
         star: Star;
         
-
         constructor() {
             super();
             this.setStartPosition();
@@ -59,13 +58,11 @@ namespace AbschlussAufgabe {
             crc2.stroke();          
             crc2.fill();
 
-
             crc2.font = "23px Calibri";
             crc2.fillText("SCORE: " + score, 740, 30);
-
-
         }
 
+        //neue Position des Fliegers, der durch den Gravitationswert erzeugt wird
         newPos(): void {
             this.gravitySpeed += this.gravity;
             this.x += this.positionX;
@@ -74,6 +71,7 @@ namespace AbschlussAufgabe {
             this.hitTop();
         }
 
+        //Begrenzung wie weit das Flugzeug sinken kann, bevor Game Over angezeigt wird 
         hitBottom(): void {
             let bottom: number = canvas.height + 10;
             if (this.y > bottom) {
@@ -83,6 +81,7 @@ namespace AbschlussAufgabe {
             }
         }
 
+        //Begrenzung wie weit das Flugzeug steigen kann, bevor Game Over angezeigt wird 
         hitTop(): void {
             let top: number = canvas.height - (canvas.height + 20);
             if (this.y < top) {
@@ -92,11 +91,13 @@ namespace AbschlussAufgabe {
             }
         }
 
+        //Methode um die Position der Wolken und des Stern mit der des Fliegers abzugleichen
         checkPosition(): void {
 
             //Kollision mit Wolken 
             for (let i: number = 0; i < movingObjects.length; i++) {
 
+                //Kollisionsbereich der Spitze des Fliegers
                 if (this.x <= movingObjects[i].x + 85 && this.x >= movingObjects[i].x) {
                     if (this.y <= movingObjects[i].y + 40 && this.y >= movingObjects[i].y - 15) {
 
@@ -105,6 +106,7 @@ namespace AbschlussAufgabe {
                     }
                 }
 
+                 //Kollisionsbereich des oberen Flügels des Fliegers
                 if (this.x - 75 <= movingObjects[i].x + 85 && this.x - 75 >= movingObjects[i].x - 10) {
                     if (this.y + 31 <= movingObjects[i].y + 40 && this.y + 31 >= movingObjects[i].y - 15) {
                         
@@ -112,6 +114,7 @@ namespace AbschlussAufgabe {
                     }
                 }
 
+                //Kollisionsbereich des unteren Flügels des Fliegers
                 if (this.x - 85 <= movingObjects[i].x + 85 && this.x - 85 >= movingObjects[i].x) {
                     if (this.y - 14 <= movingObjects[i].y + 40 && this.y - 14 >= movingObjects[i].y - 15) {
                         
@@ -123,6 +126,8 @@ namespace AbschlussAufgabe {
 
             //Einsammeln von Sternen 
             for (let b: number = 0; b < collectables.length; b++) {
+                
+                 //Kollisionsbereich der Spitze des Fliegers
                 if (this.x <= collectables[b].x + 25 && this.x >= collectables[b].x - 20) {
                     if (this.y <= collectables[b].y + 15 && this.y >= collectables[b].y - 15) {
 
@@ -134,6 +139,8 @@ namespace AbschlussAufgabe {
                         window.setTimeout(createStar, 400);
                     }
                 }
+                
+                //Kollisionsbereich des oberen Flügels des Fliegers
                 if (this.x - 85 <= collectables[b].x + 20 && this.x - 85 >= collectables[b].x - 25) {
                     if (this.y - 14 <= collectables[b].y + 15 && this.y - 14 >= collectables[b].y - 15) {
 
@@ -146,6 +153,7 @@ namespace AbschlussAufgabe {
                     }
                 }
 
+                //Kollisionsbereich des unteren Flügels des Fliegers
                 if (this.x - 75 <= collectables[b].x + 20 && this.x - 75 >= collectables[b].x - 25) {
                     if (this.y + 31 <= collectables[b].y + 15 && this.y + 31 >= collectables[b].y - 15) {
 
@@ -159,7 +167,5 @@ namespace AbschlussAufgabe {
                 }
             }//collectables-Schleife
         }//checkPosition
-
-
     }//class
 } //namespace

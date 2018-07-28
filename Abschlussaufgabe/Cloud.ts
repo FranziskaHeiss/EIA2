@@ -63,6 +63,7 @@ namespace AbschlussAufgabe {
             crc2.quadraticCurveTo(this.x + 20, this.y + 50, this.x + 10, this.y + 35);
             crc2.quadraticCurveTo(this.x - 5, this.y + 35, this.x, this.y + 20);
             crc2.quadraticCurveTo(this.x - 15, this.y + 10, this.x, this.y);
+            
             crc2.lineWidth = 2;
             crc2.strokeStyle = "rgb(102, 102, 102)";
             crc2.stroke();

@@ -51,6 +51,7 @@ var AbschlussAufgabe;
             AbschlussAufgabe.crc2.font = "23px Calibri";
             AbschlussAufgabe.crc2.fillText("SCORE: " + AbschlussAufgabe.score, 740, 30);
         }
+        //neue Position des Fliegers, der durch den Gravitationswert erzeugt wird
         newPos() {
             this.gravitySpeed += this.gravity;
             this.x += this.positionX;
@@ -58,6 +59,7 @@ var AbschlussAufgabe;
             this.hitBottom();
             this.hitTop();
         }
+        //Begrenzung wie weit das Flugzeug sinken kann, bevor Game Over angezeigt wird 
         hitBottom() {
             let bottom = AbschlussAufgabe.canvas.height + 10;
             if (this.y > bottom) {
@@ -65,6 +67,7 @@ var AbschlussAufgabe;
                 AbschlussAufgabe.gameOver();
             }
         }
+        //Begrenzung wie weit das Flugzeug steigen kann, bevor Game Over angezeigt wird 
         hitTop() {
             let top = AbschlussAufgabe.canvas.height - (AbschlussAufgabe.canvas.height + 20);
             if (this.y < top) {
@@ -72,19 +75,23 @@ var AbschlussAufgabe;
                 AbschlussAufgabe.gameOver(); //Funktionsaufruf
             }
         }
+        //Methode um die Position der Wolken und des Stern mit der des Fliegers abzugleichen
         checkPosition() {
             //Kollision mit Wolken 
             for (let i = 0; i < AbschlussAufgabe.movingObjects.length; i++) {
+                //Kollisionsbereich der Spitze des Fliegers
                 if (this.x <= AbschlussAufgabe.movingObjects[i].x + 85 && this.x >= AbschlussAufgabe.movingObjects[i].x) {
                     if (this.y <= AbschlussAufgabe.movingObjects[i].y + 40 && this.y >= AbschlussAufgabe.movingObjects[i].y - 15) {
                         AbschlussAufgabe.gameOver();
                     }
                 }
+                //Kollisionsbereich des oberen Fl�gels des Fliegers
                 if (this.x - 75 <= AbschlussAufgabe.movingObjects[i].x + 85 && this.x - 75 >= AbschlussAufgabe.movingObjects[i].x - 10) {
                     if (this.y + 31 <= AbschlussAufgabe.movingObjects[i].y + 40 && this.y + 31 >= AbschlussAufgabe.movingObjects[i].y - 15) {
                         AbschlussAufgabe.gameOver();
                     }
                 }
+                //Kollisionsbereich des unteren Fl�gels des Fliegers
                 if (this.x - 85 <= AbschlussAufgabe.movingObjects[i].x + 85 && this.x - 85 >= AbschlussAufgabe.movingObjects[i].x) {
                     if (this.y - 14 <= AbschlussAufgabe.movingObjects[i].y + 40 && this.y - 14 >= AbschlussAufgabe.movingObjects[i].y - 15) {
                         AbschlussAufgabe.gameOver();
@@ -93,6 +100,7 @@ var AbschlussAufgabe;
             } //cloud-Schleife
             //Einsammeln von Sternen 
             for (let b = 0; b < AbschlussAufgabe.collectables.length; b++) {
+                //Kollisionsbereich der Spitze des Fliegers
                 if (this.x <= AbschlussAufgabe.collectables[b].x + 25 && this.x >= AbschlussAufgabe.collectables[b].x - 20) {
                     if (this.y <= AbschlussAufgabe.collectables[b].y + 15 && this.y >= AbschlussAufgabe.collectables[b].y - 15) {
                         AbschlussAufgabe.score += 1;
@@ -101,6 +109,7 @@ var AbschlussAufgabe;
                         window.setTimeout(AbschlussAufgabe.createStar, 400);
                     }
                 }
+                //Kollisionsbereich des oberen Fl�gels des Fliegers
                 if (this.x - 85 <= AbschlussAufgabe.collectables[b].x + 20 && this.x - 85 >= AbschlussAufgabe.collectables[b].x - 25) {
                     if (this.y - 14 <= AbschlussAufgabe.collectables[b].y + 15 && this.y - 14 >= AbschlussAufgabe.collectables[b].y - 15) {
                         AbschlussAufgabe.score += 1;
@@ -109,6 +118,7 @@ var AbschlussAufgabe;
                         window.setTimeout(AbschlussAufgabe.createStar, 400);
                     }
                 }
+                //Kollisionsbereich des unteren Fl�gels des Fliegers
                 if (this.x - 75 <= AbschlussAufgabe.collectables[b].x + 20 && this.x - 75 >= AbschlussAufgabe.collectables[b].x - 25) {
                     if (this.y + 31 <= AbschlussAufgabe.collectables[b].y + 15 && this.y + 31 >= AbschlussAufgabe.collectables[b].y - 15) {
                         AbschlussAufgabe.score += 1;

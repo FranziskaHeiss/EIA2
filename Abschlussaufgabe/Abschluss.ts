@@ -1,6 +1,14 @@
+/*Aufgabe: Abschlussaufgabe
+  Name: Franziska Heiß
+  Matrikel: 257745
+  Datum: 28.07.18
+    
+  Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert. */
+
 namespace AbschlussAufgabe {
     window.addEventListener("load", init);
 
+    //Variablen definieren 
     export let crc2: CanvasRenderingContext2D;
     export let canvas: HTMLCanvasElement;
     let imgData: ImageData;
@@ -16,13 +24,14 @@ namespace AbschlussAufgabe {
 
     let canvasClick: HTMLCanvasElement;
 
-
+    //init zeigt zu Beginn nur die Startseite an 
     export function init(): void {
         document.getElementById("start").addEventListener("click", startGame);
         document.getElementById("game").style.display = "none";
         document.getElementById("gameover").style.display = "none";
     }
 
+    //Funktion blendet die Startseite aus und zeigt das Spiel an
     function startGame(_event: Event): void {
 
         document.getElementById("interface").style.display = "none";
@@ -35,17 +44,19 @@ namespace AbschlussAufgabe {
         environment();
         imgData = crc2.getImageData(0, 0, canvas.width, canvas.height);
 
+        //Wolken 
         for (let b: number = 0; b < 10; b++) {
             let clouds: Cloud = new Cloud();
             movingObjects.push(clouds);
         }
 
+        //Stern
         let stars: Star = new Star();
         collectables.push(stars);
 
-
         animate();
 
+        //EventListener für die Fliegerbewegung 
         canvasClick = <HTMLCanvasElement>document.getElementsByTagName("canvas")[0];
         canvasClick.addEventListener("mousedown", accelerateUp);
         canvasClick.addEventListener("touchstart", accelerateUp);
@@ -58,7 +69,7 @@ namespace AbschlussAufgabe {
         function accelerateDown(): void {
             plane.gravity = 0.05;
         }
-    }// init-Funktion 
+    }//init-Funktion 
 
     function animate(): void {
 
@@ -70,7 +81,7 @@ namespace AbschlussAufgabe {
         moveObjects();
         drawObjects();
         plane.newPos();
-    }// animate-Funktion 
+    }//animate-Funktion 
 
     function moveObjects(): void {
 
@@ -84,7 +95,7 @@ namespace AbschlussAufgabe {
             collectables[a].checkPosition();
             collectables[a].move();
         }
-    }// movingObjects-Funktion 
+    }//movingObjects-Funktion 
 
     function drawObjects(): void {
 
@@ -99,25 +110,25 @@ namespace AbschlussAufgabe {
         }
     }//drawObjects-Funktion
 
+    //ertstellt den Stern neu, wenn dieser eingesammelt wurde 
     export function createStar(): void {
         let stars: Star = new Star();
         collectables.push(stars);
     }
 
+    //blendet die Game Over Seite ein und zeigt den persönlichen Score an 
     export function gameOver(): void {
 
         document.getElementById("interface").style.display = "none";
         document.getElementById("game").style.display = "none";
         document.getElementById("gameover").style.display = "block";
-        
+
         if (!writeScore) {
             node = <HTMLDivElement>document.getElementById("yourscore");
             let content: string = "";
             content = "Your score: " + score;
             node.innerHTML += content;
             writeScore = true;
-
         }
     }
-
 }//namespace
