@@ -5,19 +5,16 @@ html {
 	line-height: 1.4em;
 	font-family: 'Gaegu', cursive;
 	color: #161d1d;
-	background-color: #dadada;
+	background-color: #262626;
 }
 
 canvas {
 	display: block;
 	margin: auto;
-	background-color: #0d0d0d;
+	margin-top: 2em; 
+	/*background-color: #0d0d0d;*/
 }
 
-#game {
-	 background-color: #0d0d0d;
-	 padding: 2em 2em 2em 2em; 
-}
 
 #interface {
 	margin: auto;
@@ -25,12 +22,13 @@ canvas {
 	display: block;
 	text-align: center;
 	background-color: white;
+	border-radius: 7px;
 	padding-left: 2em;
 	padding-right: 2em;
 	padding-top: 0.2em;
 	padding-bottom: 2em;
 	margin-top: 2em;
-	box-shadow: 1px 2px 25px 1px #878787;
+	box-shadow: 1px 2px 25px 1px #000;
 }
 
 #gameover {	
@@ -39,12 +37,13 @@ canvas {
 	display: block;
 	text-align: center;
 	background-color: white;
+	border-radius: 7px;
 	padding-left: 0.5em;
 	padding-right: 0.5em;
 	padding-top: 0.5em;
 	padding-bottom: 2em;
 	margin-top: 1.2em;
-	box-shadow: 1px 2px 25px 1px #878787;
+	box-shadow: 1px 2px 25px 1px #000;
 	
 }
 
